@@ -1,0 +1,333 @@
+@import url("https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * @file globals.css
+ * @description Global styles for the wedding website, including Tailwind CSS classes and default styles from ShadCN.
+ * @author Emanuele Sgroi
+ * @date 19 October 2024
+ */
+
+/* Handwriting Self Deception Font */
+@font-face {
+  font-family: "Self Deception";
+  src: url("../../public/fonts/Self_Deception/SelfDeceptionRegular-ALLWA.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Handwriting Sloop Script Pro Font */
+@font-face {
+  font-family: "Sloop Script Pro";
+  src: url("/fonts/Sloop_script_pro/sloop-script-pro-bold.otf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+:root {
+  --color-white: #fff;
+  --color-gold: #dcb46d;
+  --color-cream-white: #fffdfc;
+  --color-peach: #f1efe8;
+  --color-black: black;
+  --color-grey: #c0c0c0;
+  --colo-blue: #193b35;
+
+  --sloop-script-font: "Sloop Script Pro", sans-serif;
+  --cormorant-font: "Cormorant Garamond", serif;
+}
+
+html,
+body {
+  color: var(--color-black);
+  margin: 0;
+  padding: 0;
+}
+
+.alex-brush {
+  font-family: "Alex Brush", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.sloop-script {
+  font-family: var(--sloop-script-font);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li {
+  font-family: var(--cormorant-font);
+  text-align: center;
+}
+
+/* H1 - Heading */
+h1 {
+  color: var(--color-cream-white);
+  font-size: clamp(2.4rem, 5vw + 1rem, 4rem);
+  line-height: 1.2;
+}
+
+/* H2 - Sub-heading */
+h2 {
+  font-size: clamp(2rem, 4vw + 1rem, 3rem);
+  line-height: 1.3;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+}
+
+/* H3 - Section heading */
+h3 {
+  font-size: clamp(1.75rem, 3vw + 0.5rem, 2.5rem);
+  line-height: 1.35;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+}
+
+/* H4 - Sub-section heading */
+h4 {
+  font-size: clamp(1.5rem, 2.5vw + 0.5rem, 2rem);
+  line-height: 1.4;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+}
+
+/* H5 - Minor heading */
+h5 {
+  font-size: clamp(1.25rem, 2vw + 0.5rem, 1.75rem);
+  line-height: 1.45;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/* H6 - Small heading */
+h6 {
+  font-size: clamp(1rem, 1.5vw + 0.5rem, 1.5rem);
+  line-height: 1.5;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/* General text */
+p {
+  font-size: clamp(
+    1.125rem,
+    2vw + 0.5rem,
+    1.35rem
+  ); /* Minimum 18px, Max 20px */
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+li {
+  font-size: clamp(
+    1.125rem,
+    2vw + 0.5rem,
+    1.25rem
+  ); /* Minimum 18px, Max 20px */
+}
+
+.text-gold-nav {
+  color: var(--color-gold);
+}
+
+/* font styles */
+
+/* Welcome Page Names Styling */
+.welcome-names {
+  text-align: center;
+  font-size: clamp(2.6rem, 5vw + 1rem, 6rem);
+}
+
+/* Overlay styles */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000080;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Buttons */
+
+.btn {
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: clamp(1rem, 1.5vw + 0.5rem, 1.5rem);
+  cursor: pointer;
+}
+
+.btn-gold {
+  background-color: var(--color-gold);
+  color: var(--color-cream-white);
+  border: 1px solid var(--color-gold);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-gold:hover {
+  background-color: var(--color-cream-white);
+  color: var(--color-gold);
+}
+
+.btn-gold:active {
+  transform: scale(0.95);
+}
+
+.btn2 {
+  padding: 5px 20px;
+  border-radius: 6px;
+  font-size: clamp(0.8rem, 1.5vw + 0.5rem, 1.3rem);
+  cursor: pointer;
+  background-color: var(--color-gold);
+  border: 1px solid var(--color-gold);
+  color: var(--color-cream-white);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn2:hover {
+  background-color: var(--color-cream-white);
+  color: var(--color-gold);
+}
+
+.btn2:active {
+  transform: scale(0.95);
+  background-color: var(--color-gold);
+  border: 1px solid var(--color-gold);
+  color: var(--color-cream-white);
+}
+
+.left-point {
+  clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+}
+
+/* Scrollbar Styling */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ebebeb;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: var(--color-gold);
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
+
+/* experiment */
+
+#wedding-timeline {
+  padding: 4rem 0;
+  background-color: #ffffff;
+}
+
+#wedding-timeline h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+}
+
+.timeline {
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  border-left: 2px solid #e5e7eb;
+}
+
+.timeline-event {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.timeline-event:nth-child(even) {
+  flex-direction: column-reverse;
+}
+
+.timeline-event-content {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  width: 16rem;
+}
+
+.timeline-event-icon {
+  width: 4rem;
+  height: 4rem;
+  background-color: #ffffff;
+  border-radius: 9999px;
+  border: 4px solid #fed7e2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.timeline-event-icon svg {
+  font-size: 1.5rem;
+}
+
+#wedding-timeline p {
+  text-align: center;
+  font-size: 1.5rem;
+  font-style: italic;
+  margin-top: 3rem;
+}
+
+.inner-box-shadow {
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.356);
+}
+
+.filter-white {
+  filter: invert(100%) sepia(0%) saturate(7425%) hue-rotate(141deg)
+    brightness(121%) contrast(115%);
+}
+
+.confetti-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.isolate {
+  isolation: isolate;
+}

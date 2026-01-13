@@ -1,0 +1,133 @@
+/**
+ * @file Homepage.module.scss
+ * @description Styles for the homepage that are not handled by Tailwind CSS or the global.css are defined here.
+ * @author Emanuele Sgroi
+ * @date 19 October 2024
+ */
+
+/*-------------- Splash screen---------------------- */
+
+.splashScreen {
+  position: fixed;
+  width: 100%;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-white);
+  overflow: hidden;
+  z-index: 9999;
+  animation: fadeAway 2.5s ease-in-out forwards 4.5s;
+
+  .textContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    opacity: 1;
+    transform: translateY(0);
+
+    .word {
+      font-size: 80px;
+      opacity: 0;
+      animation: slideUp 0.5s ease forwards;
+      @media (max-width: 768px) {
+        font-size: 68px;
+      }
+      @media (max-width: 680px) {
+        display: none;
+      }
+    }
+  }
+  .textContainer:nth-of-type(1) {
+    .word {
+      animation-delay: 1s;
+    }
+  }
+
+  .textContainer:nth-of-type(2) {
+    .word {
+      animation-delay: 1.6s;
+    }
+  }
+
+  .textContainer:nth-of-type(3) {
+    .word {
+      animation-delay: 2.2s;
+    }
+  }
+}
+
+/* Word animation - mobile */
+.word_mobile {
+  position: absolute;
+  opacity: 0;
+  font-size: 68px;
+  animation: slideUp_mobile 1.2s ease-in-out forwards;
+  @media (min-width: 681px) {
+    display: none;
+  }
+}
+
+.word_mobile:nth-of-type(1) {
+  animation-delay: 1s;
+}
+
+.word_mobile:nth-of-type(2) {
+  animation-delay: 2.2s;
+}
+
+.word_mobile:nth-of-type(3) {
+  animation-delay: 3.4s;
+}
+
+/* Slide up animation */
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide up animation - mobile */
+@keyframes slideUp_mobile {
+  0% {
+    opacity: 0;
+    transform: translateY(40%);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  75% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40%);
+  }
+}
+
+/* Fade away for splash screen */
+@keyframes fadeAway {
+  0% {
+    opacity: 1;
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+  }
+  99% {
+    z-index: 9999;
+  }
+  100% {
+    z-index: 0;
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    display: none;
+  }
+}
