@@ -6,7 +6,7 @@
  */
 
 export const getCountdown = () => {
-  const weddingDate = new Date("2026-04-02T16:00:00"); // 26 July 2025, 4:00 PM
+  const weddingDate = new Date("2026-05-02T16:00:00");
 
   const now = new Date(); // Get the current date and time
 
