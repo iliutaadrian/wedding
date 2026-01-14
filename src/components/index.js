@@ -12,4 +12,3 @@ export { default as ScheduleSection } from "./Homepage/ScheduleSection";
 export { default as InfoSection } from "./Homepage/InfoSection";
 export { default as RSVPSection } from "./Homepage/RSVPSection";
 export { default as MusicSection } from "./Homepage/MusicSection";
-export { default as Navbar } from "./Homepage/Navbar";

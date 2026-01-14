@@ -9,32 +9,16 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import LanguageDetector from "@/components/LanguageDetector/LanguageDetector";
 import translations from "@/utils/translations";
 
 export default function NotFoundComponent() {
   const [language, setLanguage] = useState("en"); // Default language
-
-  // Detect language
-  useEffect(() => {
-    const browserLanguage = navigator.language || navigator.userLanguage;
-    const supportedLanguages = ["en", "it", "pl"];
-    const detectedLanguage = supportedLanguages.includes(
-      browserLanguage.slice(0, 2)
-    )
-      ? browserLanguage.slice(0, 2)
-      : "en";
-
-    setLanguage(detectedLanguage);
-  }, []);
 
   // Destructure translation strings
   const { message, button } = translations[language].not_found;
 
   return (
     <>
-      {/* Detect Language */}
-      <LanguageDetector />
       <div className="w-full h-svh bg-blue p-6 flex flex-col justify-center items-center">
         {/* Error 404 message */}
         <h1 className="uppercase text-center text-gold mb-4">

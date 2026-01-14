@@ -7,7 +7,6 @@
 
 import { Inter } from "next/font/google";
 import "../styles/globals.css";
-import LanguageDetector from "@/components/LanguageDetector/LanguageDetector";
 import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -39,8 +38,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" translate="no">
       <body className={inter.className}>
-        {/* Component to auto-detect and manage language */}
-        <LanguageDetector />
         {children}
         <Toaster />
       </body>

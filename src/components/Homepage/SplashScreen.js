@@ -18,7 +18,7 @@ const SplashScreen = () => {
     // Re-enable scrolling after the splash animation is done (e.g., 4 seconds)
     const timer = setTimeout(() => {
       document.body.style.overflow = "auto";
-    }, 4000); // Match this to the total animation time of the splash screen
+    }, 500); // Match this to the total animation time of the splash screen
 
     return () => {
       clearTimeout(timer);
