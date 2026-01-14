@@ -9,25 +9,24 @@
 
 import React, { useState, useEffect } from "react";
 import translations from "@/utils/translations";
-import images from "@/utils/imagesImport";
 import Image from "next/image";
 import { getCountdown } from "@/utils/countdownHelper";
 import { Link as ScrollLink } from "react-scroll";
-import Tilt from "react-parallax-tilt";
+import { motion } from "framer-motion";
 
 const WelcomeSection = ({ language }) => {
-  const [countdown, setCountdown] = useState(null); // Set initial state as null
-  const [isClient, setIsClient] = useState(false); // Track if we're on the client side, for the countdown delay
+  const [countdown, setCountdown] = useState(null);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsClient(true); // This will only be true on the client
-    setCountdown(getCountdown()); // Set the initial countdown state
+    setIsClient(true);
+    setCountdown(getCountdown());
 
     const intervalId = setInterval(() => {
       setCountdown(getCountdown());
-    }, 1000); // Update the countdown every second
+    }, 1000);
 
-    return () => clearInterval(intervalId); // Cleanup on unmount
+    return () => clearInterval(intervalId);
   }, []);
 
   // Destructure translation strings
@@ -53,59 +52,81 @@ const WelcomeSection = ({ language }) => {
   return (
     <section
       id="welcome-section"
-      className="h-svh min-h-svh w-full relative overflow-hidden"
+      className="h-svh min-h-svh w-full relative overflow-hidden flex flex-col justify-center items-center"
     >
+      {/* Background Image from SplashScreen */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundImage: `url('/images/background.png')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          opacity: 0.8,
+          zIndex: 0,
+        }}
+      />
+
+      {/* Open Envelope Image in the middle */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.3, x: "-50%", y: "20%", rotate: -10 }}
+        animate={{ opacity: 1, scale: 1, x: "-50%", y: "-50%", rotate: 0 }}
+        transition={{ 
+          type: "spring",
+          stiffness: 120,
+          damping: 12,
+          delay: 0.4 
+        }}
+        className="absolute top-1/2 left-1/2 z-1 w-[90%] max-w-[500px]"
+      >
+        <Image
+          src="/images/envelope_open.png"
+          alt="Open Envelope"
+          width={500}
+          height={350}
+          quality={100}
+          className="object-contain w-full h-auto"
+        />
+      </motion.div>
+
       {/* Text Section */}
       <div className="absolute w-full h-full min-h-svh flex flex-col justify-center items-center z-10 gap-0">
         {!countdown.message && (
-          <p
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
             translate="no"
-            className="font-semibold text-white tracking-widest mt-20"
+            className="font-semibold text-black tracking-widest mt-20"
           >
             {small_text.toUpperCase()}
-          </p>
+          </motion.p>
         )}
-        <Tilt
-          glareEnable={false}
-          glareColor="#ffffff00"
-          tiltMaxAngleX={3}
-          tiltMaxAngleY={3}
-          perspective={1000}
-        >
-          <div className="flex flex-col md:flex-row w-[240px] md:w-full h-[240px] md:h-auto justify-center md:gap-4 max-md:border max-md:border-[#eec87e] rounded-full max-md:p-4 cursor-default">
-            <h1 translate="no" className="sloop-script welcome-names">
-              {her}
-            </h1>
+        <div className="flex flex-col md:flex-row w-[240px] md:w-full h-[240px] md:h-auto justify-center md:gap-4 max-md:border max-md:border-[#eec87e] rounded-full max-md:p-4 cursor-default">
+          <h1 translate="no" className="sloop-script welcome-names text-black">
+            {her}
+          </h1>
 
-            <h1 translate="no" className="alex-brush welcome-names text-gold">
-              <span className="max-md:hidden">&nbsp;</span>&
-            </h1>
-            <h1 className="sloop-script welcome-names ">{him}</h1>
-          </div>
-        </Tilt>
+          <h1 translate="no" className="alex-brush welcome-names text-gold">
+            <span className="max-md:hidden">&nbsp;</span>&
+          </h1>
+          <h1 className="sloop-script welcome-names text-black">{him}</h1>
+        </div>
 
         {countdown.message ? (
           <div className="absolute bottom-16">
-            <Image
-              src={
-                language === "en"
-                  ? images.curved_en
-                  : language === "it"
-                  ? images.curved_it
-                  : language === "pl"
-                  ? images.curved_pl
-                  : images.curved_en
-              }
-              alt="we did it"
-              width={200}
-              height={200}
-              quality={100}
-              className="relative w-[180px] md:w-[280px] h-[180px] md:h-[280px] animate-spin-slow z-[3]"
-            />
-            <div className="w-[55%] h-[55%] border-2 border-gold rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[2]"></div>
+            {/* This div is now empty as requested */}
           </div>
         ) : (
-          <div className="flex justify-center gap-4 md:gap-8 mt-4 text-[#fffdfc]">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2 }}
+            className="flex justify-center gap-4 md:gap-8 mt-4 text-black"
+          >
             <div className="flex flex-col justify-center items-center">
               <h6 translate="no">{countdown.days}</h6>
               <p translate="no" className="text-sm">
@@ -136,7 +157,7 @@ const WelcomeSection = ({ language }) => {
                   : seconds.toUpperCase()}
               </p>
             </div>
-          </div>
+          </motion.div>
         )}
 
         {!countdown.message && (
@@ -151,47 +172,6 @@ const WelcomeSection = ({ language }) => {
             {button}
           </ScrollLink>
         )}
-      </div>
-
-      {/* Background */}
-      <div className="absolute md:fixed h-full w-full flex min-h-svh justify-center items-center z-0">
-        <div className="overlay"></div>
-
-        {/* First Image */}
-        <div className="h-full flex-1 max-md:hidden z-0">
-          <Image
-            src={images.welcome_1}
-            alt={`welcom_1`}
-            width={500}
-            height={700}
-            quality={100}
-            className="w-full h-full object-cover object-center z-0"
-          />
-        </div>
-
-        {/* Second Image */}
-        <div className="h-full flex-1 z-0">
-          <Image
-            src={images.welcome_2}
-            alt={`welcom_2`}
-            width={500}
-            height={700}
-            quality={100}
-            className="w-full h-full object-cover object-center z-0"
-          />
-        </div>
-
-        {/* Third Image */}
-        <div className="h-full flex-1 max-md:hidden  z-0">
-          <Image
-            src={images.welcome_3}
-            alt={`welcom_3`}
-            width={500}
-            height={700}
-            quality={100}
-            className="w-full h-full object-cover object-center z-0"
-          />
-        </div>
       </div>
     </section>
   );
