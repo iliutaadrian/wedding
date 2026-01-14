@@ -72,6 +72,39 @@ const SaveTheDate = ({ language }) => {
       id="savethedate-section"
       className="relative w-full flex flex-col items-center pt-16 lg:pt-20 z-10 bg-cream overflow-hidden"
     >
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        variants={primaryVariants}
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <Image
+          src={images.dove}
+          alt="rings"
+          width={95}
+          height={95}
+          quality={100}
+          className="mb-4 "
+        />
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        variants={secondaryVariants}
+        viewport={{ once: true, amount: 0.2 }}
+        className="flex flex-col justify-center items-center"
+      >
+        <h3 translate="no" className=" font-bold z-20 ">
+          {title}
+        </h3>
+        <h3
+          translate="no"
+          className="text-gold text-6xl sm:text-8xl alex-brush z-10 transform font-light -mt-8 md:-mt-10"
+        >
+          {title_cursive}
+        </h3>
+      </motion.div>
       <div className="w-full flex flex-col sm:flex-row  justify-center items-center gap-8 md:gap-20 lg:gap-24 mt-12 sm:mt-16 lg:mt-20 px-4 z-10">
         {story.map((item, index) => (
           <div

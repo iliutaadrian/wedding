@@ -26,29 +26,27 @@ export default function Home() {
     window.scrollTo(0, 0);
   }, []);
 
- return (
+  return (
     <main className={`relative w-full h-full`}>
       <SplashScreen language={language} />
 
       {/* Welcome Section */}
       <WelcomeSection language={language} />
 
-      <div className="relative z-10">
-        {/* Save the Date Section */}
-        <SaveTheDate language={language} />
+      {/* Wedding Agenda / Schedule Section */}
+      <ScheduleSection language={language} />
 
-        {/* Wedding Agenda / Schedule Section */}
-        <ScheduleSection language={language} />
+      {/* Save the Date Section */}
+      <SaveTheDate language={language} />
 
-        {/* Information Section */}
-        <InfoSection language={language} />
+      {/* Information Section */}
+      <InfoSection language={language} />
 
-        {/* RSVP Section */}
-        <RSVPSection language={language} />
+      {/* RSVP Section */}
+      <RSVPSection language={language} />
 
-        {/* Song Requests Section */}
-        <MusicSection language={language} />
-      </div>
+      {/* Song Requests Section */}
+      <MusicSection language={language} />
     </main>
   );
 }

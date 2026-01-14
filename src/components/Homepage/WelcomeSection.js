@@ -31,7 +31,7 @@ const WelcomeSection = ({ language }) => {
     place,
   } = translations[language].saveTheDate_section;
 
-  const dashedLine = Array(10)
+  const dashedLine = Array(5)
     .fill()
     .map((_, index) => (
       <div key={index} className="w-[2px] h-[5px] my-[3px] bg-pink" />
