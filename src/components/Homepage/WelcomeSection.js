@@ -67,6 +67,7 @@ const WelcomeSection = ({ language }) => {
     seconds,
     second,
     button,
+    click_details,
   } = translations[language].welcome_section;
 
   // If it's still rendering on the server, don't show the countdown
@@ -77,7 +78,7 @@ const WelcomeSection = ({ language }) => {
   return (
     <section
       id="welcome-section"
-      className="h-svh min-h-svh w-full relative overflow-hidden flex flex-col justify-center items-center"
+      className="min-h-svh w-full relative overflow-hidden flex flex-col justify-center items-center py-20"
     >
       {/* Background Image from SplashScreen */}
       <div
@@ -95,35 +96,33 @@ const WelcomeSection = ({ language }) => {
         }}
       />
 
-      <motion.div
-        initial={{ opacity: 0, scale: 0.3, x: "-50%", y: "20%", rotate: -10 }}
-        animate={{ opacity: 1, scale: 1, x: "-50%", y: "-50%", rotate: 0 }}
-        transition={{
-          type: "spring",
-          stiffness: 120,
-          damping: 12,
-          delay: 0.4
-        }}
-        className="absolute top-[40%] left-1/2 z-1 w-[90%] max-w-[500px]"
-      >
-        <Image
-          src="/images/envelope_open.png"
-          alt="Open Envelope"
-          width={500}
-          height={350}
-          quality={100}
-          className="object-contain w-full h-auto drop-shadow-xl"
-        />
-      </motion.div>
-
-
-      <div className="w-full flex flex-col items-center px-4 z-10 pt-1">
+      <div className="w-full flex flex-col items-center px-4 z-10 pt-10">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.3, y: 50, rotate: -10 }}
+          animate={{ opacity: 1, scale: 1, y: 0, rotate: 0 }}
+          transition={{
+            type: "spring",
+            stiffness: 120,
+            damping: 12,
+            delay: 0.4
+          }}
+          className="w-[90%] max-w-[400px] md:max-w-[500px] my-8"
+        >
+          <Image
+            src="/images/envelope_open.png"
+            alt="Open Envelope"
+            width={500}
+            height={350}
+            quality={100}
+            className="object-contain w-full h-auto drop-shadow-xl"
+          />
+        </motion.div>
         <motion.div
           initial="hidden"
           whileInView="visible"
           variants={secondaryVariants}
           viewport={{ once: true, amount: 0.2 }}
-          className="flex flex-col justify-center items-center"
+          className="flex flex-col justify-center items-center -mt-40"
         >
           <h3 translate="no" className=" font-bold z-20 ">
             {title}
@@ -156,6 +155,83 @@ const WelcomeSection = ({ language }) => {
         >
           {place}
         </motion.p>
+
+        <div className="flex flex-col md:flex-row gap-6 mt-10">
+          <ScrollLink
+            to="schedule-section"
+            smooth={true}
+            duration={500}
+            className="cursor-pointer"
+          >
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              variants={tertiaryVariants}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05, rotate: -2 }}
+              className="relative w-64 h-80 drop-shadow-lg rotate-[-10deg]"
+            >
+              <Image
+                src={images.frame}
+                alt="Frame"
+                fill
+                className="object-contain z-10 w-70"
+              />
+              <div className="absolute top-[26px] left-[40px] right-[40px] bottom-[60px] z-20 overflow-hidden">
+                <Image
+                  src={images.church}
+                  alt="Church"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="absolute bottom-[-10px] left-0 right-0 z-30 text-center px-2">
+                <p className="alex-brush text-xl text-black leading-none">Biserica Sfantul Nicolae Domnesc</p>
+                <p className="text-[10px] uppercase tracking-tighter text-gray-500 mt-1">
+                  {click_details}
+                </p>
+              </div>
+            </motion.div>
+          </ScrollLink>
+
+          <ScrollLink
+            to="info-section"
+            smooth={true}
+            duration={500}
+            className="cursor-pointer"
+          >
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              variants={tertiaryVariants}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05, rotate: 2 }}
+              transition={{ delay: 0.1 }}
+              className="relative w-64 h-80 drop-shadow-lg r tate-3"
+            >
+              <Image
+                src={images.frame}
+                alt="Frame"
+                fill
+                className="object-contain z-10"
+              />
+              <div className="absolute top-[8%] left-[8%] right-[8%] bottom-[22%] z-20 overflow-hidden">
+                <Image
+                  src={images.venue}
+                  alt="Venue"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="absolute bottom-[6%] left-0 right-0 z-30 text-center px-2">
+                <p className="alex-brush text-xl text-black leading-none">Restaurant Kalipso</p>
+                <p className="text-[10px] uppercase tracking-tighter text-gray-500 mt-1">
+                  {click_details}
+                </p>
+              </div>
+            </motion.div>
+          </ScrollLink>
+        </div>
       </div>
     </section>
   );

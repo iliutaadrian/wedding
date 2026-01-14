@@ -36,6 +36,7 @@ const translations = {
       seconds: "Seconds",
       second: "second",
       button: "Save the Date",
+      click_details: "Click for details",
     },
     saveTheDate_section: {
       title: "SAVE",

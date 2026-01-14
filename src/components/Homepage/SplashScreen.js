@@ -153,7 +153,7 @@ const SplashScreen = ({ language }) => {
                 priority
                 className="object-contain"
               />
-              <div className="absolute top-[30%] left-1/2 -translate-x-1/2 w-[22%] aspect-square">
+              <div className="absolute top-[40%] left-1/2 -translate-x-1/2 w-[22%] aspect-square">
                 <Image
                   src="/images/waxseal.png"
                   alt="Wax Seal"

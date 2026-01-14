@@ -42,6 +42,9 @@ import la2 from "../../public/images/la2.png";
 import la3 from "../../public/images/la3.png";
 import divider from "../../public/icons/divider.png";
 import location from "../../public/icons/location.png";
+import church from "../../public/images/church.png";
+import venue from "../../public/images/venue.png";
+import frame from "../../public/images/frame.png";
 
 const images = {
   curved_it,
@@ -80,7 +83,10 @@ const images = {
   la2,
   la3,
   divider,
-  location
+  location,
+  church,
+  venue,
+  frame
 };
 
 export default images;
