@@ -169,7 +169,7 @@ const WelcomeSection = ({ language }) => {
               variants={tertiaryVariants}
               viewport={{ once: true }}
               whileHover={{ scale: 1.05, rotate: -2 }}
-              className="relative w-64 h-80 drop-shadow-lg rotate-[-10deg]"
+              className="relative w-[400px] h-[500px] drop-shadow-lg rotate-[-3deg]"
             >
               <Image
                 src={images.frame}
@@ -177,7 +177,7 @@ const WelcomeSection = ({ language }) => {
                 fill
                 className="object-contain z-10 w-70"
               />
-              <div className="absolute top-[26px] left-[40px] right-[40px] bottom-[60px] z-20 overflow-hidden">
+              <div className="absolute top-[35px] left-[60px] right-[60px] bottom-[95px] z-20 overflow-hidden">
                 <Image
                   src={images.church}
                   alt="Church"
@@ -185,9 +185,9 @@ const WelcomeSection = ({ language }) => {
                   className="object-cover"
                 />
               </div>
-              <div className="absolute bottom-[-10px] left-0 right-0 z-30 text-center px-2">
-                <p className="alex-brush text-xl text-black leading-none">Biserica Sfantul Nicolae Domnesc</p>
-                <p className="text-[10px] uppercase tracking-tighter text-gray-500 mt-1">
+              <div className="absolute bottom-0 left-0 right-0 z-30 text-center px-2">
+                <p className="text-xl text-black leading-none">Biserica Sfantul Nicolae Domnesc</p>
+                <p className="text-sm uppercase tracking-tighter text-gray-500 mt-1">
                   {click_details}
                 </p>
               </div>
@@ -207,7 +207,7 @@ const WelcomeSection = ({ language }) => {
               viewport={{ once: true }}
               whileHover={{ scale: 1.05, rotate: 2 }}
               transition={{ delay: 0.1 }}
-              className="relative w-64 h-80 drop-shadow-lg r tate-3"
+              className="relative w-[400px] h-[500px] drop-shadow-lg rotate-3"
             >
               <Image
                 src={images.frame}
@@ -215,7 +215,7 @@ const WelcomeSection = ({ language }) => {
                 fill
                 className="object-contain z-10"
               />
-              <div className="absolute top-[8%] left-[8%] right-[8%] bottom-[22%] z-20 overflow-hidden">
+              <div className="absolute top-[35px] left-[60px] right-[60px] bottom-[95px] z-20 overflow-hidden">
                 <Image
                   src={images.venue}
                   alt="Venue"
@@ -223,9 +223,9 @@ const WelcomeSection = ({ language }) => {
                   className="object-cover"
                 />
               </div>
-              <div className="absolute bottom-[6%] left-0 right-0 z-30 text-center px-2">
-                <p className="alex-brush text-xl text-black leading-none">Restaurant Kalipso</p>
-                <p className="text-[10px] uppercase tracking-tighter text-gray-500 mt-1">
+              <div className="absolute bottom-0 left-0 right-0 z-30 text-center px-2">
+                <p className="text-xl text-black leading-none">Restaurant Kalipso</p>
+                <p className="text-sm uppercase tracking-tighter text-gray-500">
                   {click_details}
                 </p>
               </div>
