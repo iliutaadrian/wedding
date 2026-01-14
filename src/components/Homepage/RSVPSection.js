@@ -337,7 +337,7 @@ const RSVPSection = ({ language }) => {
           variants={containerVariants}
           viewport={{ once: true, amount: 0.4 }}
           translate="no"
-          className="absolute left-1/2 transform -translate-x-1/2 z-20 transition-transform text-9xl text-gold"
+          className="absolute left-1/2 transform -translate-x-1/2 z-20 transition-transform text-9xl text-pink"
         >
           {top_title.split("").map((char, index) => (
             <motion.span key={index} variants={letterVariants}>
@@ -371,7 +371,7 @@ const RSVPSection = ({ language }) => {
           variants={containerVariants}
           viewport={{ once: true, amount: 0.4 }}
           translate="no"
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 transition-transform text-7xl text-gold"
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 transition-transform text-7xl text-pink"
         >
           {top_title.split("").map((char, index) => (
             <motion.span key={index} variants={letterVariants}>
@@ -393,7 +393,7 @@ const RSVPSection = ({ language }) => {
               </h3>
               <h3
                 translate="no"
-                className="text-gold text-6xl sm:text-8xl alex-brush z-10 transform font-light -mt-10"
+                className="text-pink text-6xl sm:text-8xl alex-brush z-10 transform font-light -mt-10"
               >
                 {title.sub}
               </h3>

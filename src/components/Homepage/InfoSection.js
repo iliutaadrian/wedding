@@ -57,7 +57,7 @@ const InfoSection = ({ language }) => {
           </h3>
           <h3
             translate="no"
-            className="text-gold text-6xl sm:text-8xl alex-brush z-10 transform font-light"
+            className="text-pink text-6xl sm:text-8xl alex-brush z-10 transform font-light"
           >
             {title.sub}
           </h3>

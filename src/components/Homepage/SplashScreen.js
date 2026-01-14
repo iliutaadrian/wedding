@@ -15,7 +15,7 @@ import translations from "@/utils/translations";
 import { getCountdown } from "@/utils/countdownHelper";
 
 const SplashScreen = ({ language }) => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [countdown, setCountdown] = useState(null);
   const [isClient, setIsClient] = useState(false);
 
@@ -134,7 +134,7 @@ const SplashScreen = ({ language }) => {
                 {her}
               </h1>
 
-              <h1 translate="no" className="alex-brush welcome-names text-gold text-5xl md:text-6xl">
+              <h1 translate="no" className="alex-brush welcome-names text-pink text-5xl md:text-6xl">
                 <span className="max-md:hidden">&nbsp;</span>&
               </h1>
               <h1 className="sloop-script welcome-names text-black text-5xl md:text-6xl">{him}</h1>
@@ -153,7 +153,7 @@ const SplashScreen = ({ language }) => {
                 priority
                 className="object-contain"
               />
-              <div className="absolute top-[38%] left-1/2 -translate-x-1/2 w-[22%] aspect-square">
+              <div className="absolute top-[30%] left-1/2 -translate-x-1/2 w-[22%] aspect-square">
                 <Image
                   src="/images/waxseal.png"
                   alt="Wax Seal"

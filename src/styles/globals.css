@@ -46,6 +46,7 @@
   --color-black: black;
   --color-grey: #c0c0c0;
   --colo-blue: #193b35;
+  --color-pink: #ffbab8;
 
   --sloop-script-font: "Sloop Script Pro", sans-serif;
   --cormorant-font: "Cormorant Garamond", serif;
@@ -146,8 +147,13 @@ li {
   ); /* Minimum 18px, Max 20px */
 }
 
-.text-gold-nav {
-  color: var(--color-gold);
+
+.bg-pink {
+  background-color: var(--color-pink);
+}
+
+.text-pink {
+  color: var(--color-pink);
 }
 
 /* font styles */

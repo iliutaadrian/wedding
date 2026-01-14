@@ -129,7 +129,7 @@ const ScheduleSection = ({ language }) => {
           </h3>
           <h3
             translate="no"
-            className="text-gold text-6xl sm:text-8xl alex-brush z-10 transform font-light -mt-8 md:-mt-10"
+            className="text-pink text-6xl sm:text-8xl alex-brush z-10 transform font-light -mt-8 md:-mt-10"
           >
             {title.sub}
           </h3>
@@ -188,17 +188,17 @@ const ScheduleSection = ({ language }) => {
 
                       <h5
                         translate="no"
-                        className="leading-3 text-gold max-md:mb-4"
+                        className="leading-3 text-pink max-md:mb-4"
                       >
                         {ev.title}
                       </h5>
                     </motion.div>
                     <div
-                      className={`max-lg:hidden h-px w-[50px] xl:w-[120px] bg-gold flex items-center ${
+                      className={`max-lg:hidden h-px w-[50px] xl:w-[120px] bg-pink flex items-center ${
                         evIndex % 2 === 0 ? "justify-start" : "justify-end"
                       }`}
                     >
-                      <div className="h-[7px] w-[7px] rounded-full bg-gold"></div>
+                      <div className="h-[7px] w-[7px] rounded-full bg-pink"></div>
                     </div>
                   </div>
                   <div className="relative w-[140px] h-[140px] md:w-[90px] md:h-[90px] lg:w-[120px] lg:h-[120px]  xl:w-[190px] xl:h-[190px] flex justify-center items-center p-4 xl:p-6">

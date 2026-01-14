@@ -137,11 +137,11 @@ const ScrollingImages = () => {
         className="absolute bottom-[-12%]  md:bottom-[-15%] lg:bottom-[-16%] xl:bottom-[-18%] right-0 z-[3] flex items-center opacity-90"
         style={{ x: textX }}
       >
-        <h1 className="text-gold font-bold text-[180px] md:text-[280px] lg:text-[380px] xl:text-[480px] drop-shadow-lg">
+        <h1 className="text-pink font-bold text-[180px] md:text-[280px] lg:text-[380px] xl:text-[480px] drop-shadow-lg">
           K
         </h1>
-        <FaHeart className="w-[40px] h-[40px] md:w-[60px] md:h-[60px] lg:w-[80px] lg:h-[80px] text-gold mx-2 drop-shadow-lg animate-bounce" />
-        <h1 className="text-gold font-bold text-[180px] md:text-[280px] lg:text-[380px] xl:text-[480px] drop-shadow-lg">
+        <FaHeart className="w-[40px] h-[40px] md:w-[60px] md:h-[60px] lg:w-[80px] lg:h-[80px] text-pink mx-2 drop-shadow-lg animate-bounce" />
+        <h1 className="text-pink font-bold text-[180px] md:text-[280px] lg:text-[380px] xl:text-[480px] drop-shadow-lg">
           E
         </h1>
       </motion.div>

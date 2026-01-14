@@ -222,7 +222,7 @@ const MusicSection = ({ language }) => {
           </h3>
           <h3
             translate="no"
-            className="text-gold text-6xl sm:text-9xl alex-brush z-10 transform font-light"
+            className="text-pink text-6xl sm:text-9xl alex-brush z-10 transform font-light"
           >
             {title.sub}
           </h3>
@@ -361,7 +361,7 @@ const MusicSection = ({ language }) => {
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center items-center z-20 ml-[3px]"
               onClick={() => handlePlayPreview(null, currentlyPlaying)}
             >
-              <FaStop size={22} className=" text-gold mr-[6px]" />
+              <FaStop size={22} className=" text-pink mr-[6px]" />
             </button>
             <CircularProgressbar
               value={progress}

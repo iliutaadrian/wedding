@@ -1,10 +1,3 @@
-/**
- * @file ScheduleSection.js
- * @description This component renders the Welcome section. Multilingual!
- * @author Emanuele Sgroi
- * @date 19 October 2024
- */
-
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -13,6 +6,8 @@ import Image from "next/image";
 import { getCountdown } from "@/utils/countdownHelper";
 import { Link as ScrollLink } from "react-scroll";
 import { motion } from "framer-motion";
+import images from "@/utils/imagesImport";
+
 
 const WelcomeSection = ({ language }) => {
   const [countdown, setCountdown] = useState(null);
@@ -29,6 +24,36 @@ const WelcomeSection = ({ language }) => {
     return () => clearInterval(intervalId);
   }, []);
 
+  const {
+    title,
+    title_cursive,
+    date,
+    place,
+  } = translations[language].saveTheDate_section;
+
+  const dashedLine = Array(10)
+    .fill()
+    .map((_, index) => (
+      <div key={index} className="w-[2px] h-[5px] my-[3px] bg-pink" />
+    ));
+
+
+  const primaryVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+  const secondaryVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 } },
+  };
+  const tertiaryVariants = {
+    hidden: { opacity: 0, scale: 0 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.6 } },
+  };
+  const quartaryVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1.6, delay: 0.1 } },
+  };
   // Destructure translation strings
   const { her, him } = translations[language].couple;
   const {
@@ -62,25 +87,24 @@ const WelcomeSection = ({ language }) => {
           left: 0,
           width: "100%",
           height: "100%",
-          backgroundImage: `url('/images/background.png')`,
+          backgroundImage: `url('/images/collage.png')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          opacity: 0.8,
+          opacity: 0.2,
           zIndex: 0,
         }}
       />
 
-      {/* Open Envelope Image in the middle */}
       <motion.div
         initial={{ opacity: 0, scale: 0.3, x: "-50%", y: "20%", rotate: -10 }}
         animate={{ opacity: 1, scale: 1, x: "-50%", y: "-50%", rotate: 0 }}
-        transition={{ 
+        transition={{
           type: "spring",
           stiffness: 120,
           damping: 12,
-          delay: 0.4 
+          delay: 0.4
         }}
-        className="absolute top-1/2 left-1/2 z-1 w-[90%] max-w-[500px]"
+        className="absolute top-[40%] left-1/2 z-1 w-[90%] max-w-[500px]"
       >
         <Image
           src="/images/envelope_open.png"
@@ -88,90 +112,50 @@ const WelcomeSection = ({ language }) => {
           width={500}
           height={350}
           quality={100}
-          className="object-contain w-full h-auto"
+          className="object-contain w-full h-auto drop-shadow-xl"
         />
       </motion.div>
 
-      {/* Text Section */}
-      <div className="absolute w-full h-full min-h-svh flex flex-col justify-center items-center z-10 gap-0">
-        {!countdown.message && (
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
+
+      <div className="w-full flex flex-col items-center px-4 z-10 pt-1">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          variants={secondaryVariants}
+          viewport={{ once: true, amount: 0.2 }}
+          className="flex flex-col justify-center items-center"
+        >
+          <h3 translate="no" className=" font-bold z-20 ">
+            {title}
+          </h3>
+          <h3
             translate="no"
-            className="font-semibold text-black tracking-widest mt-20"
+            className="text-pink text-6xl sm:text-8xl alex-brush z-10 transform font-light -mt-8 md:-mt-10"
           >
-            {small_text.toUpperCase()}
-          </motion.p>
-        )}
-        <div className="flex flex-col md:flex-row w-[240px] md:w-full h-[240px] md:h-auto justify-center md:gap-4 max-md:border max-md:border-[#eec87e] rounded-full max-md:p-4 cursor-default">
-          <h1 translate="no" className="sloop-script welcome-names text-black">
-            {her}
-          </h1>
+            {title_cursive}
+          </h3>
+        </motion.div>
 
-          <h1 translate="no" className="alex-brush welcome-names text-gold">
-            <span className="max-md:hidden">&nbsp;</span>&
-          </h1>
-          <h1 className="sloop-script welcome-names text-black">{him}</h1>
-        </div>
-
-        {countdown.message ? (
-          <div className="absolute bottom-16">
-            {/* This div is now empty as requested */}
-          </div>
-        ) : (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2 }}
-            className="flex justify-center gap-4 md:gap-8 mt-4 text-black"
-          >
-            <div className="flex flex-col justify-center items-center">
-              <h6 translate="no">{countdown.days}</h6>
-              <p translate="no" className="text-sm">
-                {countdown.days === 1 ? day.toUpperCase() : days.toUpperCase()}
-              </p>
-            </div>
-            <div className="flex flex-col justify-center items-center">
-              <h6 translate="no">{countdown.hours}</h6>
-              <p translate="no" className="text-sm">
-                {countdown.hours === 1
-                  ? hour.toUpperCase()
-                  : hours.toUpperCase()}
-              </p>
-            </div>
-            <div className="flex flex-col justify-center items-center">
-              <h6 translate="no">{countdown.minutes}</h6>
-              <p translate="no" className="text-sm">
-                {countdown.minutes === 1
-                  ? minute.toUpperCase()
-                  : minutes.toUpperCase()}
-              </p>
-            </div>
-            <div className="flex flex-col justify-center items-center">
-              <h6 translate="no">{countdown.seconds}</h6>
-              <p translate="no" className="text-sm">
-                {countdown.seconds === 1
-                  ? second.toUpperCase()
-                  : seconds.toUpperCase()}
-              </p>
-            </div>
-          </motion.div>
-        )}
-
-        {!countdown.message && (
-          <ScrollLink
-            to="savethedate-section"
-            smooth={true}
-            duration={1000}
-            offset={-70}
-            className="mt-20 btn btn-gold"
-            translate="no"
-          >
-            {button}
-          </ScrollLink>
-        )}
+        {dashedLine}
+        <motion.h1
+          initial="hidden"
+          whileInView="visible"
+          variants={primaryVariants}
+          viewport={{ once: true, amount: 0.2 }}
+          translate="no"
+          className="sloop-script tracking-wider text-black mt-1"
+        >
+          {date}
+        </motion.h1>
+        <motion.p
+          initial="hidden"
+          whileInView="visible"
+          variants={secondaryVariants}
+          viewport={{ once: true, amount: 0.2 }}
+          translate="no"
+        >
+          {place}
+        </motion.p>
       </div>
     </section>
   );
