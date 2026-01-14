@@ -28,7 +28,7 @@ export default function Home() {
 
  return (
     <main className={`relative w-full h-full`}>
-      <SplashScreen />
+      <SplashScreen language={language} />
 
       {/* Welcome Section */}
       <WelcomeSection language={language} />

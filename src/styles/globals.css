@@ -21,6 +21,15 @@
   font-style: normal;
 }
 
+/* Handwriting Distant Stroke Font */
+@font-face {
+  font-family: "Distant Stroke";
+  src: url("../../public/fonts/Distant_Stroke/Distant_Stroke.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
 /* Handwriting Sloop Script Pro Font */
 @font-face {
   font-family: "Sloop Script Pro";

@@ -14,71 +14,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-white);
+  background-color: var(--color-peach);
   overflow: hidden;
   z-index: 9999;
-  animation: fadeAway 2.5s ease-in-out forwards 4.5s;
-
-  .textContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-    opacity: 1;
-    transform: translateY(0);
-
-    .word {
-      font-size: 80px;
-      opacity: 0;
-      animation: slideUp 0.5s ease forwards;
-      @media (max-width: 768px) {
-        font-size: 68px;
-      }
-      @media (max-width: 680px) {
-        display: none;
-      }
-    }
-  }
-  .textContainer:nth-of-type(1) {
-    .word {
-      animation-delay: 1s;
-    }
-  }
-
-  .textContainer:nth-of-type(2) {
-    .word {
-      animation-delay: 1.6s;
-    }
-  }
-
-  .textContainer:nth-of-type(3) {
-    .word {
-      animation-delay: 2.2s;
-    }
-  }
-}
-
-/* Word animation - mobile */
-.word_mobile {
-  position: absolute;
-  opacity: 0;
-  font-size: 68px;
-  animation: slideUp_mobile 1.2s ease-in-out forwards;
-  @media (min-width: 681px) {
-    display: none;
-  }
-}
-
-.word_mobile:nth-of-type(1) {
-  animation-delay: 1s;
-}
-
-.word_mobile:nth-of-type(2) {
-  animation-delay: 2.2s;
-}
-
-.word_mobile:nth-of-type(3) {
-  animation-delay: 3.4s;
+  transition: opacity 0.5s ease-in-out;
 }
 
 /* Slide up animation */
@@ -114,20 +53,3 @@
   }
 }
 
-/* Fade away for splash screen */
-@keyframes fadeAway {
-  0% {
-    opacity: 1;
-    backdrop-filter: blur(10px);
-    z-index: 9999;
-  }
-  99% {
-    z-index: 9999;
-  }
-  100% {
-    z-index: 0;
-    opacity: 0;
-    backdrop-filter: blur(0px);
-    display: none;
-  }
-}

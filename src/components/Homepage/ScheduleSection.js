@@ -44,11 +44,11 @@ const ScheduleSection = ({ language }) => {
           title: day_1.events.dinner.title,
           icon: "/icons/dinner.svg",
         },
-        // {
-        //   time: day_1.events.dance.time,
-        //   title: day_1.events.dance.title,
-        //   icon: "/icons/dance.svg",
-        // },
+        {
+          time: day_1.events.dance.time,
+          title: day_1.events.dance.title,
+          icon: "/icons/dance.svg",
+        },
         {
           time: day_1.events.photo.time,
           title: day_1.events.photo.title,

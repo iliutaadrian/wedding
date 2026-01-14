@@ -22,6 +22,9 @@ const translations = {
       rsvp: "RSVP",
       music: "Playlist",
     },
+    splash_screen: {
+      open: "CLICK TO OPEN",
+    },
     welcome_section: {
       small_text: "The wedding of...",
       days: "Days",
