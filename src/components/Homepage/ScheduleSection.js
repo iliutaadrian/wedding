@@ -32,7 +32,6 @@ const ScheduleSection = ({ language }) => {
   // Group timeline data for convenience
   const timelineData = [
     {
-      day: day_1.title,
       events: [
         {
           time: day_1.events.ceremony.time,
@@ -50,55 +49,21 @@ const ScheduleSection = ({ language }) => {
           icon: "/icons/dance.svg",
         },
         {
-          time: day_1.events.photo.time,
-          title: day_1.events.photo.title,
-          icon: "/icons/photobooth.svg",
-        },
-        {
           time: day_1.events.cake_cutting.time,
           title: day_1.events.cake_cutting.title,
           icon: "/icons/cake.svg",
-        },
-        {
-          time: day_1.events.pig.time,
-          title: day_1.events.pig.title,
-          icon: "/icons/dish.svg",
-        },
-        {
-          time: day_1.events.games.time,
-          title: day_1.events.games.title,
-          icon: "/icons/games.svg",
         },
         {
           time: day_1.events.party.time,
           title: day_1.events.party.title,
           icon: "/icons/repeat1.svg",
         },
-      ],
-    },
-    {
-      day: day_2.title,
-      events: [
-        {
-          time: day_2.events.after.time,
-          title: day_2.events.after.title,
-          icon: "/icons/after.svg",
-        },
-        {
-          time: day_2.events.vespa.time,
-          title: day_2.events.vespa.title,
-          icon: "/icons/vespa.svg",
-        },
-        {
-          time: day_2.events.party_continues.time,
-          title: day_2.events.party_continues.title,
-          icon: "/icons/repeat2.svg",
-        },
-        {
-          time: day_2.events.end.time,
-          title: day_2.events.end.title,
+                {
+          time: day_1.events.end.time,
+          title: day_1.events.end.title,
           icon: "/icons/end.svg",
         },
+
       ],
     },
   ];
@@ -134,11 +99,7 @@ const ScheduleSection = ({ language }) => {
             {title.sub}
           </h3>
         </div>
-        <p translate="no" className=" text-center text-white ">
-          {description}
-        </p>
       </motion.div>
-      {/* Timeline */}
       <div className="relative w-full flex flex-col items-center gap-8 mt-12">
         <div className="absolute  top-0 w-px h-[100%] border border-gold border-dashed z-0"></div>
         {timelineData.map((day, dayIndex) => (
@@ -146,11 +107,6 @@ const ScheduleSection = ({ language }) => {
             key={dayIndex}
             className="w-full flex flex-col items-center gap-8 z-10"
           >
-            <div className="w-[103px] h-[103px] md:w-[128px] md:h-[128px] lg:w-[148px] lg:h-[148px] flex justify-center items-center rounded-full border border-gold bg-blue">
-              <h3 translate="no" className="alex-brush mt-2 text-white">
-                {day.day}
-              </h3>
-            </div>
             {day.events.map((ev, evIndex) => (
               <div
                 key={evIndex}

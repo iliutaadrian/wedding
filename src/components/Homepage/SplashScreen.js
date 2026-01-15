@@ -15,7 +15,7 @@ import translations from "@/utils/translations";
 import { getCountdown } from "@/utils/countdownHelper";
 
 const SplashScreen = ({ language }) => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
   const [countdown, setCountdown] = useState(null);
   const [isClient, setIsClient] = useState(false);
 

@@ -34,7 +34,7 @@ const WelcomeSection = ({ language }) => {
   const dashedLine = Array(5)
     .fill()
     .map((_, index) => (
-      <div key={index} className="w-[2px] h-[5px] my-[3px] bg-pink" />
+      <div key={index} className="z-20 w-[2px] h-[5px] my-[3px] bg-pink" />
     ));
 
 
@@ -162,7 +162,7 @@ const WelcomeSection = ({ language }) => {
           </h3>
           <h3
             translate="no"
-            className="text-pink text-6xl sm:text-8xl alex-brush z-10 transform font-light -mt-8 md:-mt-10"
+            className="text-pink text-6xl sm:text-8xl alex-brush z-10 transform font-light -mt-8 md:-mt-10 md:-mb-3"
           >
             {title_cursive}
           </h3>

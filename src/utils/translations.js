@@ -56,30 +56,21 @@ const translations = {
       description:
         "The wedding celebration will start on Saturday, 26th of July, and end on Sunday, 27th of July 2025.",
       day_1: {
-        title: "Day 1",
         events: {
           ceremony: {
             time: "4:00 PM",
             title: "Ceremony Begins",
           },
           dinner: {
-            time: "6:00 PM",
-            title: "Dinner Served",
+            time: "7:00 PM",
+            title: "Wedding Starts",
           },
           dance: {
-            time: "6:00 PM",
+            time: "8:00 PM",
             title: "First Dance",
           },
-          photo: {
-            time: "8:00 - 11:00 PM",
-            title: "Photo Booth",
-          },
-          pig: {
-            time: "12:00 AM",
-            title: "Special Dish",
-          },
           cake_cutting: {
-            time: "22:30 PM",
+            time: "23:30 PM",
             title: "Cake Cutting",
           },
           games: {
@@ -90,25 +81,12 @@ const translations = {
             time: "All Night",
             title: "Eat, Drink, Dance, Repeat!",
           },
-        },
-      },
-      day_2: {
-        title: "Day 2",
-        events: {
-          after: {
-            time: "3:00 PM",
-            title: "After Party Starts",
-          },
-          vespa: {
-            time: "3:00 - 8:00 PM",
-            title: "Vespa Bar",
-          },
-          party_continues: {
+                    party_continues: {
             time: "All Day",
             title: "Eat, Drink, Dance, Repeat!",
           },
           end: {
-            time: "9:00 PM",
+            time: "4:00 AM",
             title: "The End",
           },
         },
