@@ -71,8 +71,16 @@ const ScheduleSection = ({ language }) => {
   return (
     <section
       id="schedule-section"
-      className="py-12 px-4 sm:px-6 bg-blue relative flex justify-center items-center flex-col overflow-hidden"
+      className="py-24 px-4 sm:px-6 relative flex justify-center items-center flex-col overflow-hidden"
     >
+      <div className="absolute top-0 left-0 w-full h-full z-0 opacity-20 pointer-events-none">
+        <Image
+          src="/images/background3.png"
+          alt="background"
+          fill
+          className="object-cover object-top"
+        />
+      </div>
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -86,7 +94,7 @@ const ScheduleSection = ({ language }) => {
           width={95}
           height={95}
           quality={100}
-          className="mb-4 w-[95px] h-auto brightness-95"
+          className="mb-4 w-[95px] h-auto brightness-95 filter-pink"
         />
         <div className="flex flex-col justify-center items-center">
           <h3 translate="no" className="text-white font-bold z-20 ">
@@ -110,7 +118,7 @@ const ScheduleSection = ({ language }) => {
             {day.events.map((ev, evIndex) => (
               <div
                 key={evIndex}
-                className="w-full flex flex-col max-md:bg-blue max-md:pt-4"
+                className="w-full flex flex-col max-md:bg-transparent max-md:pt-4"
               >
                 <div
                   className={`flex justify-center items-center max-md:flex-col-reverse ${
@@ -162,7 +170,7 @@ const ScheduleSection = ({ language }) => {
                     <img
                       src={ev.icon}
                       alt={ev.title}
-                      className="w-full h-auto z-10 "
+                      className="w-full h-auto z-10 filter-pink"
                     />
                   </div>
 

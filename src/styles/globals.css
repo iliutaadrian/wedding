@@ -333,6 +333,11 @@ li {
     brightness(121%) contrast(115%);
 }
 
+.filter-pink {
+  filter: invert(89%) sepia(35%) saturate(713%) hue-rotate(308deg)
+    brightness(102%) contrast(101%);
+}
+
 .confetti-wrapper {
   position: fixed;
   top: 0;
