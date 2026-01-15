@@ -45,6 +45,10 @@ import location from "../../public/icons/location.png";
 import church from "../../public/images/church.png";
 import venue from "../../public/images/venue.png";
 import frame from "../../public/images/frame.png";
+import flower1 from "../../public/images/flower1.png";
+import flower2 from "../../public/images/flower2.png";
+import flower3 from "../../public/images/flower3.png";
+import flower4 from "../../public/images/flower4.png";
 
 const images = {
   curved_it,
@@ -86,7 +90,11 @@ const images = {
   location,
   church,
   venue,
-  frame
+  frame,
+  flower1,
+  flower2,
+  flower3,
+  flower4,
 };
 
 export default images;

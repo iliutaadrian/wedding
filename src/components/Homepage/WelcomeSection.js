@@ -70,6 +70,13 @@ const WelcomeSection = ({ language }) => {
     click_details,
   } = translations[language].welcome_section;
 
+  const flowerDecorations = [
+    { id: 1, src: images.flower2, top: '3%', left: '3%', rotate: -15, width: 250, delay: 0.5 },
+    { id: 2, src: images.flower2, top: '70%', right: '5%', rotate: 10, width: 200, delay: 0.7 },
+    { id: 4, src: images.flower1, top: '15%', right: '15%', rotate: 20, width: 150, opacity: 0.8, delay: 1.1 },
+    { id: 5, src: images.flower4, top: '40%', left: '2%', rotate: -25, width: 160, delay: 0.8 },
+  ];
+
   // If it's still rendering on the server, don't show the countdown
   if (!isClient || countdown === null) {
     return null;
@@ -80,6 +87,32 @@ const WelcomeSection = ({ language }) => {
       id="welcome-section"
       className="min-h-svh w-full relative overflow-hidden flex flex-col justify-center items-center py-20"
     >
+      {flowerDecorations.map(flower => (
+        <motion.div
+          key={flower.id}
+          initial={{ opacity: 0, scale: 0.5, y: 50 }}
+          animate={{ opacity: flower.opacity || 1, scale: 1, y: 0 }}
+          transition={{ type: 'spring', stiffness: 100, damping: 10, delay: flower.delay }}
+          style={{
+            position: 'absolute',
+            top: flower.top,
+            left: flower.left,
+            right: flower.right,
+            rotate: flower.rotate,
+            width: flower.width,
+            zIndex: 15, // Alternate z-index
+          }}
+        >
+          <Image
+            src={flower.src}
+            alt={`Flower decoration ${flower.id}`}
+            width={flower.width}
+            height={flower.width} // Assuming square-ish aspect ratio
+            className="object-contain"
+          />
+        </motion.div>
+      ))}
+
       {/* Background Image from SplashScreen */}
       <div
         style={{
@@ -114,7 +147,7 @@ const WelcomeSection = ({ language }) => {
             width={500}
             height={350}
             quality={100}
-            className="object-contain w-full h-auto drop-shadow-xl"
+            className="object-contain w-full h-auto drop-shadow-xl z-20"
           />
         </motion.div>
         <motion.div
@@ -169,7 +202,8 @@ const WelcomeSection = ({ language }) => {
               variants={tertiaryVariants}
               viewport={{ once: true }}
               whileHover={{ scale: 1.05, rotate: -2 }}
-              className="relative w-[400px] h-[500px] drop-shadow-lg rotate-[-3deg]"
+              style={{ rotate: -3 }}
+              className="relative w-[400px] h-[500px] drop-shadow-lg"
             >
               <Image
                 src={images.frame}
@@ -207,7 +241,8 @@ const WelcomeSection = ({ language }) => {
               viewport={{ once: true }}
               whileHover={{ scale: 1.05, rotate: 2 }}
               transition={{ delay: 0.1 }}
-              className="relative w-[400px] h-[500px] drop-shadow-lg rotate-3"
+              style={{ rotate: 3 }}
+              className="relative w-[400px] h-[500px] drop-shadow-lg"
             >
               <Image
                 src={images.frame}
