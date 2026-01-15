@@ -5,12 +5,6 @@
  * @date 19 October 2024
  */
 
-import curved_it from "../../public/images/curved_it.png";
-import curved_en from "../../public/images/curved_en.png";
-import curved_pl from "../../public/images/curved_pl.png";
-import polish from "../../public/icons/polish.png";
-import italian from "../../public/icons/italian.png";
-import english from "../../public/icons/english.png";
 import dove from "../../public/icons/dove.png";
 import g_1_1 from "../../public/images/g_1_1.jpg";
 import g_1_2 from "../../public/images/g_1_2.jpg";
@@ -51,12 +45,6 @@ import flower3 from "../../public/images/flower3.png";
 import flower4 from "../../public/images/flower4.png";
 
 const images = {
-  curved_it,
-  curved_en,
-  curved_pl,
-  polish,
-  italian,
-  english,
   dove,
   g_1_1,
   g_1_2,

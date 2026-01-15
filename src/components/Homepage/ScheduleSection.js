@@ -201,6 +201,12 @@ const ScheduleSection = ({ language }) => {
           </div>
         ))}
       </div>
+
+      <div className="absolute bottom-0 -right-10 z-20 w-[250px] h-auto -rotate-[15deg] md:opacity-90 opacity-10 pointer-events-none">
+        <Image src={images.flower4} alt="flower decoration" width={250} height={250} className="object-contain" />
+      </div>
+
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-[#fffdfc] z-10 pointer-events-none" />
     </section>
   );
 };
