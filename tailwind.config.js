@@ -32,6 +32,7 @@ module.exports = {
         gold: "#dcb46d",
         peach: "#f1efe8",
         blue: "#193B35", // #0c142c
+        pink: "#ffbab8",
       },
       borderRadius: {
         lg: "var(--radius)",

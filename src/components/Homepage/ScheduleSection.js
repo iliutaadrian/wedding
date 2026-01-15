@@ -73,6 +73,13 @@ const ScheduleSection = ({ language }) => {
       id="schedule-section"
       className="py-24 px-4 sm:px-6 relative flex justify-center items-center flex-col overflow-hidden"
     >
+      {/* Gradient Overlay for smooth transition */}
+      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-t from-transparent to-[#fffdfc] z-10 pointer-events-none" />
+
+      <div className="absolute -top-12 -left-10 z-20 w-[250px] h-auto rotate-[165deg] opacity-90 pointer-events-none">
+        <Image src={images.flower1} alt="flower decoration" width={250} height={250} className="object-contain" />
+      </div>
+
       <div className="absolute top-0 left-0 w-full h-full z-0 opacity-20 pointer-events-none">
         <Image
           src="/images/background3.png"
@@ -97,7 +104,7 @@ const ScheduleSection = ({ language }) => {
           className="mb-4 w-[95px] h-auto brightness-95 filter-pink"
         />
         <div className="flex flex-col justify-center items-center">
-          <h3 translate="no" className="text-white font-bold z-20 ">
+          <h3 translate="no" className="text-blue font-bold z-20 ">
             {title.main}
           </h3>
           <h3
@@ -145,14 +152,14 @@ const ScheduleSection = ({ language }) => {
                     >
                       <p
                         translate="no"
-                        className="md:hidden text-center bg-white text-blue rounded-xl px-2 flex justify-center items-center"
+                        className="md:hidden text-center bg-blue text-white rounded-xl px-2 flex justify-center items-center"
                       >
                         {ev.time}
                       </p>
 
                       <h5
                         translate="no"
-                        className="leading-3 text-pink max-md:mb-4"
+                        className="leading-3 text-blue max-md:mb-4"
                       >
                         {ev.title}
                       </h5>
@@ -166,11 +173,11 @@ const ScheduleSection = ({ language }) => {
                     </div>
                   </div>
                   <div className="relative w-[140px] h-[140px] md:w-[90px] md:h-[90px] lg:w-[120px] lg:h-[120px]  xl:w-[190px] xl:h-[190px] flex justify-center items-center p-4 xl:p-6">
-                    <div className="w-full h-full  absolute  z-[1] bg-white border-4 border-gold rounded-full" />
+                    <div className="w-full h-full  absolute  z-[1] bg-white border-4 border-pink rounded-full" />
                     <img
                       src={ev.icon}
                       alt={ev.title}
-                      className="w-full h-auto z-10 filter-pink"
+                      className="w-full h-auto z-10 filter-blue"
                     />
                   </div>
 
@@ -181,7 +188,7 @@ const ScheduleSection = ({ language }) => {
                   >
                     <p
                       translate="no"
-                      className={`font-semibold text-white ${
+                      className={`font-semibold text-blue ${
                         evIndex % 2 !== 0 ? "text-right mr-4" : "text-left ml-4"
                       } m-0`}
                     >

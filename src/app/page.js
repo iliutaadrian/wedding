@@ -36,11 +36,12 @@ export default function Home() {
       {/* Wedding Agenda / Schedule Section */}
       <ScheduleSection language={language} />
 
+      {/* Information Section */}
+      <InfoSection language={language} />
+
       {/* Save the Date Section */}
       <SaveTheDate language={language} />
 
-      {/* Information Section */}
-      <InfoSection language={language} />
 
       {/* RSVP Section */}
       <RSVPSection language={language} />

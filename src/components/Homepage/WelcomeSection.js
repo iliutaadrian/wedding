@@ -129,6 +129,9 @@ const WelcomeSection = ({ language }) => {
         }}
       />
 
+      {/* Gradient Overlay for smooth transition */}
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-[#fffdfc] z-10 pointer-events-none" />
+      
       <div className="w-full flex flex-col items-center px-4 z-10 pt-10">
         <motion.div
           initial={{ opacity: 0, scale: 0.3, y: 50, rotate: -10 }}

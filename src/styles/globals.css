@@ -338,6 +338,10 @@ li {
     brightness(102%) contrast(101%);
 }
 
+.filter-blue {
+  filter: invert(18%) sepia(21%) saturate(1475%) hue-rotate(124deg) brightness(91%) contrast(92%);
+}
+
 .confetti-wrapper {
   position: fixed;
   top: 0;
