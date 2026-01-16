@@ -27,6 +27,21 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontSize: {
+        xs: ["0.9rem", { lineHeight: "1.2rem" }],
+        sm: ["1.05rem", { lineHeight: "1.4rem" }],
+        base: ["1.2rem", { lineHeight: "1.8rem" }],
+        lg: ["1.35rem", { lineHeight: "2rem" }],
+        xl: ["1.5rem", { lineHeight: "2rem" }],
+        "2xl": ["1.8rem", { lineHeight: "2.25rem" }],
+        "3xl": ["2.25rem", { lineHeight: "2.5rem" }],
+        "4xl": ["2.7rem", { lineHeight: "1.1" }],
+        "5xl": ["3.6rem", { lineHeight: "1.1" }],
+        "6xl": ["4.5rem", { lineHeight: "1" }],
+        "7xl": ["5.4rem", { lineHeight: "1" }],
+        "8xl": ["7.2rem", { lineHeight: "1" }],
+        "9xl": ["9.6rem", { lineHeight: "1" }],
+      },
       colors: {
         cream: "#fffdfc",
         gold: "#dcb46d",

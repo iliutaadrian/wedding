@@ -62,15 +62,6 @@ const OurStorySection = ({ language }) => {
       {/* Gradient Overlay for smooth transition */}
       <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-t from-transparent to-[#fffdfc] z-10 pointer-events-none" />
 
-      <div className="absolute -top-12 -left-10 z-20 w-[250px] h-auto rotate-[165deg] opacity-90 pointer-events-none">
-        <Image
-          src={images.flower1}
-          alt="flower decoration"
-          width={250}
-          height={250}
-          className="object-contain"
-        />
-      </div>
 
       <div className="absolute top-0 left-0 w-full h-full z-0 opacity-20 pointer-events-none">
         <Image

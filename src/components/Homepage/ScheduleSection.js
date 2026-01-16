@@ -152,17 +152,19 @@ const ScheduleSection = ({ language }) => {
                     >
                       <p
                         translate="no"
-                        className="md:hidden text-center bg-blue text-white rounded-xl px-2 flex justify-center items-center"
+                        className="md:hidden text-center bg-blue text-white rounded-xl px-2 flex justify-center items-center mb-2"
                       >
                         {ev.time}
                       </p>
 
-                      <h5
+                      <p
                         translate="no"
-                        className="leading-3 text-blue max-md:mb-4"
+                        className={`text-blue max-md:mb-4 leading-5 ${
+                          evIndex % 2 === 0 ? "md:text-right" : "md:text-left"
+                        }`}
                       >
                         {ev.title}
-                      </h5>
+                      </p>
                     </motion.div>
                     <div
                       className={`max-lg:hidden h-px w-[50px] xl:w-[120px] bg-pink flex items-center ${
@@ -188,7 +190,7 @@ const ScheduleSection = ({ language }) => {
                   >
                     <p
                       translate="no"
-                      className={`font-semibold text-blue ${
+                      className={`font-semibold text-blue text-2xl ${
                         evIndex % 2 !== 0 ? "text-right mr-4" : "text-left ml-4"
                       } m-0`}
                     >
