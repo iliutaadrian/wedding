@@ -57,7 +57,7 @@ const OurStorySection = ({ language }) => {
   return (
     <section
       id="our-story-section"
-      className="py-24 px-4 sm:px-6 relative flex justify-center items-center flex-col overflow-hidden"
+      className="px-4 sm:px-6 relative flex justify-center items-center flex-col overflow-hidden"
     >
       {/* Gradient Overlay for smooth transition */}
       <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-t from-transparent to-[#fffdfc] z-10 pointer-events-none" />
@@ -186,18 +186,6 @@ const OurStorySection = ({ language }) => {
 
       {/* Parallax images are rendered here because are part of this section */}
       <ScrollingImages />
-
-      <div className="absolute bottom-0 -right-10 z-20 w-[250px] h-auto -rotate-[15deg] md:opacity-90 opacity-10 pointer-events-none">
-        <Image
-          src={images.flower4}
-          alt="flower decoration"
-          width={250}
-          height={250}
-          className="object-contain"
-        />
-      </div>
-
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-[#fffdfc] z-10 pointer-events-none" />
     </section>
   );
 };

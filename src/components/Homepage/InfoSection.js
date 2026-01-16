@@ -22,36 +22,38 @@ const InfoSection = ({ language }) => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
   // Destructure translation strings
-  const { title, contact } =
+  const { title, contact, people, events } =
     translations[language].info_section;
 
   const peopleBlocks = [
     {
       image: "/images/parents.png",
-      title: "Parents",
-      names: ["Anisoara & Neculai Balcan", "Mirela & Cristian Podoleanu"],
+      title: people.parents.title,
+      names: people.parents.names,
     },
     {
       image: "/images/godparents.png",
-      title: "Nasi",
-      names: ["Alice & Andrei Iacob", "Diana & Ionuț Despina"],
+      title: people.godparents.title,
+      names: people.godparents.names,
     },
   ];
 
   const eventBlocks = [
     {
       image: "/images/church_info.png",
-      title: "Church",
-      location: "Biserica \"Sfântul Nicolae Domnesc\"",
-      hour: "16:00",
+      title: events.church.title,
+      location: events.church.location,
+      hour: events.church.time,
       mapLink: "https://www.google.com/maps/search/?api=1&query=Biserica+Sfantul+Nicolae+Domnesc+Iasi",
+      buttonText: events.church.button,
     },
     {
       image: "/images/venue_info.png",
-      title: "Venue",
-      location: "Restaurant Kalipso Sala \"Alma\"",
-      hour: "19:00",
+      title: events.venue.title,
+      location: events.venue.location,
+      hour: events.venue.time,
       mapLink: "https://www.google.com/maps/search/?api=1&query=Restaurant+Kalipso+Sala+Alma+Iasi",
+      buttonText: events.venue.button,
     },
   ];
 
@@ -171,7 +173,7 @@ const InfoSection = ({ language }) => {
                     alt="Location"
                     className="w-3 md:w-4 h-auto"
                   />
-                  See Location
+                  {block.buttonText}
                 </Link>
               )}
             </div>
