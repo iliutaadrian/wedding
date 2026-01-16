@@ -1,0 +1,11 @@
+services:
+  wedding-app:
+    container_name: wedding-website
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3025:3000"
+    environment:
+      - NODE_ENV=production
