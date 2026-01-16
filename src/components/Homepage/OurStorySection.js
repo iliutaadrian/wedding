@@ -58,7 +58,7 @@ const OurStorySection = ({ language }) => {
 
   // Group story elements for convenience
   const story = [
-    { year: 2016, text: story_1, img: "/icons/met.svg" },
+    { year: 2014, text: story_1, img: "/icons/met.svg" },
     { year: 2025, text: story_2, img: "/icons/engaged.svg" },
     {
       year: 2026,
@@ -83,7 +83,7 @@ const OurStorySection = ({ language }) => {
           width={95}
           height={95}
           quality={100}
-          className="filter-pink"
+          className=""
         />
       </motion.div>
 
@@ -104,6 +104,58 @@ const OurStorySection = ({ language }) => {
           {title_cursive}
         </h3>
       </motion.div>
+      <div className="w-full flex flex-col sm:flex-row  justify-center items-center gap-8 md:gap-20 lg:gap-24 px-4 z-10">
+        {story.map((item, index) => (
+          <div
+            key={`${item.year} ${index}`}
+            className="flex flex-col justify-center items-center z-10"
+          >
+            <motion.h4
+              initial="hidden"
+              whileInView="visible"
+              variants={quartaryVariants}
+              viewport={{ once: true, amount: 0.2 }}
+              translate="no"
+              className="max-sm:hidden"
+            >
+              {item.year}
+            </motion.h4>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              variants={secondaryVariants}
+              viewport={{ once: true, amount: 0.2 }}
+              className="w-[140px] sm:w-[160px] h-[140px] sm:h-[160px] flex justify-center items-center mb-3"
+            >
+              <img
+                src={item.img}
+                alt={item.text}
+                className="w-full h-auto z-10"
+              />
+            </motion.div>
+            <motion.h4
+              initial="hidden"
+              whileInView="visible"
+              variants={quartaryVariants}
+              viewport={{ once: true, amount: 0.2 }}
+              translate="no"
+              className="sm:hidden mb-0"
+            >
+              {item.year}
+            </motion.h4>
+            <motion.p
+              initial="hidden"
+              whileInView="visible"
+              variants={quartaryVariants}
+              viewport={{ once: true, amount: 0.2 }}
+              translate="no"
+            >
+              {item.text}
+            </motion.p>
+          </div>
+        ))}
+      </div>
+      {/* Parallax images are rendered here because are part of this section */}
       <ScrollingImages />
       <Image
         src={images.la1}

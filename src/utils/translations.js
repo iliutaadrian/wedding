@@ -39,8 +39,8 @@ const translations = {
       click_details: "Click for details",
     },
     our_story_section: {
-      title: "SAVE",
-      title_cursive: "The Date",
+      title: "Our",
+      title_cursive: "Story",
       date: "2nd of May 2026",
       place: "Iasi, Romania",
       story_1: "We Met",
@@ -97,86 +97,8 @@ const translations = {
         main: "THE",
         sub: "Details",
       },
-      details: {
-        when_where: "When & Where",
-        dates: [
-          {
-            bold: true,
-            text: "Dates: ",
-          },
-          "Saturday, 26th of July & Sunday, 27th of July 2025.",
-        ],
-        location: [
-          {
-            bold: true,
-            text: "Location: ",
-          },
-          'Venue "Przy Patykach", Kolonia Łobudzice 18c, 97-425, Poland.',
-        ],
-        button_loc: "SEE THE VENUE",
-      },
-      accommodations: {
-        title: "Accommodations",
-        description_1: [
-          "For our international guests, we are pleased to offer accommodation at the venue's hotel on the ",
-          {
-            bold: true,
-            text: "Friday 25th of July, Saturday 26th of July, and Sunday 27th of July.",
-          },
-        ],
-        breakfast: [
-          { bold: true, text: "Breakfast" },
-          " is included with your stay and will be served from ",
-          { bold: true, text: "9 AM to 12 PM" },
-          " each morning.",
-        ],
-        checkout: [
-          { bold: true, text: "Hotel/Apartment Checkout:" },
-          " The checkout is on Monday at 11:00 AM, please have your breakfast before then.",
-        ],
-      },
-      travel_transport: {
-        title: "Travel & Transportation",
-        description_1: [
-          "For our international guests, we will provide transportation from the airport to the venue on Friday, 25th of July, and from the venue to the airport on Monday, 28th of July.",
-        ],
-        description_2: [
-          {
-            bold: true,
-            text: "Before booking your travel, please contact us to let us know the time and the airport that works best for you. We will then organize a group transport that fits the majority. Please do it before the 26th of May 2025.",
-          },
-        ],
-        description_3: [
-          "The closest airports are Katowice Airport (KTW), Warsaw Modlin Airport (WMI), and Warsaw Chopin Airport (WAW).",
-        ],
-        description_4: [
-          "We will try our best to accommodate everyone. If you cannot land/depart at the same day/time as everyone else, we will help you organize another way of getting to and from the venue.",
-        ],
-        transport_details: {
-          arrival: {
-            title: "Friday 25th of July",
-            desc1: [
-              { bold: true, text: "Warsaw Airport (WAW):" },
-              " Bus leaves around 7:30PM - Karolina will be waiting at the arrivals.",
-            ],
-            desc2: [
-              { bold: true, text: "Katowice Airport:" },
-              " Bus leaves around 5:00PM - Emanuele will be waiting at the arrivals.",
-            ],
-          },
-          departure: {
-            title: "Monday 28th of July",
-            desc1: [
-              { bold: true, text: "" },
-              " Buses for both airports leave at 12:00 PM",
-            ],
-          },
-        },
-      },
       contact: {
         title: "Contact Us",
-        // Email added on the front end
-        // numbers added on the front end
       },
     },
     rsvp_section: {
@@ -240,11 +162,6 @@ const translations = {
         description:
           "We're sorry, but something went wrong on our end. Please try again later.",
       },
-    },
-    footer: {
-      text_1: "Website created with ",
-      text_2: "by ",
-      text_3: "Photos by",
     },
     not_found: {
       message: "The page you are looking for does not exist.",
