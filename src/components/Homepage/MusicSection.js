@@ -1,7 +1,7 @@
 /**
  * @file MusicSection.js
- * @description This component renders the music suggestion section, where users can search for songs, play previews, and add songs to the playlist.
- * It includes interaction with the Spotify API and toast notifications. Multilingual!
+ * @description This component renders the music suggestion section, where users can search for songs via YouTube, play previews, and add suggestions.
+ * Multilingual!
  *
  * @author Emanuele Sgroi
  * @date 19 October 2024
@@ -15,13 +15,16 @@ import images from "@/utils/imagesImport";
 import { Input } from "@/components/ui/input";
 import { BsFillSearchHeartFill } from "react-icons/bs";
 import { IoPlay } from "react-icons/io5";
-import { FaStop } from "react-icons/fa";
 import { IoIosAddCircle } from "react-icons/io";
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
-import "react-circular-progressbar/dist/styles.css";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
 import translations from "@/utils/translations";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 const MusicSection = ({ language }) => {
   // Destructure translation strings
@@ -37,23 +40,39 @@ const MusicSection = ({ language }) => {
   const videoRef = useRef(null); // Reference for the background video element
   const containerRef = useRef(null); // Reference for the search input container
   const resultsRef = useRef(null); // Reference for the search results container
-  const audioRef = useRef(null); // Reference for the audio element playing song previews
+  
   const [videoError, setVideoError] = useState(false); // State to handle errors in the video element
   const [query, setQuery] = useState(""); // State for storing the current search query
-  const [results, setResults] = useState([]); // State for storing search results from Spotify
+  const [results, setResults] = useState([]); // State for storing search results from API
   const [isFocused, setIsFocused] = useState(false); // State to track if the input field is focused
-  const [currentlyPlaying, setCurrentlyPlaying] = useState(null); // State for the currently playing track ID
-  const [progress, setProgress] = useState(0); // State for the progress of the currently playing song preview
-  const [musicSpin, setMusicSpin] = useState(false); // State to toggle the spin effect for the Spotify icon
-  const [isPlaying, setIsPlaying] = useState(false); // State to track if a song is currently playing
-  const [isAddingTrack, setIsAddingTrack] = useState(false); // State to track if a track is being added to the playlist
+  const [playingTrack, setPlayingTrack] = useState(null); // State for the currently playing track object
+  const [musicSpin, setMusicSpin] = useState(false); // State to toggle the spin effect for the icon
+  const [isAddingTrack, setIsAddingTrack] = useState(false); // State to track if a track is being added
   const [loading, setIsLoading] = useState(false); // State to indicate if the search results are loading
+  const [playlist, setPlaylist] = useState([]); // State to store the list of suggested songs
   const { toast } = useToast(); // Toast hook for displaying success or error messages
+
   // Variants for the framer motion animation
   const primaryVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
+
+  // Fetch initial playlist
+  useEffect(() => {
+    const fetchPlaylist = async () => {
+      try {
+        const response = await fetch("/api/get-suggestions");
+        if (response.ok) {
+          const data = await response.json();
+          setPlaylist(data.items || []);
+        }
+      } catch (error) {
+        console.error("Error fetching playlist:", error);
+      }
+    };
+    fetchPlaylist();
+  }, []);
 
   // Function to fetch search results from the API
   const searchTracks = async (searchQuery) => {
@@ -67,7 +86,7 @@ const MusicSection = ({ language }) => {
         `/api/search-music?query=${encodeURIComponent(searchQuery)}`
       );
       const data = await response.json();
-      setResults(data.tracks.items);
+      setResults(data.items || []);
       setIsLoading(false);
     } catch (error) {
       console.error("Error fetching tracks:", error);
@@ -79,8 +98,14 @@ const MusicSection = ({ language }) => {
   const handleInputChange = (e) => {
     const value = e.target.value;
     setQuery(value);
-    searchTracks(value);
-    setIsFocused(true); // Ensure it's focused when typing
+  };
+
+  // Handle key down (Enter key)
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && query.trim() !== "") {
+      searchTracks(query);
+      setIsFocused(true);
+    }
   };
 
   // Handle clicking outside the container
@@ -104,50 +129,26 @@ const MusicSection = ({ language }) => {
   }, []);
 
   // Function to play or stop the song preview
-  const handlePlayPreview = (previewUrl, trackId) => {
-    if (currentlyPlaying === trackId) {
+  const handlePlayPreview = (track) => {
+    if (playingTrack?.id === track.id) {
       // Stop current song
-      setCurrentlyPlaying(null);
+      setPlayingTrack(null);
       setMusicSpin(false);
-      setIsPlaying(false);
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current.currentTime = 0; // Reset to start
-      }
-      setProgress(0);
     } else {
       // Play the selected song
-      setCurrentlyPlaying(trackId);
+      setPlayingTrack(track);
       setMusicSpin(true);
-      setIsPlaying(true);
-      if (audioRef.current) {
-        audioRef.current.src = previewUrl;
-        audioRef.current.play().catch((error) => {
-          console.error("Audio play error:", error);
-        });
-      }
     }
   };
 
-  // Handle the progress of the song preview
-  const handleTimeUpdate = () => {
-    if (audioRef.current) {
-      const currentProgress =
-        (audioRef.current.currentTime / audioRef.current.duration) * 100;
-      setProgress(currentProgress);
-    }
-  };
-
-  // When the song preview ends, reset the button to the play icon
-  const handleAudioEnd = () => {
-    setCurrentlyPlaying(null);
-    setProgress(0);
+  // When the song preview ends, reset the button
+  const handleEnded = () => {
+    setPlayingTrack(null);
     setMusicSpin(false);
-    setIsPlaying(false);
   };
 
   // function to add songs to the playlist
-  const addTrackToPlaylist = async (trackUri) => {
+  const addTrackToPlaylist = async (track) => {
     try {
       setIsAddingTrack(true);
       const response = await fetch("/api/add-track", {
@@ -155,7 +156,12 @@ const MusicSection = ({ language }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ trackUri }),
+        body: JSON.stringify({ 
+            trackUri: track.id,
+            trackName: track.name,
+            artist: track.artist,
+            image: track.image // Sending image too, even if backend ignores it for now
+        }),
       });
 
       const data = await response.json();
@@ -167,25 +173,32 @@ const MusicSection = ({ language }) => {
           title: toast_success.title,
           description: toast_success.description,
         });
-        setIsAddingTrack(false);
+        
+        // Add to local playlist state
+        setPlaylist(prev => [{
+            id: track.id,
+            name: track.name,
+            artist: track.artist,
+            image: track.image
+        }, ...prev]);
+
       } else {
-        console.error("Failed to add track to playlist:", data);
-        // error toast
+        console.error("Failed to add track:", data);
         toast({
           variant: "destructive",
           title: toast_error.title,
           description: toast_error.description,
         });
-        setIsAddingTrack(false);
       }
     } catch (error) {
-      console.error("Error adding track to playlist:", error);
+      console.error("Error adding track:", error);
       toast({
         variant: "destructive",
         title: toast_error.title,
         description: toast_error.description,
       });
-      setIsAddingTrack(false);
+    } finally {
+        setIsAddingTrack(false);
     }
   };
 
@@ -193,7 +206,6 @@ const MusicSection = ({ language }) => {
   useEffect(() => {
     const videoElement = videoRef.current;
     if (videoElement) {
-      // (130% speed)
       videoElement.playbackRate = 1.3;
     }
   }, []);
@@ -237,8 +249,8 @@ const MusicSection = ({ language }) => {
           className="relative max-w-[500px] w-full h-14 bg-slate-50 rounded-md flex justify-center items-center mt-4 md:mt-8 py-2 px-3"
         >
           <Image
-            src={images.spotify}
-            alt="spotify"
+            src={images.youtube}
+            alt="music icon"
             width={95}
             height={95}
             quality={100}
@@ -251,7 +263,8 @@ const MusicSection = ({ language }) => {
             type="text"
             value={query}
             onChange={handleInputChange}
-            placeholder={placeholder}
+            onKeyDown={handleKeyDown}
+            placeholder="Search YouTube..."
             className="bg-slate-50 font-serif h-10 mb-4 focus:outline-none focus:ring-0 text-lg border-none mt-4 "
           />
           <button
@@ -287,7 +300,7 @@ const MusicSection = ({ language }) => {
         {isFocused && results.length > 0 && (
           <div
             ref={resultsRef}
-            className="max-w-[500px] max-h-[400px] w-full bg-slate-50 rounded-lg mt-1 py-3 px-4 overflow-auto"
+            className="absolute top-[380px] max-w-[500px] max-h-[400px] w-full bg-slate-50 rounded-lg mt-1 py-3 px-4 overflow-auto z-50 shadow-xl"
           >
             <p
               translate="no"
@@ -301,35 +314,31 @@ const MusicSection = ({ language }) => {
                   key={track.id}
                   className="w-full flex justify-between items-center border-b last:border-none gap-2"
                 >
-                  <div>
-                    <p translate="no" className="text-left">
-                      {track.artists[0].name} - {track.name}
-                    </p>
+                  <div className="flex items-center gap-2 overflow-hidden">
+                    <img src={track.image} alt={track.name} className="w-10 h-10 object-cover rounded" />
+                    <div className="flex flex-col">
+                        <p translate="no" className="text-left font-semibold truncate text-sm max-w-[200px]">
+                        {track.name}
+                        </p>
+                        <p translate="no" className="text-left text-xs text-gray-500 truncate max-w-[200px]">
+                        {track.artist}
+                        </p>
+                    </div>
                   </div>
-                  <div className="relative mb-3 flex justify-start items-center">
-                    {/* Conditionally render the play button only if preview_url exists */}
-                    {track.preview_url && (
-                      <button
-                        className="mr-2 flex justify-center items-center"
-                        onClick={() =>
-                          handlePlayPreview(track.preview_url, track.id)
-                        }
-                      >
-                        {currentlyPlaying === track.id ? (
-                          <FaStop
-                            size={15}
-                            className="text-neutral-500 mr-[6px]"
-                          />
-                        ) : (
-                          <IoPlay size={25} className="text-neutral-500" />
-                        )}
-                      </button>
-                    )}
+                  <div className="relative mb-3 flex justify-start items-center shrink-0">
+                    <button
+                      className="mr-2 flex justify-center items-center"
+                      onClick={() =>
+                        handlePlayPreview(track)
+                      }
+                    >
+                      <IoPlay size={25} className="text-neutral-500" />
+                    </button>
 
                     {/* Add Button */}
                     <button
                       disabled={isAddingTrack}
-                      onClick={() => addTrackToPlaylist(track.uri)}
+                      onClick={() => addTrackToPlaylist(track)}
                       className="transform active:scale-[0.95]"
                     >
                       <IoIosAddCircle
@@ -339,14 +348,6 @@ const MusicSection = ({ language }) => {
                         }`}
                       />
                     </button>
-
-                    {/* Progress Bar (positioned below the buttons) */}
-                    {currentlyPlaying === track.id && (
-                      <div
-                        className="absolute bottom-[-5px] left-0 h-[2px] bg-neutral-500 transition-all duration-300 ease-linear"
-                        style={{ width: `${progress}%` }}
-                      ></div>
-                    )}
                   </div>
                 </li>
               ))}
@@ -354,28 +355,41 @@ const MusicSection = ({ language }) => {
           </div>
         )}
 
-        {/* Display fixed stop button and progress */}
-        {isPlaying && (
-          <div className="fixed top-24 right-4 w-[40px] h-[40px]">
-            <button
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center items-center z-20 ml-[3px]"
-              onClick={() => handlePlayPreview(null, currentlyPlaying)}
-            >
-              <FaStop size={22} className=" text-pink mr-[6px]" />
-            </button>
-            <CircularProgressbar
-              value={progress}
-              strokeWidth={3}
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"
-              styles={buildStyles({
-                strokeLinecap: "butt",
-                pathTransitionDuration: 0.5,
-                pathColor: `rgb(220, 180, 109)`,
-                trailColor: `transparent`,
-              })}
-            />
-          </div>
-        )}
+        {/* Display Community Playlist */}
+        <div className="max-w-[500px] w-full mt-8 bg-white/10 backdrop-blur-sm rounded-xl p-4 overflow-hidden flex flex-col flex-1 min-h-0 mb-4">
+             <h4 className="text-white text-lg font-bold mb-2 text-left sticky top-0">Our Playlist ({playlist.length})</h4>
+             <div className="overflow-y-auto pr-2 custom-scrollbar flex-1">
+                 <ul className="w-full flex flex-col gap-2">
+                    {playlist.map((track, index) => (
+                        <li key={`${track.id}-${index}`} className="w-full flex justify-between items-center bg-white/80 rounded-lg p-2 gap-2">
+                             <div className="flex items-center gap-2 overflow-hidden">
+                                {track.image && <img src={track.image} alt={track.name} className="w-10 h-10 object-cover rounded" />}
+                                <div className="flex flex-col">
+                                    <p translate="no" className="text-left font-semibold text-sm leading-tight line-clamp-1 text-black">
+                                    {track.name}
+                                    </p>
+                                    <p translate="no" className="text-left text-xs text-gray-600 truncate max-w-[200px]">
+                                    {track.artist}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="flex items-center">
+                                <button
+                                  className="flex justify-center items-center p-2"
+                                  onClick={() => handlePlayPreview(track)}
+                                >
+                                    <IoPlay size={22} className="text-blue" />
+                                </button>
+                            </div>
+                        </li>
+                    ))}
+                    {playlist.length === 0 && (
+                        <p className="text-white/70 italic text-sm">No songs added yet. Be the first!</p>
+                    )}
+                 </ul>
+             </div>
+        </div>
+
       </motion.div>
 
       {/* Background */}
@@ -398,12 +412,27 @@ const MusicSection = ({ language }) => {
         </video>
       )}
 
-      {/* Hidden audio element */}
-      <audio
-        ref={audioRef}
-        onTimeUpdate={handleTimeUpdate}
-        onEnded={handleAudioEnd}
-      />
+      {/* YouTube Player Dialog */}
+      <Dialog open={!!playingTrack} onOpenChange={(open) => !open && handleEnded()}>
+        <DialogContent className="sm:max-w-[600px] p-0 overflow-hidden bg-black border-none">
+          {playingTrack && (
+            <>
+              <DialogHeader className="p-4 bg-black/50 text-white absolute top-0 w-full z-10">
+                 <DialogTitle className="truncate pr-8">{playingTrack.name}</DialogTitle>
+              </DialogHeader>
+              <div className="relative pt-[56.25%] w-full">
+                <iframe
+                    src={`https://www.youtube.com/embed/${playingTrack.id}?autoplay=1`}
+                    className="absolute top-0 left-0 w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title={playingTrack.name}
+                />
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
 
     </section>
   );
