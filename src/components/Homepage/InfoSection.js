@@ -22,16 +22,10 @@ const InfoSection = ({ language }) => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
   // Destructure translation strings
-  const { title, details, accommodations, travel_transport, contact } =
+  const { title, contact } =
     translations[language].info_section;
 
-  //Extract couple contacts from env
-  const coupleEmail = process.env.NEXT_PUBLIC_EMAIL;
-  const herNumber = process.env.NEXT_PUBLIC_K_NUM;
-  const hisNumberUk = process.env.NEXT_PUBLIC_E_NUM_UK;
-  const hisNumberIt = process.env.NEXT_PUBLIC_E_NUM_IT;
-
-  const infoBlocks = [
+  const peopleBlocks = [
     {
       image: "/images/parents.png",
       title: "Parents",
@@ -42,6 +36,9 @@ const InfoSection = ({ language }) => {
       title: "Nasi",
       names: ["Alice & Andrei Iacob", "Diana & Ionuț Despina"],
     },
+  ];
+
+  const eventBlocks = [
     {
       image: "/images/church_info.png",
       title: "Church",
@@ -63,6 +60,20 @@ const InfoSection = ({ language }) => {
       id="info-section"
       className="bg-cream px-4 sm:px-12 py-20 flex flex-col relative overflow-hidden"
     >
+      {/* Decorative Flowers */}
+      <div className="absolute top-0 left-0 z-10 pointer-events-none opacity-80">
+        <Image src={images.flower3} alt="flower decoration" width={200} height={200} className="w-32 md:w-56 -translate-x-10 -translate-y-10 rotate-180" />
+      </div>
+      <div className="absolute top-0 right-0 z-10 pointer-events-none opacity-80">
+        <Image src={images.flower4} alt="flower decoration" width={200} height={200} className="w-32 md:w-56 translate-x-10 -translate-y-10 -rotate-90" />
+      </div>
+       <div className="absolute bottom-0 left-0 z-10 pointer-events-none opacity-80">
+        <Image src={images.flower1} alt="flower decoration" width={200} height={200} className="w-32 md:w-56 -translate-x-10 translate-y-10 -rotate-12" />
+      </div>
+      <div className="absolute bottom-0 right-0 z-10 pointer-events-none opacity-80">
+        <Image src={images.flower2} alt="flower decoration" width={200} height={200} className="w-32 md:w-56 translate-x-10 translate-y-10 rotate-12" />
+      </div>
+
       {/* Gradient Overlay for smooth transition */}
       <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-t from-transparent to-[#fffdfc] z-10 pointer-events-none" />
       {/* Gradient Overlay for smooth transition */}
@@ -84,23 +95,23 @@ const InfoSection = ({ language }) => {
         whileInView="visible"
         variants={primaryVariants}
         viewport={{ once: true, amount: 0.2 }}
-        className="w-full flex flex-col items-center px-4 z-20 mb-8 md:mb-12"
+        className="w-full flex flex-col items-center px-4 z-20 mb-12 md:mb-16"
       >
         <Image
           src={images.bell}
-          alt="glass"
+          alt="bell"
           width={95}
           height={95}
           quality={100}
-          className="mb-4 w-[95px] h-auto brightness-95"
+          className="mb-4 w-[80px] md:w-[95px] h-auto brightness-95"
         />
-        <div className="flex justify-center items-start">
-          <h3 translate="no" className=" font-bold z-20  -mr-8">
+        <div className="flex flex-col md:flex-row justify-center items-center text-center">
+          <h3 translate="no" className="font-bold uppercase tracking-widest text-lg md:text-xl mb-2 md:mb-0 md:mr-4">
             {title.main}
           </h3>
           <h3
-            translate="no"
-            className="text-pink text-6xl sm:text-8xl alex-brush z-10 transform font-light"
+             translate="no"
+            className="text-pink text-5xl sm:text-7xl md:text-8xl alex-brush z-10 transform font-light"
           >
             {title.sub}
           </h3>
@@ -109,65 +120,95 @@ const InfoSection = ({ language }) => {
 
       <div
         translate="no"
-        className=" w-full text-center flex flex-col items-center gap-8 md:gap-12 z-20"
+        className="w-full max-w-6xl mx-auto flex flex-col items-center gap-16 z-20"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-          {infoBlocks.map((block, index) => (
-            <div key={index} className="flex flex-col items-center">
-              <Image
-                src={block.image}
-                alt={block.title}
-                width={150}
-                height={150}
-                className="rounded-full mb-4"
-              />
-              <h5 className="mb-2">{block.title}</h5>
+        {/* People Section */}
+        <div className="w-full flex flex-col md:flex-row justify-center items-start gap-12 md:gap-24">
+          {peopleBlocks.map((block, index) => (
+            <div key={index} className="flex flex-col items-center text-center group">
+              <div className="relative mb-6">
+                 <div className="absolute inset-0 bg-pink/10 rounded-full transform scale-95 group-hover:scale-105 transition-transform duration-500" />
+                <Image
+                  src={block.image}
+                  alt={block.title}
+                  width={160}
+                  height={160}
+                  className="rounded-full shadow-md relative z-10"
+                />
+              </div>
+              <h5 className="mb-3 text-2xl text-gold italic">{block.title}</h5>
               {block.names &&
-                block.names.map((name, i) => <p key={i}>{name}</p>)}
-              {block.location && <p>{block.location}</p>}
-              {block.hour && <p>{block.hour}</p>} {/* Display the hour */}
+                block.names.map((name, i) => <p key={i} className="text-lg font-light tracking-wide">{name}</p>)}
+            </div>
+          ))}
+        </div>
+
+        {/* Divider */}
+        <div className="w-full max-w-xs opacity-60 my-4">
+           <Image src={images.divider} alt="divider" width={300} height={40} className="w-full h-auto" />
+        </div>
+
+        {/* Events Section */}
+        <div className="w-full flex flex-col md:flex-row justify-center items-start gap-12 md:gap-24">
+          {eventBlocks.map((block, index) => (
+            <div key={index} className="flex flex-col items-center text-center">
+               <div className="relative mb-6">
+                <Image
+                  src={block.image}
+                  alt={block.title}
+                  width={160}
+                  height={160}
+                  className="rounded-full shadow-md object-cover"
+                />
+              </div>
+              <h5 className="mb-3 text-2xl text-gold italic">{block.title}</h5>
+              {block.location && <p className="font-medium text-lg max-w-[250px] mb-1">{block.location}</p>}
+              {block.hour && <p className="text-gray-600 mb-3">{block.hour}</p>}
               {block.mapLink && (
                 <Link
                   href={block.mapLink}
                   target="_blank"
-                  className="flex justify-center items-center gap-1 border border-gold rounded-lg px-2 py-1 mt-2 font-light text-sm"
+                  className="flex justify-center items-center gap-2 text-gold hover:text-pink transition-colors duration-300 font-light text-sm uppercase tracking-wider border-b border-transparent hover:border-pink pb-0.5"
                 >
                   <Image
                     src={images.location}
                     alt="Location"
-                    className="w-auto h-[25px]"
+                    className="w-4 h-auto"
                   />
-                  Exact Location
+                  See Location
                 </Link>
               )}
             </div>
           ))}
         </div>
 
-        <div className="static md:hidden h-px w-[50px] bg-black opacity-50" />
-        {/* bottom Detail*/}
-        <div className=" max-w-[700px] flex flex-col justify-center items-center">
-          <h5 translate="no" className="mb-4">
+        <div className="static md:hidden h-px w-[50px] bg-black opacity-20 mt-8" />
+        
+        {/* Contact Detail */}
+        <div className="max-w-[700px] flex flex-col justify-center items-center mt-8 p-8 border border-gold/20 rounded-xl bg-white/40 backdrop-blur-sm shadow-sm">
+          <h5 translate="no" className="mb-6 font-serif text-2xl">
             {contact.title}
           </h5>
-          <p translate="no" className="max-sm:flex max-sm:flex-col">
-            <span className="font-bold flex items-center">
-              Iliuta:{" "}
-              <WhatsappIcon className="w-5 h-5 ml-2" />
-            </span>{" "}
-            <a href="https://wa.me/40751929003" target="_blank">
-              0751929003
-            </a>
-          </p>
-          <p translate="no" className="max-sm:flex max-sm:flex-col">
-            <span className="font-bold flex items-center">
-              Smaranda:{" "}
-              <WhatsappIcon className="w-5 h-5 ml-2" />
-            </span>{" "}
-            <a href="https://wa.me/40758080874" target="_blank">
-              0758080874
-            </a>
-          </p>
+          <div className="flex flex-col sm:flex-row gap-8 sm:gap-16">
+            <p translate="no" className="flex flex-col items-center gap-1">
+              <span className="font-bold flex items-center text-lg">
+                Iliuta
+                <WhatsappIcon className="w-5 h-5 ml-2 text-green-500" />
+              </span>
+              <a href="https://wa.me/40751929003" target="_blank" className="hover:text-gold transition-colors">
+                0751929003
+              </a>
+            </p>
+            <p translate="no" className="flex flex-col items-center gap-1">
+              <span className="font-bold flex items-center text-lg">
+                Smaranda
+                <WhatsappIcon className="w-5 h-5 ml-2 text-green-500" />
+              </span>
+              <a href="https://wa.me/40758080874" target="_blank" className="hover:text-gold transition-colors">
+                0758080874
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </section>
