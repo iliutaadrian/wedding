@@ -7,20 +7,18 @@ const inter = Inter({ subsets: ["latin"] });
 // Metadata configuration (nice for social sharing)
 export const metadata = {
   title: "Smaranda & Iliuta",
-  description:
-    "You are invited to our Wedding | Sei invitato al nostro Matrimonio |  Jesteś zaproszony na nasz Ślub",
+  description: "Sunteți invitați la nunta noastră!",
   openGraph: {
-    title: "Karolina & Emanuele",
-    description:
-      "You are invited to our Wedding | Sei invitato al nostro Matrimonio |  Jesteś zaproszony na nasz Ślub",
+    title: "Smaranda & Iliuta",
+    description: "Sunteți invitați la nunta noastră!",
     url: "https://wedding.iliutaadrian.com/",
-    siteName: "Karolina & Emanuele",
+    siteName: "Smaranda & Iliuta",
     images: [
       {
-        url: "https://emanuelekarolina.vercel.app/images/og-image.jpg",
+        url: "https://wedding.iliutaadrian.com/images/og-image.png",
         width: 1200,
         height: 600,
-        alt: "Karolina & Emanuele Wedding Website",
+        alt: "Smaranda & Iliuta Wedding Website",
       },
     ],
     type: "website",
