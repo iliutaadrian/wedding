@@ -11,7 +11,7 @@ import React, { useState, useEffect } from "react";
 import {
   SplashScreen,
   WelcomeSection,
-  SaveTheDate,
+  OurStorySection,
   ScheduleSection,
   InfoSection,
   RSVPSection,
@@ -39,9 +39,8 @@ export default function Home() {
       {/* Information Section */}
       <InfoSection language={language} />
 
-      {/* Save the Date Section */}
-      <SaveTheDate language={language} />
-
+      {/* Our Story Section */}
+      <OurStorySection language={language} />
 
       {/* RSVP Section */}
       <RSVPSection language={language} />

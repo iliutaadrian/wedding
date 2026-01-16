@@ -15,7 +15,7 @@ import ScrollingImages from "../ScrollingImages/ScrollingImages";
 import { motion } from "framer-motion";
 import { getCountdown } from "@/utils/countdownHelper";
 
-const SaveTheDate = ({ language }) => {
+const OurStorySection = ({ language }) => {
   // Variants for framer motion animations
   const primaryVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -47,7 +47,7 @@ const SaveTheDate = ({ language }) => {
     story_2,
     story_3_future,
     story_3_past,
-  } = translations[language].saveTheDate_section;
+  } = translations[language].our_story_section;
 
   // Render custom dashed line
   const dashedLine = Array(10)
@@ -69,7 +69,6 @@ const SaveTheDate = ({ language }) => {
 
   return (
     <section
-      id="savethedate-section"
       className="relative w-full flex flex-col items-center pt-16 lg:pt-20 z-10 bg-cream overflow-hidden"
     >
       <motion.div
@@ -84,7 +83,7 @@ const SaveTheDate = ({ language }) => {
           width={95}
           height={95}
           quality={100}
-          className="mb-4 "
+          className="filter-pink"
         />
       </motion.div>
 
@@ -105,58 +104,6 @@ const SaveTheDate = ({ language }) => {
           {title_cursive}
         </h3>
       </motion.div>
-      <div className="w-full flex flex-col sm:flex-row  justify-center items-center gap-8 md:gap-20 lg:gap-24 mt-12 sm:mt-16 lg:mt-20 px-4 z-10">
-        {story.map((item, index) => (
-          <div
-            key={`${item.year} ${index}`}
-            className="flex flex-col justify-center items-center z-10"
-          >
-            <motion.h4
-              initial="hidden"
-              whileInView="visible"
-              variants={quartaryVariants}
-              viewport={{ once: true, amount: 0.2 }}
-              translate="no"
-              className="max-sm:hidden"
-            >
-              {item.year}
-            </motion.h4>
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              variants={secondaryVariants}
-              viewport={{ once: true, amount: 0.2 }}
-              className="w-[140px] sm:w-[160px] h-[140px] sm:h-[160px] flex justify-center items-center mb-3"
-            >
-              <img
-                src={item.img}
-                alt={item.text}
-                className="w-full h-auto z-10"
-              />
-            </motion.div>
-            <motion.h4
-              initial="hidden"
-              whileInView="visible"
-              variants={quartaryVariants}
-              viewport={{ once: true, amount: 0.2 }}
-              translate="no"
-              className="sm:hidden mb-0"
-            >
-              {item.year}
-            </motion.h4>
-            <motion.p
-              initial="hidden"
-              whileInView="visible"
-              variants={quartaryVariants}
-              viewport={{ once: true, amount: 0.2 }}
-              translate="no"
-            >
-              {item.text}
-            </motion.p>
-          </div>
-        ))}
-      </div>
-      {/* Parallax images are rendered here because are part of this section */}
       <ScrollingImages />
       <Image
         src={images.la1}
@@ -178,4 +125,4 @@ const SaveTheDate = ({ language }) => {
   );
 };
 
-export default SaveTheDate;
+export default OurStorySection;

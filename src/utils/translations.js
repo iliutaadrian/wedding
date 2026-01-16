@@ -38,7 +38,7 @@ const translations = {
       button: "Save the Date",
       click_details: "Click for details",
     },
-    saveTheDate_section: {
+    our_story_section: {
       title: "SAVE",
       title_cursive: "The Date",
       date: "2nd of May 2026",

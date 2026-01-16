@@ -103,7 +103,7 @@ const InfoSection = ({ language }) => {
           width={95}
           height={95}
           quality={100}
-          className="mb-4 w-[60px] md:w-[95px] h-auto brightness-95"
+          className="w-[60px] md:w-[95px] h-auto brightness-95 filter-pink"
         />
         <div className="flex flex-col md:flex-row justify-center items-center text-center">
           <h3 translate="no" className="font-bold uppercase tracking-widest text-base md:text-xl mb-1 md:mb-0 md:mr-4">

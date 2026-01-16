@@ -138,11 +138,11 @@ const ScrollingImages = () => {
         style={{ x: textX }}
       >
         <h1 className="text-pink font-bold text-[180px] md:text-[280px] lg:text-[380px] xl:text-[480px] drop-shadow-lg">
-          K
+          S
         </h1>
         <FaHeart className="w-[40px] h-[40px] md:w-[60px] md:h-[60px] lg:w-[80px] lg:h-[80px] text-pink mx-2 drop-shadow-lg animate-bounce" />
         <h1 className="text-pink font-bold text-[180px] md:text-[280px] lg:text-[380px] xl:text-[480px] drop-shadow-lg">
-          E
+          I
         </h1>
       </motion.div>
     </div>

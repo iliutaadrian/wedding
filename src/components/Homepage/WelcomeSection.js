@@ -29,7 +29,7 @@ const WelcomeSection = ({ language }) => {
     title_cursive,
     date,
     place,
-  } = translations[language].saveTheDate_section;
+  } = translations[language].our_story_section;
 
   const dashedLine = Array(5)
     .fill()

@@ -101,7 +101,7 @@ const ScheduleSection = ({ language }) => {
           width={95}
           height={95}
           quality={100}
-          className="mb-4 w-[95px] h-auto brightness-95 filter-pink"
+          className="w-[95px] h-auto brightness-95 filter-pink"
         />
         <div className="flex flex-col justify-center items-center">
           <h3 translate="no" className="text-blue font-bold z-20 ">
