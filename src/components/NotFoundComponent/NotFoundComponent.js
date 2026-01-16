@@ -1,10 +1,3 @@
-/**
- * @file NotFoundComponent.js
- * @description Renders a 404 error, use in the not-found page. Multilingual!
- * @author Emanuele Sgroi
- * @date 19 October 2024
- */
-
 "use client";
 
 import React, { useState, useEffect } from "react";

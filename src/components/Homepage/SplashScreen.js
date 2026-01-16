@@ -1,10 +1,3 @@
-/**
- * @file SplashScreen.js
- * @description This component renders the Splash Screen, visible when opening/reloading the website.
- * @author Emanuele Sgroi
- * @date 19 October 2024
- */
-
 "use client";
 
 import React, { useEffect, useState } from "react";

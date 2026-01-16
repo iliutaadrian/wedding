@@ -1,10 +1,3 @@
-/**
- * @file imagesImport.js
- * @description Imports and exports all images and icons used throughout the website for easy access in components.
- * @author Emanuele Sgroi
- * @date 19 October 2024
- */
-
 import dove from "../../public/icons/dove.png";
 import g_1_1 from "../../public/images/g_1_1.jpg";
 import g_1_2 from "../../public/images/g_1_2.jpg";

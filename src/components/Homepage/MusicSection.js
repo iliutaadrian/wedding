@@ -1,12 +1,3 @@
-/**
- * @file MusicSection.js
- * @description This component renders the music suggestion section, where users can search for songs via YouTube, play previews, and add suggestions.
- * Multilingual!
- *
- * @author Emanuele Sgroi
- * @date 19 October 2024
- */
-
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";

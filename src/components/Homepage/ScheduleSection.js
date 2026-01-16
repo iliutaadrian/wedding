@@ -1,10 +1,3 @@
-/**
- * @file ScheduleSection.js
- * @description This component renders the Schedule section, which is a timeline of the wedding. Multilingual!
- * @author Emanuele Sgroi
- * @date 19 October 2024
- */
-
 import images from "@/utils/imagesImport";
 import Image from "next/image";
 import { motion } from "framer-motion";

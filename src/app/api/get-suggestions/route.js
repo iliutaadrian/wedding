@@ -1,8 +1,3 @@
-/**
- * @file route.js
- * @description API endpoint to retrieve the list of suggested songs from the local JSON file.
- */
-
 import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";

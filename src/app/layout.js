@@ -1,10 +1,3 @@
-/**
- * @file layout.js
- * @description Defines the global layout structure for the website, including providers and components like LanguageDetector and Toaster.
- * @author Emanuele Sgroi
- * @date 19 October 2024
- */
-
 import { Inter } from "next/font/google";
 import "../styles/globals.css";
 import { Toaster } from "@/components/ui/toaster";
@@ -13,14 +6,14 @@ const inter = Inter({ subsets: ["latin"] });
 
 // Metadata configuration (nice for social sharing)
 export const metadata = {
-  title: "Karolina & Emanuele",
+  title: "Smaranda & Iliuta",
   description:
     "You are invited to our Wedding | Sei invitato al nostro Matrimonio |  Jesteś zaproszony na nasz Ślub",
   openGraph: {
     title: "Karolina & Emanuele",
     description:
       "You are invited to our Wedding | Sei invitato al nostro Matrimonio |  Jesteś zaproszony na nasz Ślub",
-    url: "https://emanuelekarolina.vercel.app/",
+    url: "https://wedding.iliutaadrian.com/",
     siteName: "Karolina & Emanuele",
     images: [
       {

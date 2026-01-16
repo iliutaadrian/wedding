@@ -1,12 +1,3 @@
-/**
- * @file InfoSection.js
- * @description This component renders the information section of the homepage,
- * including wedding details, accommodations, and travel information. Multilingual!
- *
- * @author Emanuele Sgroi
- * @date 19 October 2024
- */
-
 import Link from "next/link";
 import React from "react";
 import images from "@/utils/imagesImport";

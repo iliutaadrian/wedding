@@ -1,11 +1,3 @@
-/**
- * @file spotifyUser.js
- * @description Manages the Spotify user access token, including handling its expiry, refreshing it using a refresh token, and providing a valid access token
- *              for user-related Spotify API requests, such as search music.
- * @author Emanuele Sgroi
- * @date 19 October 2024
- */
-
 import axios from "axios";
 import qs from "qs";
 

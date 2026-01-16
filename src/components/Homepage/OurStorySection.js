@@ -1,10 +1,3 @@
-/**
- * @file SaveTheDate.js
- * @description This component renders the 'Save the Date' section. Multilingual!
- * @author Emanuele Sgroi
- * @date 19 October 2024
- */
-
 "use client";
 
 import React from "react";

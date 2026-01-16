@@ -1,10 +1,3 @@
-/**
- * @file ScrollingImages.js
- * @description Component that renders multiple layers of scrolling images with parallax effects, including animated text. This component is usd is 'SaveTheDate'.
- * @author Emanuele Sgroi
- * @date 19 October 2024
- */
-
 import React, { useRef } from "react";
 import images from "@/utils/imagesImport";
 import Image from "next/image";

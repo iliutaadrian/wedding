@@ -1,10 +1,3 @@
-/**
- * @file countdownHelper.js
- * @description Helper function to calculate the countdown to the wedding date for the welcome section.
- * @author Emanuele Sgroi
- * @date 19 October 2024
- */
-
 export const getCountdown = () => {
   const weddingDate = new Date("2026-05-02T16:00:00");
 

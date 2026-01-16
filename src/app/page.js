@@ -1,10 +1,3 @@
-/**
- * @file page.js
- * @description Homepage structure including various sections like welcome, save the date, RSVP, and more for the wedding website.
- * @author Emanuele Sgroi
- * @date 19 October 2024
- */
-
 "use client";
 
 import React, { useState, useEffect } from "react";

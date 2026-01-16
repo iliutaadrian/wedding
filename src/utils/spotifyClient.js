@@ -1,11 +1,3 @@
-/**
- * @file spotifyClient.js
- * @description Handles Spotify client access token management using the client credentials flow. The client access token is fetched and stored in memory with
- *              its expiry, ensuring it is valid for Spotify API requests.
- * @author Emanuele Sgroi
- * @date 19 October 2024
- */
-
 import axios from "axios";
 import qs from "qs";
 

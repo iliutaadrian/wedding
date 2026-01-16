@@ -1,10 +1,3 @@
-/**
- * @file Loading.js
- * @description Displays a loading spinner overlay.
- * @author Emanuele Sgroi
- * @date 19 October 2024
- */
-
 import React from "react";
 import images from "@/utils/imagesImport";
 import Image from "next/image";

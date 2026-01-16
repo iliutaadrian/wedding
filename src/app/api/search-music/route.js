@@ -1,10 +1,3 @@
-/**
- * @file route.js
- * @description API endpoint for searching music on YouTube. Returns search results based on the user's query.
- * @author Emanuele Sgroi
- * @date 19 October 2024
- */
-
 import { NextResponse } from "next/server";
 
 export async function GET(req) {

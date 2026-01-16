@@ -1,10 +1,3 @@
-/**
- * @file RSVPSection.js
- * @description This component manages the RSVP section of the wedding website. It displays instructions for guests to RSVP via WhatsApp or other social platforms.
- * @author Emanuele Sgroi
- * @date 19 October 2024
- */
-
 import React, { useRef } from "react";
 import images from "@/utils/imagesImport";
 import { motion, useScroll, useTransform } from "framer-motion";

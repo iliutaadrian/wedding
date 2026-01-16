@@ -1,10 +1,3 @@
-/**
- * @file route.js
- * @description API endpoint to save a song suggestion. Currently saves to a local JSON file as a placeholder.
- * @author Emanuele Sgroi
- * @date 19 October 2024
- */
-
 import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
