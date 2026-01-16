@@ -95,7 +95,7 @@ const InfoSection = ({ language }) => {
         whileInView="visible"
         variants={primaryVariants}
         viewport={{ once: true, amount: 0.2 }}
-        className="w-full flex flex-col items-center px-4 z-20 mb-12 md:mb-16"
+        className="w-full flex flex-col items-center px-4 z-20 mb-6 md:mb-12"
       >
         <Image
           src={images.bell}
@@ -103,10 +103,10 @@ const InfoSection = ({ language }) => {
           width={95}
           height={95}
           quality={100}
-          className="mb-4 w-[80px] md:w-[95px] h-auto brightness-95"
+          className="mb-4 w-[60px] md:w-[95px] h-auto brightness-95"
         />
         <div className="flex flex-col md:flex-row justify-center items-center text-center">
-          <h3 translate="no" className="font-bold uppercase tracking-widest text-lg md:text-xl mb-2 md:mb-0 md:mr-4">
+          <h3 translate="no" className="font-bold uppercase tracking-widest text-base md:text-xl mb-1 md:mb-0 md:mr-4">
             {title.main}
           </h3>
           <h3
@@ -123,57 +123,53 @@ const InfoSection = ({ language }) => {
         className="w-full max-w-6xl mx-auto flex flex-col items-center gap-16 z-20"
       >
         {/* People Section */}
-        <div className="w-full flex flex-col md:flex-row justify-center items-start gap-12 md:gap-24">
+        <div className="w-full flex flex-col md:flex-row justify-center gap-8 md:gap-24">
           {peopleBlocks.map((block, index) => (
             <div key={index} className="flex flex-col items-center text-center group">
-              <div className="relative mb-6">
+              <div className="relative mb-3 md:mb-6">
                  <div className="absolute inset-0 bg-pink/10 rounded-full transform scale-95 group-hover:scale-105 transition-transform duration-500" />
                 <Image
                   src={block.image}
                   alt={block.title}
-                  width={160}
-                  height={160}
-                  className="rounded-full shadow-md relative z-10"
+                  width={140}
+                  height={140}
+                  className="rounded-full shadow-md relative z-10 w-[100px] md:w-[140px] lg:w-[160px]"
                 />
               </div>
-              <h5 className="mb-3 text-2xl text-gold italic">{block.title}</h5>
+              <h5 className="mb-1 md:mb-3 text-xl md:text-2xl text-gold italic">{block.title}</h5>
               {block.names &&
-                block.names.map((name, i) => <p key={i} className="text-lg font-light tracking-wide">{name}</p>)}
+                block.names.map((name, i) => <p key={i} className="text-base md:text-lg font-light tracking-wide mb-0">{name}</p>)}
             </div>
           ))}
         </div>
 
-        {/* Divider */}
-        <div className="w-full max-w-xs opacity-60 my-4">
-           <Image src={images.divider} alt="divider" width={300} height={40} className="w-full h-auto" />
-        </div>
 
         {/* Events Section */}
-        <div className="w-full flex flex-col md:flex-row justify-center items-start gap-12 md:gap-24">
+        <div className="w-full flex flex-col md:flex-row justify-center gap-8 md:gap-24">
           {eventBlocks.map((block, index) => (
             <div key={index} className="flex flex-col items-center text-center">
-               <div className="relative mb-6">
+               <div className="relative mb-3 md:mb-6">
                 <Image
                   src={block.image}
                   alt={block.title}
-                  width={160}
-                  height={160}
-                  className="rounded-full shadow-md object-cover"
+                  width={140}
+                  height={140}
+                  className="rounded-full shadow-md object-cover w-[100px] md:w-[140px] lg:w-[160px]"
                 />
               </div>
-              <h5 className="mb-3 text-2xl text-gold italic">{block.title}</h5>
-              {block.location && <p className="font-medium text-lg max-w-[250px] mb-1">{block.location}</p>}
-              {block.hour && <p className="text-gray-600 mb-3">{block.hour}</p>}
+              <h5 className="mb-1 md:mb-3 text-xl md:text-2xl text-gold italic">{block.title}</h5>
+              {block.location && <p className="font-medium text-base md:text-lg max-w-[250px] mb-0 md:mb-1">{block.location}</p>}
+              {block.hour && <p className="text-gray-600 text-sm md:text-base mb-2 md:mb-3">{block.hour}</p>}
               {block.mapLink && (
                 <Link
                   href={block.mapLink}
                   target="_blank"
-                  className="flex justify-center items-center gap-2 text-gold hover:text-pink transition-colors duration-300 font-light text-sm uppercase tracking-wider border-b border-transparent hover:border-pink pb-0.5"
+                  className="flex justify-center items-center gap-2 text-gold hover:text-pink transition-colors duration-300 font-light text-xs md:text-sm uppercase tracking-wider border-b border-transparent hover:border-pink pb-0.5"
                 >
                   <Image
                     src={images.location}
                     alt="Location"
-                    className="w-4 h-auto"
+                    className="w-3 md:w-4 h-auto"
                   />
                   See Location
                 </Link>
@@ -182,14 +178,12 @@ const InfoSection = ({ language }) => {
           ))}
         </div>
 
-        <div className="static md:hidden h-px w-[50px] bg-black opacity-20 mt-8" />
-        
         {/* Contact Detail */}
-        <div className="max-w-[700px] flex flex-col justify-center items-center mt-8 p-8 border border-gold/20 rounded-xl bg-white/40 backdrop-blur-sm shadow-sm">
-          <h5 translate="no" className="mb-6 font-serif text-2xl">
+        <div className="max-w-[700px] flex flex-col justify-center items-center mt-4 md:mt-8 p-4 md:p-8 bg-white/40 backdrop-blur-sm shadow-sm">
+          <h5 translate="no" className="mb-4 md:mb-6 font-serif text-xl md:text-2xl">
             {contact.title}
           </h5>
-          <div className="flex flex-col sm:flex-row gap-8 sm:gap-16">
+          <div className="flex flex-row gap-8 sm:gap-16">
             <p translate="no" className="flex flex-col items-center gap-1">
               <span className="font-bold flex items-center text-lg">
                 Iliuta
