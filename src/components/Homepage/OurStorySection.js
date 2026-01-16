@@ -7,7 +7,7 @@
 
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import translations from "@/utils/translations";
 import images from "@/utils/imagesImport";
 import Image from "next/image";
@@ -22,16 +22,12 @@ const OurStorySection = ({ language }) => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
   const secondaryVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 } },
+    hidden: { opacity: 0, x: 50 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.5, delay: 0.1 } },
   };
   const tertiaryVariants = {
-    hidden: { opacity: 0, scale: 0 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.6 } },
-  };
-  const quartaryVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 1.6, delay: 0.1 } },
+    hidden: { opacity: 0, x: -50 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.5, delay: 0.1 } },
   };
 
   // Get the countdown from the helper function
@@ -41,20 +37,11 @@ const OurStorySection = ({ language }) => {
   const {
     title,
     title_cursive,
-    date,
-    place,
     story_1,
     story_2,
     story_3_future,
     story_3_past,
   } = translations[language].our_story_section;
-
-  // Render custom dashed line
-  const dashedLine = Array(10)
-    .fill()
-    .map((_, index) => (
-      <div key={index} className="w-[2px] h-[5px] my-[3px] bg-pink" />
-    ));
 
   // Group story elements for convenience
   const story = [
@@ -69,13 +56,37 @@ const OurStorySection = ({ language }) => {
 
   return (
     <section
-      className="relative w-full flex flex-col items-center pt-16 lg:pt-20 z-10 bg-cream overflow-hidden"
+      id="our-story-section"
+      className="py-24 px-4 sm:px-6 relative flex justify-center items-center flex-col overflow-hidden"
     >
+      {/* Gradient Overlay for smooth transition */}
+      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-t from-transparent to-[#fffdfc] z-10 pointer-events-none" />
+
+      <div className="absolute -top-12 -left-10 z-20 w-[250px] h-auto rotate-[165deg] opacity-90 pointer-events-none">
+        <Image
+          src={images.flower1}
+          alt="flower decoration"
+          width={250}
+          height={250}
+          className="object-contain"
+        />
+      </div>
+
+      <div className="absolute top-0 left-0 w-full h-full z-0 opacity-20 pointer-events-none">
+        <Image
+          src="/images/background3.png"
+          alt="background"
+          fill
+          className="object-cover object-top"
+        />
+      </div>
+
       <motion.div
         initial="hidden"
         whileInView="visible"
         variants={primaryVariants}
         viewport={{ once: true, amount: 0.2 }}
+        className="w-full flex flex-col items-center px-4 z-10"
       >
         <Image
           src={images.dove}
@@ -83,96 +94,119 @@ const OurStorySection = ({ language }) => {
           width={95}
           height={95}
           quality={100}
-          className=""
+          className="w-[95px] h-auto brightness-95 filter-pink"
         />
+        <div className="flex flex-col justify-center items-center">
+          <h3 translate="no" className="text-blue font-bold z-20 ">
+            {title}
+          </h3>
+          <h3
+            translate="no"
+            className="text-pink text-6xl sm:text-8xl alex-brush z-10 transform font-light -mt-8 md:-mt-10"
+          >
+            {title_cursive}
+          </h3>
+        </div>
       </motion.div>
 
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        variants={secondaryVariants}
-        viewport={{ once: true, amount: 0.2 }}
-        className="flex flex-col justify-center items-center"
-      >
-        <h3 translate="no" className=" font-bold z-20 ">
-          {title}
-        </h3>
-        <h3
-          translate="no"
-          className="text-gold text-6xl sm:text-8xl alex-brush z-10 transform font-light -mt-8 md:-mt-10"
-        >
-          {title_cursive}
-        </h3>
-      </motion.div>
-      <div className="w-full flex flex-col sm:flex-row  justify-center items-center gap-8 md:gap-20 lg:gap-24 px-4 z-10">
-        {story.map((item, index) => (
-          <div
-            key={`${item.year} ${index}`}
-            className="flex flex-col justify-center items-center z-10"
-          >
-            <motion.h4
-              initial="hidden"
-              whileInView="visible"
-              variants={quartaryVariants}
-              viewport={{ once: true, amount: 0.2 }}
-              translate="no"
-              className="max-sm:hidden"
+      <div className="relative w-full flex flex-col items-center gap-8 mt-12 mb-12">
+        <div className="absolute top-0 w-px h-[100%] border border-gold border-dashed z-0"></div>
+        <div className="w-full flex flex-col items-center gap-8 z-10">
+          {story.map((item, index) => (
+            <div
+              key={`${item.year}-${index}`}
+              className="w-full flex flex-col max-md:bg-transparent max-md:pt-4"
             >
-              {item.year}
-            </motion.h4>
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              variants={secondaryVariants}
-              viewport={{ once: true, amount: 0.2 }}
-              className="w-[140px] sm:w-[160px] h-[140px] sm:h-[160px] flex justify-center items-center mb-3"
-            >
-              <img
-                src={item.img}
-                alt={item.text}
-                className="w-full h-auto z-10"
-              />
-            </motion.div>
-            <motion.h4
-              initial="hidden"
-              whileInView="visible"
-              variants={quartaryVariants}
-              viewport={{ once: true, amount: 0.2 }}
-              translate="no"
-              className="sm:hidden mb-0"
-            >
-              {item.year}
-            </motion.h4>
-            <motion.p
-              initial="hidden"
-              whileInView="visible"
-              variants={quartaryVariants}
-              viewport={{ once: true, amount: 0.2 }}
-              translate="no"
-            >
-              {item.text}
-            </motion.p>
-          </div>
-        ))}
+              <div
+                className={`flex justify-center items-center max-md:flex-col-reverse ${
+                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                }`}
+              >
+                <div
+                  className={`w-full md:w-[50%] xl:w-[600px] flex ${
+                    index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                  } items-center`}
+                >
+                  <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    variants={
+                      index % 2 === 0 ? tertiaryVariants : secondaryVariants
+                    }
+                    viewport={{ once: true, amount: 0.2 }}
+                    className={`flex flex-1 flex-col ${
+                      index % 2 === 0
+                        ? "md:items-end md:mr-6"
+                        : "md:items-start md:ml-6"
+                    } max-md:items-center justify-start max-md:pt-4`}
+                  >
+                    <p
+                      translate="no"
+                      className="md:hidden text-center bg-blue text-white rounded-xl px-2 flex justify-center items-center mb-2"
+                    >
+                      {item.year}
+                    </p>
+
+                    <p
+                      translate="no"
+                      className={`leading-5 text-blue max-md:mb-4 ${
+                        index % 2 === 0 ? "md:text-right" : "md:text-left"
+                      }`}
+                    >
+                      {item.text}
+                    </p>
+                  </motion.div>
+                  <div
+                    className={`max-lg:hidden h-px w-[50px] xl:w-[120px] bg-pink flex items-center ${
+                      index % 2 === 0 ? "justify-start" : "justify-end"
+                    }`}
+                  >
+                    <div className="h-[7px] w-[7px] rounded-full bg-pink"></div>
+                  </div>
+                </div>
+                <div className="relative w-[140px] h-[140px] md:w-[90px] md:h-[90px] lg:w-[120px] lg:h-[120px]  xl:w-[190px] xl:h-[190px] flex justify-center items-center p-4 xl:p-6">
+                  <div className="w-full h-full  absolute  z-[1] bg-white border-4 border-pink rounded-full" />
+                  <img
+                    src={item.img}
+                    alt={item.text}
+                    className="w-full h-auto z-10 filter-blue"
+                  />
+                </div>
+
+                <div
+                  className={`max-md:hidden w-[50%] xl:w-[600px] ${
+                    index % 2 === 0 ? "items-start" : "items-end"
+                  }`}
+                >
+                  <p
+                    translate="no"
+                    className={`font-semibold text-blue text-2xl ${
+                      index % 2 !== 0 ? "text-right mr-4" : "text-left ml-4"
+                    } m-0`}
+                  >
+                    {item.year}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
+
       {/* Parallax images are rendered here because are part of this section */}
       <ScrollingImages />
-      <Image
-        src={images.la1}
-        alt={`Line art 1`}
-        width={650}
-        height={0}
-        quality={100}
-        className={`max-md:hidden absolute max-md:w-[300px] max-lg:w-[220px] max-xl:w-[350px] max-2xl:w-[450px] max-md:bottom-[900px] md:top-72 right-0 md:right-16 z-0 opacity-10`}
-      />
-      <Image
-        src={images.la1}
-        alt={`Line art 1`}
-        width={650}
-        height={0}
-        quality={100}
-        className={`max-md:hidden absolute max-lg:w-[250px] max-xl:w-[350px] top-72 left-16 z-0 opacity-10 transform scale-x-[-1]`}
-      />
+
+      <div className="absolute bottom-0 -right-10 z-20 w-[250px] h-auto -rotate-[15deg] md:opacity-90 opacity-10 pointer-events-none">
+        <Image
+          src={images.flower4}
+          alt="flower decoration"
+          width={250}
+          height={250}
+          className="object-contain"
+        />
+      </div>
+
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-[#fffdfc] z-10 pointer-events-none" />
     </section>
   );
 };
