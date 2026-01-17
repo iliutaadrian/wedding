@@ -2,9 +2,11 @@ import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   try {
-    const filePath = path.join(process.cwd(), "src", "suggestions.json");
+    const filePath = path.join(process.cwd(), "suggestions.json");
 
     if (!fs.existsSync(filePath)) {
       return NextResponse.json({ items: [] }, { status: 200 });

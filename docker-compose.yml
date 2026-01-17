@@ -5,5 +5,9 @@ services:
     restart: always
     ports:
       - "3025:3000"
+    volumes:
+      - ./suggestions.json:/app/suggestions.json
+    env_file:
+      - .env.local
     environment:
       - NODE_ENV=production

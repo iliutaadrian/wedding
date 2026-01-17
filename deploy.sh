@@ -18,7 +18,22 @@ docker save -o ${APP_NAME}.tar ${USERNAME}/${APP_NAME}:latest
 echo "Transferring files to homelab..."
 scp ${APP_NAME}.tar ${HOMELAB_HOST}:/tmp/
 ssh ${HOMELAB_HOST} "mkdir -p ${REMOTE_PATH}"
+
+# Fix: If suggestions.json exists as a directory (due to docker volume mount error), remove it
+ssh ${HOMELAB_HOST} "if [ -d ${REMOTE_PATH}/suggestions.json ]; then rm -rf ${REMOTE_PATH}/suggestions.json; fi"
+
+# Copy essential config files
 scp docker-compose.yml ${HOMELAB_HOST}:${REMOTE_PATH}/
+scp .env.local ${HOMELAB_HOST}:${REMOTE_PATH}/.env.local
+
+# Check if suggestions.json exists remotely; if not, copy it. If yes, leave it alone.
+ssh ${HOMELAB_HOST} "if [ ! -f ${REMOTE_PATH}/suggestions.json ]; then exit 1; fi"
+if [ $? -eq 1 ]; then
+    echo "suggestions.json not found remotely. Copying local version..."
+    scp suggestions.json ${HOMELAB_HOST}:${REMOTE_PATH}/
+else
+    echo "suggestions.json already exists remotely. Skipping copy to preserve data."
+fi
 
 # Load image on homelab and run deployment
 echo "Deploying to homelab..."

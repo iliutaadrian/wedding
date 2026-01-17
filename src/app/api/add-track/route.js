@@ -25,7 +25,7 @@ export async function POST(req) {
     };
 
     // Define file path
-    const filePath = path.join(process.cwd(), "src", "suggestions.json");
+    const filePath = path.join(process.cwd(), "suggestions.json");
 
     // Read existing data
     let suggestions = [];
