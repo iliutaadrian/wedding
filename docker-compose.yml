@@ -1,9 +1,7 @@
 services:
   wedding-app:
+    image: iliutaadrian/wedding-website:latest
     container_name: wedding-website
-    build:
-      context: .
-      dockerfile: Dockerfile
     restart: always
     ports:
       - "3025:3000"

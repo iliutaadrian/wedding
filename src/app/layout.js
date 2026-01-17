@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "../styles/globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +29,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" translate="no">
+      <head>
+        <Script
+          src="http://192.168.100.69:3011/script.js"
+          data-website-id="e3cd8951-d38d-4af4-81c2-3a88edc69227"
+          strategy="afterInteractive"
+        />
+      </head>
       <body className={inter.className}>
         {children}
         <Toaster />
