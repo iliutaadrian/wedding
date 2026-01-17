@@ -121,7 +121,7 @@ const WelcomeSection = ({ language }) => {
           left: 0,
           width: "100%",
           height: "100%",
-          backgroundImage: `url('/images/collage.png')`,
+          backgroundImage: `url('${images.collage.src}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           opacity: 0.2,
@@ -145,10 +145,8 @@ const WelcomeSection = ({ language }) => {
           className="w-[90%] max-w-[400px] md:max-w-[500px] my-8"
         >
           <Image
-            src="/images/envelope_open.png"
+            src={images.envelope_open}
             alt="Open Envelope"
-            width={500}
-            height={350}
             quality={100}
             className="object-contain w-full h-auto drop-shadow-xl z-20"
           />

@@ -38,12 +38,12 @@ const OurStorySection = ({ language }) => {
 
   // Group story elements for convenience
   const story = [
-    { year: 2014, text: story_1, img: "/icons/met.svg" },
-    { year: 2025, text: story_2, img: "/icons/engaged.svg" },
+    { year: 2014, text: story_1, img: images.met },
+    { year: 2025, text: story_2, img: images.engaged },
     {
       year: 2026,
       text: countdown.message ? story_3_past : story_3_future,
-      img: "/icons/marry.svg",
+      img: images.marry,
     },
   ];
 
@@ -58,7 +58,7 @@ const OurStorySection = ({ language }) => {
 
       <div className="absolute top-0 left-0 w-full h-full z-0 opacity-20 pointer-events-none">
         <Image
-          src="/images/background3.png"
+          src={images.background3}
           alt="background"
           fill
           className="object-cover object-top"
@@ -150,7 +150,7 @@ const OurStorySection = ({ language }) => {
                 </div>
                 <div className="relative w-[140px] h-[140px] md:w-[90px] md:h-[90px] lg:w-[120px] lg:h-[120px]  xl:w-[190px] xl:h-[190px] flex justify-center items-center p-4 xl:p-6">
                   <div className="w-full h-full  absolute  z-[1] bg-white border-4 border-pink rounded-full" />
-                  <img
+                  <Image
                     src={item.img}
                     alt={item.text}
                     className="w-full h-auto z-10 filter-blue"

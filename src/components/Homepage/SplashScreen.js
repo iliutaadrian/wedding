@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "@/styles/Homepage.module.scss";
 import Image from "next/image";
+import images from "@/utils/imagesImport";
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
 import translations from "@/utils/translations";
 import { getCountdown } from "@/utils/countdownHelper";
@@ -95,7 +96,7 @@ const SplashScreen = ({ language }) => {
               left: 0,
               width: "100%",
               height: "100%",
-              backgroundImage: `url('/images/background.png')`,
+              backgroundImage: `url('${images.background.src}')`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               opacity: 0.8,
@@ -140,7 +141,7 @@ const SplashScreen = ({ language }) => {
 
             >
               <Image
-                src="/images/envelelope_closed.png"
+                src={images.envelelope_closed}
                 alt="Envelope"
                 fill
                 priority
@@ -148,7 +149,7 @@ const SplashScreen = ({ language }) => {
               />
               <div className="absolute top-[40%] left-1/2 -translate-x-1/2 w-[22%] aspect-square">
                 <Image
-                  src="/images/waxseal.png"
+                  src={images.waxseal}
                   alt="Wax Seal"
                   fill
                   priority

@@ -18,12 +18,12 @@ const InfoSection = ({ language }) => {
 
   const peopleBlocks = [
     {
-      image: "/images/parents.png",
+      image: images.parents,
       title: people.parents.title,
       names: people.parents.names,
     },
     {
-      image: "/images/godparents.png",
+      image: images.godparents,
       title: people.godparents.title,
       names: people.godparents.names,
     },
@@ -31,7 +31,7 @@ const InfoSection = ({ language }) => {
 
   const eventBlocks = [
     {
-      image: "/images/church_info.png",
+      image: images.church_info,
       title: events.church.title,
       location: events.church.location,
       hour: events.church.time,
@@ -39,7 +39,7 @@ const InfoSection = ({ language }) => {
       buttonText: events.church.button,
     },
     {
-      image: "/images/venue_info.png",
+      image: images.venue_info,
       title: events.venue.title,
       location: events.venue.location,
       hour: events.venue.time,
@@ -75,7 +75,7 @@ const InfoSection = ({ language }) => {
       {/* Background Image */}
       <div className="absolute top-0 left-0 w-full h-full z-0 opacity-20 pointer-events-none">
         <Image
-          src="/images/background.png"
+          src={images.background}
           alt="background"
           fill
           className="object-cover object-top"

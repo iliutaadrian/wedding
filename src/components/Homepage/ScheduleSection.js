@@ -29,32 +29,32 @@ const ScheduleSection = ({ language }) => {
         {
           time: day_1.events.ceremony.time,
           title: day_1.events.ceremony.title,
-          icon: "/icons/ceremony.svg",
+          icon: images.ceremony,
         },
         {
           time: day_1.events.dinner.time,
           title: day_1.events.dinner.title,
-          icon: "/icons/dinner.svg",
+          icon: images.dinner,
         },
         {
           time: day_1.events.dance.time,
           title: day_1.events.dance.title,
-          icon: "/icons/dance.svg",
+          icon: images.dance,
         },
         {
           time: day_1.events.cake_cutting.time,
           title: day_1.events.cake_cutting.title,
-          icon: "/icons/cake.svg",
+          icon: images.cake,
         },
         {
           time: day_1.events.party.time,
           title: day_1.events.party.title,
-          icon: "/icons/repeat1.svg",
+          icon: images.repeat1,
         },
                 {
           time: day_1.events.end.time,
           title: day_1.events.end.title,
-          icon: "/icons/end.svg",
+          icon: images.end,
         },
 
       ],
@@ -75,7 +75,7 @@ const ScheduleSection = ({ language }) => {
 
       <div className="absolute top-0 left-0 w-full h-full z-0 opacity-20 pointer-events-none">
         <Image
-          src="/images/background3.png"
+          src={images.background3}
           alt="background"
           fill
           className="object-cover object-top"
@@ -169,7 +169,7 @@ const ScheduleSection = ({ language }) => {
                   </div>
                   <div className="relative w-[140px] h-[140px] md:w-[90px] md:h-[90px] lg:w-[120px] lg:h-[120px]  xl:w-[190px] xl:h-[190px] flex justify-center items-center p-4 xl:p-6">
                     <div className="w-full h-full  absolute  z-[1] bg-white border-4 border-pink rounded-full" />
-                    <img
+                    <Image
                       src={ev.icon}
                       alt={ev.title}
                       className="w-full h-auto z-10 filter-blue"

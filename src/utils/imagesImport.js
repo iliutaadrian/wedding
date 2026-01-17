@@ -36,6 +36,25 @@ import flower1 from "../../public/images/flower1.png";
 import flower2 from "../../public/images/flower2.png";
 import flower3 from "../../public/images/flower3.png";
 import flower4 from "../../public/images/flower4.png";
+import envelope_open from "../../public/images/envelope_open.png";
+import met from "../../public/icons/met.svg";
+import engaged from "../../public/icons/engaged.svg";
+import marry from "../../public/icons/marry.svg";
+import background3 from "../../public/images/background3.png";
+import ceremony from "../../public/icons/ceremony.svg";
+import dinner from "../../public/icons/dinner.svg";
+import dance from "../../public/icons/dance.svg";
+import cake from "../../public/icons/cake.svg";
+import repeat1 from "../../public/icons/repeat1.svg";
+import end from "../../public/icons/end.svg";
+import parents from "../../public/images/parents.png";
+import godparents from "../../public/images/godparents.png";
+import church_info from "../../public/images/church_info.png";
+import venue_info from "../../public/images/venue_info.png";
+import background from "../../public/images/background.png";
+import envelelope_closed from "../../public/images/envelelope_closed.png";
+import waxseal from "../../public/images/waxseal.png";
+import og_image from "../../public/images/og-image.png";
 
 const images = {
   dove,
@@ -76,6 +95,25 @@ const images = {
   flower2,
   flower3,
   flower4,
+  envelope_open,
+  met,
+  engaged,
+  marry,
+  background3,
+  ceremony,
+  dinner,
+  dance,
+  cake,
+  repeat1,
+  end,
+  parents,
+  godparents,
+  church_info,
+  venue_info,
+  background,
+  envelelope_closed,
+  waxseal,
+  og_image,
 };
 
 export default images;
