@@ -134,36 +134,12 @@ const SplashScreen = ({ language }) => {
               <h1 className="sloop-script welcome-names text-black text-5xl md:text-6xl">{him}</h1>
             </motion.div>
 
-            <motion.div
-              style={{ x, y, rotateX, rotateY }}
-              className="relative w-full max-w-[400px] md:max-w-[500px] aspect-[1240/876] drop-shadow-2xl my-4 cursor-pointer"
-              onClick={() => setIsVisible(false)}
-
-            >
-              <Image
-                src={images.envelelope_closed}
-                alt="Envelope"
-                fill
-                priority
-                className="object-contain"
-              />
-              <div className="absolute top-[40%] left-1/2 -translate-x-1/2 w-[22%] aspect-square">
-                <Image
-                  src={images.waxseal}
-                  alt="Wax Seal"
-                  fill
-                  priority
-                  className="object-contain"
-                />
-              </div>
-            </motion.div>
-
             {isClient && countdown && !countdown.message && (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.8 }}
-                className="flex justify-center gap-4 md:gap-8 text-black"
+                className="flex justify-center gap-4 md:gap-8 text-black my-4"
               >
                 <div className="flex flex-col justify-center items-center">
                   <h6 translate="no">{countdown.days}</h6>
@@ -197,6 +173,40 @@ const SplashScreen = ({ language }) => {
                 </div>
               </motion.div>
             )}
+
+            <motion.div
+              style={{ x, y, rotateX, rotateY }}
+              animate={{
+                scale: [1, 1.05, 1],
+              }}
+              transition={{
+                scale: {
+                  duration: 1,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }
+              }}
+              className="relative w-full max-w-[400px] md:max-w-[500px] aspect-[1240/876] drop-shadow-2xl my-4 cursor-pointer"
+              onClick={() => setIsVisible(false)}
+
+            >
+              <Image
+                src={images.envelelope_closed}
+                alt="Envelope"
+                fill
+                priority
+                className="object-contain"
+              />
+              <div className="absolute top-[40%] left-1/2 -translate-x-1/2 w-[22%] aspect-square">
+                <Image
+                  src={images.waxseal}
+                  alt="Wax Seal"
+                  fill
+                  priority
+                  className="object-contain"
+                />
+              </div>
+            </motion.div>
 
             <motion.p
               initial={{ opacity: 0 }}

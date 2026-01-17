@@ -291,7 +291,7 @@ const MusicSection = ({ language }) => {
         {isFocused && results.length > 0 && (
           <div
             ref={resultsRef}
-            className="absolute top-[380px] max-w-[500px] max-h-[400px] w-full bg-slate-50 rounded-lg mt-1 py-3 px-4 overflow-auto z-50 shadow-xl"
+            className="absolute top-[380px] max-w-[500px] max-h-[500px] w-full bg-slate-50 rounded-lg mt-1 py-3 px-4 overflow-auto z-50 shadow-xl"
           >
             <p
               translate="no"
