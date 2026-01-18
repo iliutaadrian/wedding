@@ -188,7 +188,7 @@ const translations = {
     schedule_section: {
       title: {
         main: "Programul",
-        sub: "Nunții",
+        sub: "Evenimentului",
       },
       description:
         "Petrecerea va începe Sâmbătă, 2 Mai, și se va încheia Duminică, 3 Mai 2026.",
@@ -232,7 +232,7 @@ const translations = {
     info_section: {
       title: {
         main: "Detaliile",
-        sub: "Nunții",
+        sub: "Evenimentului",
       },
       people: {
         parents: {

@@ -66,11 +66,7 @@ const RSVPSection = ({ language }) => {
           translate="no"
           className="absolute left-1/2 transform -translate-x-1/2 z-20 transition-transform text-5xl text-pink"
         >
-          {top_title.split("").map((char, index) => (
-            <motion.span key={index} variants={letterVariants}>
-              {char}
-            </motion.span>
-          ))}
+          {top_title}
         </motion.h1>
         <div className="overlay z-0 "></div>
       </div>
@@ -98,13 +94,9 @@ const RSVPSection = ({ language }) => {
           variants={containerVariants}
           viewport={{ once: true, amount: 0.4 }}
           translate="no"
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 transition-transform text-4xl text-pink w-full"
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 transition-transform text-4xl text-pink w-3/4"
         >
-          {top_title.split("").map((char, index) => (
-            <motion.span key={index} variants={letterVariants}>
-              {char}
-            </motion.span>
-          ))}
+          {top_title}
         </motion.h1>
         <div className="overlay z-0"></div>
       </div>

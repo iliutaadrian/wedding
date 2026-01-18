@@ -84,7 +84,7 @@ const FlyingBirds = () => {
 
   useEffect(() => {
     // Generate birds only on client side
-    const count = 7; // Increased count to cover the screen better
+    const count = 5; // Increased count to cover the screen better
     const newBirds = [];
 
     for (let i = 0; i < count; i++) {

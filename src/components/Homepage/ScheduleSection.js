@@ -42,11 +42,6 @@ const ScheduleSection = ({ language }) => {
           icon: images.dance,
         },
         {
-          time: day_1.events.cake_cutting.time,
-          title: day_1.events.cake_cutting.title,
-          icon: images.cake,
-        },
-        {
           time: day_1.events.party.time,
           title: day_1.events.party.title,
           icon: images.repeat1,
