@@ -36,6 +36,7 @@ import flower1 from "../../public/images/flower1.png";
 import flower2 from "../../public/images/flower2.png";
 import flower3 from "../../public/images/flower3.png";
 import flower4 from "../../public/images/flower4.png";
+import flower_border from "../../public/images/flower_border.png";
 import envelope_open from "../../public/images/envelope_open.png";
 import met from "../../public/icons/met.svg";
 import engaged from "../../public/icons/engaged.svg";
@@ -99,6 +100,7 @@ const images = {
   flower2,
   flower3,
   flower4,
+  flower_border,
   envelope_open,
   met,
   engaged,

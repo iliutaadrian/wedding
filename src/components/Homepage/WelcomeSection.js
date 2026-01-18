@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import translations from "@/utils/translations";
 import Image from "next/image";
 import { getCountdown } from "@/utils/countdownHelper";
-import { Link as ScrollLink } from "react-scroll";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import images from "@/utils/imagesImport";
 
@@ -31,6 +31,8 @@ const WelcomeSection = ({ language }) => {
     place,
     click_details,
   } = translations[language].welcome_section;
+
+  const { events } = translations[language].info_section;
 
   const dashedLine = Array(5)
     .fill()
@@ -60,7 +62,7 @@ const WelcomeSection = ({ language }) => {
 
   const flowerDecorations = [
     { id: 1, src: images.flower2, top: '3%', left: '3%', rotate: -15, width: 250, delay: 0.5 },
-    { id: 2, src: images.flower2, top: '70%', right: '5%', rotate: 10, width: 200, delay: 0.7 },
+    { id: 2, src: images.flower2, top: '65%', right: '0%', rotate: 10, width: 200, delay: 0.7 },
     { id: 4, src: images.flower1, top: '15%', right: '15%', rotate: 20, width: 150, opacity: 0.8, delay: 1.1 },
     { id: 5, src: images.flower4, top: '40%', left: '2%', rotate: -25, width: 160, delay: 0.8 },
   ];
@@ -179,10 +181,9 @@ const WelcomeSection = ({ language }) => {
         </motion.p>
 
         <div className="flex flex-col md:flex-row gap-6 mt-10">
-          <ScrollLink
-            to="schedule-section"
-            smooth={true}
-            duration={500}
+          <Link
+            href="https://www.google.com/maps/search/?api=1&query=Biserica+Sfantul+Nicolae+Domnesc+Iasi"
+            target="_blank"
             className="cursor-pointer"
           >
             <motion.div
@@ -209,18 +210,21 @@ const WelcomeSection = ({ language }) => {
                 />
               </div>
               <div className="absolute bottom-0 left-0 right-0 z-30 text-center px-2">
-                <p className="text-xl text-black leading-none">Biserica Sfantul Nicolae Domnesc</p>
-                <p className="text-sm uppercase tracking-tighter text-gray-500 mt-1">
-                  {click_details}
-                </p>
+                <p className="text-xl text-black leading-none">{events.church.location}</p>
+                <div className="flex justify-center items-baseline gap-2 mt-1">
+                   <p className="text-base text-gray-600 font-semibold">{events.church.time}</p>
+                   <span className="text-gray-400">|</span>
+                   <p className="text-sm uppercase tracking-tighter text-gray-500">
+                    {click_details}
+                  </p>
+                </div>
               </div>
             </motion.div>
-          </ScrollLink>
+          </Link>
 
-          <ScrollLink
-            to="info-section"
-            smooth={true}
-            duration={500}
+          <Link
+            href="https://www.google.com/maps/search/?api=1&query=Restaurant+Kalipso+Sala+Alma+Iasi"
+            target="_blank"
             className="cursor-pointer"
           >
             <motion.div
@@ -248,13 +252,17 @@ const WelcomeSection = ({ language }) => {
                 />
               </div>
               <div className="absolute bottom-0 left-0 right-0 z-30 text-center px-2">
-                <p className="text-xl text-black leading-none">Restaurant Kalipso</p>
-                <p className="text-sm uppercase tracking-tighter text-gray-500">
-                  {click_details}
-                </p>
+                <p className="text-xl text-black leading-none">{events.venue.location}</p>
+                <div className="flex justify-center items-baseline gap-2 mt-1">
+                   <p className="text-base text-gray-600 font-semibold">{events.venue.time}</p>
+                   <span className="text-gray-400">|</span>
+                   <p className="text-sm uppercase tracking-tighter text-gray-500">
+                    {click_details}
+                  </p>
+                </div>
               </div>
             </motion.div>
-          </ScrollLink>
+          </Link>
         </div>
       </div>
     </section>

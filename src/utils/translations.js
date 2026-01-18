@@ -24,7 +24,7 @@ const translations = {
       title_cursive: "The Date",
       date: "2nd of May 2026",
       place: "Iasi, Romania",
-      click_details: "Click for details",
+      click_details: "Click for location",
     },
     our_story_section: {
       title: "Our",
@@ -99,13 +99,13 @@ const translations = {
       events: {
         church: {
           title: "Church",
-          location: 'Biserica "Sfântul Nicolae Domnesc"',
+          location: 'Biserica "Sf. Nicolae Domnesc"',
           time: "4:00 PM",
           button: "See Location",
         },
         venue: {
           title: "Venue",
-          location: 'Restaurant Kalipso Sala "Alma"',
+          location: 'Restaurant Kalipso, Sala "Alma"',
           time: "7:00 PM",
           button: "See Location",
         },

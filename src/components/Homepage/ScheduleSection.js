@@ -152,7 +152,7 @@ const ScheduleSection = ({ language }) => {
 
                       <p
                         translate="no"
-                        className={`text-blue max-md:mb-4 leading-5 ${
+                        className={`font-semibold text-blue mb-0 leading-5 ${
                           evIndex % 2 === 0 ? "md:text-right" : "md:text-left"
                         }`}
                       >
@@ -167,13 +167,22 @@ const ScheduleSection = ({ language }) => {
                       <div className="h-[7px] w-[7px] rounded-full bg-pink"></div>
                     </div>
                   </div>
-                  <div className="relative w-[140px] h-[140px] md:w-[90px] md:h-[90px] lg:w-[120px] lg:h-[120px]  xl:w-[190px] xl:h-[190px] flex justify-center items-center p-4 xl:p-6">
-                    <div className="w-full h-full  absolute  z-[1] bg-white border-4 border-pink rounded-full" />
-                    <Image
-                      src={ev.icon}
-                      alt={ev.title}
-                      className="w-full h-auto z-10 filter-blue"
-                    />
+                  <div className="relative w-[140px] h-[140px] md:w-[90px] md:h-[90px] lg:w-[120px] lg:h-[120px] xl:w-[190px] xl:h-[190px] flex justify-center items-center p-8 xl:p-12 bg-white rounded-full">
+                    <div className="w-full h-full absolute z-[1]">
+                      <Image
+                        src={images.flower_border}
+                        alt="flower border"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                    <div className="relative z-10 bg-white rounded-full p-2 flex justify-center items-center">
+                       <Image
+                        src={ev.icon}
+                        alt={ev.title}
+                        className="w-full h-auto filter-blue"
+                      />
+                    </div>
                   </div>
 
                   <div
@@ -183,7 +192,7 @@ const ScheduleSection = ({ language }) => {
                   >
                     <p
                       translate="no"
-                      className={`font-semibold text-blue text-2xl ${
+                      className={`text-blue text-2xl ${
                         evIndex % 2 !== 0 ? "text-right mr-4" : "text-left ml-4"
                       } m-0`}
                     >
