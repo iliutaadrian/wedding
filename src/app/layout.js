@@ -8,10 +8,10 @@ const inter = Inter({ subsets: ["latin"] });
 // Metadata configuration (nice for social sharing)
 export const metadata = {
   title: "Smaranda & Iliuta",
-  description: "Sunteți invitați la nunta noastră!",
+  description: "Avem plăcearea de a vă invita la nunta noastră!",
   openGraph: {
     title: "Smaranda & Iliuta",
-    description: "Sunteți invitați la nunta noastră!",
+    description: "Avem plăcearea de a vă invita la nunta noastră!",
     url: "https://wedding.iliutaadrian.com/",
     siteName: "Smaranda & Iliuta",
     images: [

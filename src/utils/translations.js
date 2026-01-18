@@ -170,7 +170,7 @@ const translations = {
     welcome_section: {
       title: "S&I",
       title_cursive: "02 Mai 2026",
-      date: "Va invitam la celebrarea casatoriei noastre!",
+      date: "Vă invităm la celebrarea căsătoriei noastre!",
       place: "Iași, România",
       click_details: "Click pentru locație",
     },
@@ -188,7 +188,7 @@ const translations = {
     schedule_section: {
       title: {
         main: "Programul",
-        sub: "Nuntii",
+        sub: "Nunții",
       },
       description:
         "Petrecerea va începe Sâmbătă, 2 Mai, și se va încheia Duminică, 3 Mai 2026.",
@@ -196,11 +196,11 @@ const translations = {
         events: {
           ceremony: {
             time: "16:00",
-            title: "Ceremonia religioasa",
+            title: "Ceremonia religioasă",
           },
           dinner: {
             time: "19:00",
-            title: "Inceputul petrecerii",
+            title: "Începutul petrecerii",
           },
           dance: {
             time: "20:30",
@@ -232,12 +232,12 @@ const translations = {
     info_section: {
       title: {
         main: "Detaliile",
-        sub: "Nuntii",
+        sub: "Nunții",
       },
       people: {
         parents: {
           title: "Părinți",
-          names: ["Anisoara & Neculai Balcan", "Mirela & Cristian Podoleanu"],
+          names: ["Anișoara & Neculai Balcan", "Mirela & Cristian Podoleanu"],
         },
         godparents: {
           title: "Nași",
@@ -263,12 +263,12 @@ const translations = {
       },
     },
     rsvp_section: {
-      top_title: "Confima Prezenta",
-      title: { main: "Hai sa petrecem", sub: "Impreuna" },
+      top_title: "Confirmă Prezența",
+      title: { main: "Hai să petrecem", sub: "Împreună" },
       confirmation_text: "Te rugăm să confirmi prezența până la data de",
       confirmation_date: "2 Aprilie 2026",
       description:
-        "Lasa-ne un mesaj dacă ai cerințe speciale, restricții alimentare sau dacă există altceva ce dorești să discutăm. Vrem să ne asigurăm că toată lumea se simte bine și se distrează!",
+        "Lasă-ne un mesaj dacă ai cerințe speciale, restricții alimentare sau dacă există altceva ce dorești să discutăm. Vrem să ne asigurăm că toată lumea se simte bine și se distrează!",
       contact_message: "Te rugăm să ne contactezi prin WhatsApp sau orice altă platformă socială la:",
       phone_him: "0751 929 003",
       phone_her: "0758 080 874",
