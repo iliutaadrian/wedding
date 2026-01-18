@@ -31,7 +31,7 @@ const MusicSection = ({ language }) => {
   const videoRef = useRef(null); // Reference for the background video element
   const containerRef = useRef(null); // Reference for the search input container
   const resultsRef = useRef(null); // Reference for the search results container
-  
+
   const [videoError, setVideoError] = useState(false); // State to handle errors in the video element
   const [query, setQuery] = useState(""); // State for storing the current search query
   const [results, setResults] = useState([]); // State for storing search results from API
@@ -147,11 +147,11 @@ const MusicSection = ({ language }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ 
-            trackUri: track.id,
-            trackName: track.name,
-            artist: track.artist,
-            image: track.image // Sending image too, even if backend ignores it for now
+        body: JSON.stringify({
+          trackUri: track.id,
+          trackName: track.name,
+          artist: track.artist,
+          image: track.image // Sending image too, even if backend ignores it for now
         }),
       });
 
@@ -164,13 +164,13 @@ const MusicSection = ({ language }) => {
           title: toast_success.title,
           description: toast_success.description,
         });
-        
+
         // Add to local playlist state
         setPlaylist(prev => [{
-            id: track.id,
-            name: track.name,
-            artist: track.artist,
-            image: track.image
+          id: track.id,
+          name: track.name,
+          artist: track.artist,
+          image: track.image
         }, ...prev]);
 
       } else {
@@ -189,7 +189,7 @@ const MusicSection = ({ language }) => {
         description: toast_error.description,
       });
     } finally {
-        setIsAddingTrack(false);
+      setIsAddingTrack(false);
     }
   };
 
@@ -214,18 +214,15 @@ const MusicSection = ({ language }) => {
         whileInView="visible"
         variants={primaryVariants}
         viewport={{ once: true, amount: 0.2 }}
-        className="relative w-full h-full z-20 flex flex-col justify-start items-center px-4 md:px-12 pb-12 pt-32 md:pt-48"
+        className="relative w-full h-full z-20 flex flex-col justify-start items-center px-4 md:px-12 pb-12 pt-10 md:pt-20"
       >
-        <div className="flex justify-center items-start">
-          <h3
-            translate="no"
-            className=" sm:text-7xl font-bold z-20  -mr-5 sm:-mr-8 text-white"
-          >
+        <div className="text-white flex flex-col justify-center items-center">
+          <h3 translate="no" className=" font-bold z-20 ">
             {title.main}
           </h3>
           <h3
             translate="no"
-            className="text-pink text-6xl sm:text-9xl alex-brush z-10 transform font-light"
+            className="text-pink text-6xl sm:text-8xl alex-brush z-10 transform font-light -mt-8 md:-mt-10"
           >
             {title.sub}
           </h3>
@@ -245,9 +242,8 @@ const MusicSection = ({ language }) => {
             width={95}
             height={95}
             quality={100}
-            className={`w-[35px] h-auto ${
-              musicSpin ? "animate-spin-music" : ""
-            }`}
+            className={`w-[35px] h-auto ${musicSpin ? "animate-spin-music" : ""
+              }`}
           />
           <Input
             translate="no"
@@ -308,12 +304,12 @@ const MusicSection = ({ language }) => {
                   <div className="flex items-center gap-2 overflow-hidden">
                     <img src={track.image} alt={track.name} className="w-10 h-10 object-cover rounded" />
                     <div className="flex flex-col">
-                        <p translate="no" className="text-left font-semibold truncate text-sm max-w-[200px]">
+                      <p translate="no" className="text-left font-semibold truncate text-sm max-w-[200px]">
                         {track.name}
-                        </p>
-                        <p translate="no" className="text-left text-xs text-gray-500 truncate max-w-[200px]">
+                      </p>
+                      <p translate="no" className="text-left text-xs text-gray-500 truncate max-w-[200px]">
                         {track.artist}
-                        </p>
+                      </p>
                     </div>
                   </div>
                   <div className="relative mb-3 flex justify-start items-center shrink-0">
@@ -334,9 +330,8 @@ const MusicSection = ({ language }) => {
                     >
                       <IoIosAddCircle
                         size={35}
-                        className={`${
-                          isAddingTrack ? "text-green-300" : "text-green-500"
-                        }`}
+                        className={`${isAddingTrack ? "text-green-300" : "text-green-500"
+                          }`}
                       />
                     </button>
                   </div>
@@ -348,37 +343,37 @@ const MusicSection = ({ language }) => {
 
         {/* Display Community Playlist */}
         <div className="max-w-[500px] w-full mt-8 bg-white/10 backdrop-blur-sm rounded-xl p-4 overflow-hidden flex flex-col flex-1 min-h-0 mb-4">
-             <h4 className="text-white text-lg font-bold mb-2 text-left sticky top-0">Our Playlist ({playlist.length})</h4>
-             <div className="overflow-y-auto pr-2 custom-scrollbar flex-1">
-                 <ul className="w-full flex flex-col gap-2">
-                    {playlist.map((track, index) => (
-                        <li key={`${track.id}-${index}`} className="w-full flex justify-between items-center bg-white/80 rounded-lg p-2 gap-2">
-                             <div className="flex items-center gap-2 overflow-hidden">
-                                {track.image && <img src={track.image} alt={track.name} className="w-10 h-10 object-cover rounded" />}
-                                <div className="flex flex-col">
-                                    <p translate="no" className="text-left font-semibold text-sm leading-tight line-clamp-1 text-black">
-                                    {track.name}
-                                    </p>
-                                    <p translate="no" className="text-left text-xs text-gray-600 truncate max-w-[200px]">
-                                    {track.artist}
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="flex items-center">
-                                <button
-                                  className="flex justify-center items-center p-2"
-                                  onClick={() => handlePlayPreview(track)}
-                                >
-                                    <IoPlay size={22} className="text-blue" />
-                                </button>
-                            </div>
-                        </li>
-                    ))}
-                    {playlist.length === 0 && (
-                        <p className="text-white/70 italic text-sm">No songs added yet. Be the first!</p>
-                    )}
-                 </ul>
-             </div>
+          <h4 className="text-white text-lg font-bold mb-2 text-left sticky top-0">Our Playlist ({playlist.length})</h4>
+          <div className="overflow-y-auto pr-2 custom-scrollbar flex-1">
+            <ul className="w-full flex flex-col gap-2">
+              {playlist.map((track, index) => (
+                <li key={`${track.id}-${index}`} className="w-full flex justify-between items-center bg-white/80 rounded-lg p-2 gap-2">
+                  <div className="flex items-center gap-2 overflow-hidden">
+                    {track.image && <img src={track.image} alt={track.name} className="w-10 h-10 object-cover rounded" />}
+                    <div className="flex flex-col">
+                      <p translate="no" className="text-left font-semibold text-sm leading-tight line-clamp-1 text-black">
+                        {track.name}
+                      </p>
+                      <p translate="no" className="text-left text-xs text-gray-600 truncate max-w-[200px]">
+                        {track.artist}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center">
+                    <button
+                      className="flex justify-center items-center p-2"
+                      onClick={() => handlePlayPreview(track)}
+                    >
+                      <IoPlay size={22} className="text-blue" />
+                    </button>
+                  </div>
+                </li>
+              ))}
+              {playlist.length === 0 && (
+                <p className="text-white/70 italic text-sm">No songs added yet. Be the first!</p>
+              )}
+            </ul>
+          </div>
         </div>
 
       </motion.div>
@@ -393,9 +388,8 @@ const MusicSection = ({ language }) => {
           muted
           loop
           playsInline
-          className={`absolute inset-0 w-full h-full object-cover object-center opacity-40 md:opacity-20 mix-blend-screen z-0 ${
-            musicSpin ? "animate-pulse duration-1000" : ""
-          }`}
+          className={`absolute inset-0 w-full h-full object-cover object-center opacity-40 md:opacity-20 mix-blend-screen z-0 ${musicSpin ? "animate-pulse duration-1000" : ""
+            }`}
           onError={() => setVideoError(true)}
           aria-hidden="true"
         >
@@ -409,15 +403,15 @@ const MusicSection = ({ language }) => {
           {playingTrack && (
             <>
               <DialogHeader className="p-4 bg-black/50 text-white absolute top-0 w-full z-10">
-                 <DialogTitle className="truncate pr-8">{playingTrack.name}</DialogTitle>
+                <DialogTitle className="truncate pr-8">{playingTrack.name}</DialogTitle>
               </DialogHeader>
               <div className="relative pt-[56.25%] w-full">
                 <iframe
-                    src={`https://www.youtube.com/embed/${playingTrack.id}?autoplay=1`}
-                    className="absolute top-0 left-0 w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    title={playingTrack.name}
+                  src={`https://www.youtube.com/embed/${playingTrack.id}?autoplay=1`}
+                  className="absolute top-0 left-0 w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title={playingTrack.name}
                 />
               </div>
             </>

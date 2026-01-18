@@ -12,7 +12,7 @@ import {
 } from "@/components";
 
 export default function Home() {
-  const [language, setLanguage] = useState("en"); // Set default Language
+  const [language, setLanguage] = useState("ro"); // Set default Language
 
   // Scroll to top on page load
   useEffect(() => {

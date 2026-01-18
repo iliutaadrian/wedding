@@ -53,7 +53,7 @@ const RSVPSection = ({ language }) => {
     >
       {/* Top section */}
       <div
-        className="max-md:hidden relative w-full h-[500px] brightness-95 bg-cover bg-center bg-no-repeat md:bg-fixed flex justify-center items-center overflow-hidden"
+        className="max-md:hidden relative w-full h-[500px] bg-cover bg-center bg-no-repeat md:bg-fixed flex justify-center items-center overflow-hidden"
         style={{
           backgroundImage: `url(${images.collage.src})`,
         }}
@@ -64,7 +64,7 @@ const RSVPSection = ({ language }) => {
           variants={containerVariants}
           viewport={{ once: true, amount: 0.4 }}
           translate="no"
-          className="absolute left-1/2 transform -translate-x-1/2 z-20 transition-transform text-9xl text-pink"
+          className="absolute left-1/2 transform -translate-x-1/2 z-20 transition-transform text-5xl text-pink"
         >
           {top_title.split("").map((char, index) => (
             <motion.span key={index} variants={letterVariants}>
@@ -72,7 +72,7 @@ const RSVPSection = ({ language }) => {
             </motion.span>
           ))}
         </motion.h1>
-        <div className="overlay z-0"></div>
+        <div className="overlay z-0 "></div>
       </div>
 
       {/* Top section - Mobile */}
@@ -143,7 +143,7 @@ const RSVPSection = ({ language }) => {
 
         {/* left part*/}
         <div className="w-full lg:w-1/2 flex justify-start lg:justify-end z-10">
-          <div className="flex flex-col items-start relative w-full max-w-full lg:max-w-lg text-left gap-0 lg:gap-6">
+          <div className="flex flex-col items-start relative w-full max-w-full sm:max-w-2xl text-left gap-0 lg:gap-6">
             <div className="flex flex-col items-start max-sm:w-full max-sm:items-center">
               <Image
                 src={images.waxseal}

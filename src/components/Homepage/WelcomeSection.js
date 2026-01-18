@@ -146,30 +146,30 @@ const WelcomeSection = ({ language }) => {
           whileInView="visible"
           variants={secondaryVariants}
           viewport={{ once: true, amount: 0.2 }}
-          className="flex flex-col justify-center items-center -mt-40"
+          className="flex flex-col justify-center items-center md:-mt-52 -mt-40"
         >
-          <h3 translate="no" className=" font-bold z-20 ">
+          <h3 translate="no" className=" font-bold z-10 opacity-30 alex-brush">
             {title}
           </h3>
           <h3
             translate="no"
-            className="text-pink text-6xl sm:text-8xl alex-brush z-10 transform font-light -mt-8 md:-mt-10 md:-mb-3"
+            className="text-pink text-5xl sm:text-6xl alex-brush z-10 transform font-light"
           >
             {title_cursive}
           </h3>
         </motion.div>
 
         {dashedLine}
-        <motion.h1
+        <motion.h3
           initial="hidden"
           whileInView="visible"
           variants={primaryVariants}
           viewport={{ once: true, amount: 0.2 }}
           translate="no"
-          className="sloop-script tracking-wider text-black mt-1"
+          className="italic tracking-wider text-black mt-1"
         >
           {date}
-        </motion.h1>
+        </motion.h3>
         <motion.p
           initial="hidden"
           whileInView="visible"
@@ -180,7 +180,7 @@ const WelcomeSection = ({ language }) => {
           {place}
         </motion.p>
 
-        <div className="flex flex-col md:flex-row gap-6 mt-10">
+        <div className="flex flex-col md:flex-row gap-20 mt-10">
           <Link
             href="https://www.google.com/maps/search/?api=1&query=Biserica+Sfantul+Nicolae+Domnesc+Iasi"
             target="_blank"

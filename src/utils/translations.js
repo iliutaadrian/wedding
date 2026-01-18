@@ -147,6 +147,154 @@ const translations = {
       button: "Go Back",
     },
   },
+  ro: {
+    couple: {
+      her: "Smaranda",
+      him: "Iliuță",
+    },
+    splash_screen: {
+      open: "APASĂ PENTRU A DESCHIDE",
+    },
+    splash_section: {
+      small_text: "",
+      days: "Zile",
+      day: "Zi",
+      hours: "Ore",
+      hour: "Oră",
+      minutes: "Minute",
+      minute: "Minut",
+      seconds: "Secunde",
+      second: "Secundă",
+      button: "Salvează Data",
+    },
+    welcome_section: {
+      title: "S&I",
+      title_cursive: "02 Mai 2026",
+      date: "Va invitam la celebrarea casatoriei noastre!",
+      place: "Iași, România",
+      click_details: "Click pentru locație",
+    },
+    our_story_section: {
+      title: "Povestea",
+      title_cursive: "Noastră",
+      date: "2 Mai 2026",
+      place: "Iași, România",
+      story_1: "Ne-am Cunoscut",
+      story_2: "Am Devenit Un Cuplu",
+      story_3: "Ne-am Logodit",
+      story_4_future: "Ne Vom Căsători",
+      story_4_past: "Ne-am Căsătorit",
+    },
+    schedule_section: {
+      title: {
+        main: "Programul",
+        sub: "Nuntii",
+      },
+      description:
+        "Petrecerea va începe Sâmbătă, 2 Mai, și se va încheia Duminică, 3 Mai 2026.",
+      day_1: {
+        events: {
+          ceremony: {
+            time: "16:00",
+            title: "Ceremonia religioasa",
+          },
+          dinner: {
+            time: "19:00",
+            title: "Inceputul petrecerii",
+          },
+          dance: {
+            time: "20:30",
+            title: "Dansul Mirilor",
+          },
+          cake_cutting: {
+            time: "00:00",
+            title: "Tăierea Tortului",
+          },
+          games: {
+            time: "00:30",
+            title: "Jocuri",
+          },
+          party: {
+            time: "Toată Noaptea",
+            title: "Mâncare, Băutură, Dans și Voie Bună!",
+          },
+          party_continues: {
+            time: "Toată Ziua",
+            title: "Mâncare, Băutură, Dans și Voie Bună!",
+          },
+          end: {
+            time: "04:00",
+            title: "Sfârșitul",
+          },
+        },
+      },
+    },
+    info_section: {
+      title: {
+        main: "Detaliile",
+        sub: "Nuntii",
+      },
+      people: {
+        parents: {
+          title: "Părinți",
+          names: ["Anisoara & Neculai Balcan", "Mirela & Cristian Podoleanu"],
+        },
+        godparents: {
+          title: "Nași",
+          names: ["Alice & Andrei Iacob", "Diana & Ionuț Despina"],
+        },
+      },
+      events: {
+        church: {
+          title: "Biserica",
+          location: 'Biserica "Sf. Nicolae Domnesc"',
+          time: "16:00",
+          button: "Vezi Locația",
+        },
+        venue: {
+          title: "Locația",
+          location: 'Restaurant Kalipso, Sala "Alma"',
+          time: "19:00",
+          button: "Vezi Locația",
+        },
+      },
+      contact: {
+        title: "Contactează-ne",
+      },
+    },
+    rsvp_section: {
+      top_title: "Confima Prezenta",
+      title: { main: "Hai sa petrecem", sub: "Impreuna" },
+      confirmation_text: "Te rugăm să confirmi prezența până la data de",
+      confirmation_date: "2 Aprilie 2026",
+      description:
+        "Lasa-ne un mesaj dacă ai cerințe speciale, restricții alimentare sau dacă există altceva ce dorești să discutăm. Vrem să ne asigurăm că toată lumea se simte bine și se distrează!",
+      contact_message: "Te rugăm să ne contactezi prin WhatsApp sau orice altă platformă socială la:",
+      phone_him: "0751 929 003",
+      phone_her: "0758 080 874",
+    },
+    music_section: {
+      title: { main: "PLAYLIST-UL", sub: "Nostru" },
+      description:
+        "Adaugă melodiile tale preferate în playlist-ul nostru și ajută-ne să creăm atmosfera perfectă pentru nuntă!",
+      placeholder: "Introdu numele melodiei",
+      small_note:
+        "* Unele melodii nu pot fi redate aici, dar le poți adăuga totuși în playlist.",
+      toast_success: {
+        title: "Melodia a fost adăugată în playlist",
+        description: "Dorești să mai adaugi o melodie?",
+      },
+      toast_error: {
+        title: "Nu s-a putut adăuga melodia",
+        description:
+          "Ne pare rău, dar a apărut o eroare. Te rugăm să încerci din nou mai târziu.",
+      },
+    },
+    not_found: {
+      message: "Pagina pe care o cauți nu există.",
+      button: "Înapoi",
+    },
+  },
 };
 
 export default translations;

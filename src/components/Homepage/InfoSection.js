@@ -57,9 +57,6 @@ const InfoSection = ({ language }) => {
       <div className="absolute top-0 left-0 z-10 pointer-events-none opacity-80">
         <Image src={images.flower3} alt="flower decoration" width={200} height={200} className="w-32 md:w-56 -translate-x-10 -translate-y-10 rotate-180" />
       </div>
-      <div className="absolute top-0 right-0 z-10 pointer-events-none opacity-80">
-        <Image src={images.flower4} alt="flower decoration" width={200} height={200} className="w-32 md:w-56 translate-x-10 -translate-y-10 -rotate-90" />
-      </div>
        <div className="absolute bottom-0 left-0 z-10 pointer-events-none opacity-80">
         <Image src={images.flower1} alt="flower decoration" width={200} height={200} className="w-32 md:w-56 -translate-x-10 translate-y-10 -rotate-12" />
       </div>
@@ -88,7 +85,7 @@ const InfoSection = ({ language }) => {
         whileInView="visible"
         variants={primaryVariants}
         viewport={{ once: true, amount: 0.2 }}
-        className="w-full flex flex-col items-center px-4 z-20 mb-6 md:mb-12"
+        className="w-full flex flex-col items-center px-4 z-10"
       >
         <Image
           src={images.bell}
@@ -96,15 +93,15 @@ const InfoSection = ({ language }) => {
           width={95}
           height={95}
           quality={100}
-          className="w-[60px] md:w-[95px] h-auto brightness-95 filter-pink"
+          className="w-[95px] h-auto brightness-95 filter-pink"
         />
-        <div className="flex flex-col md:flex-row justify-center items-center text-center">
-          <h3 translate="no" className="font-bold uppercase tracking-widest text-base md:text-xl mb-1 md:mb-0 md:mr-4">
+        <div className="flex flex-col justify-center items-center">
+          <h3 translate="no" className="text-blue font-bold z-20 ">
             {title.main}
           </h3>
           <h3
-             translate="no"
-            className="text-pink text-5xl sm:text-7xl md:text-8xl alex-brush z-10 transform font-light"
+            translate="no"
+            className="text-pink text-6xl sm:text-8xl alex-brush z-10 transform font-light -mt-8 md:-mt-10"
           >
             {title.sub}
           </h3>

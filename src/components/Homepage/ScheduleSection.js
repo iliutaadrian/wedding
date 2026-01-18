@@ -51,12 +51,6 @@ const ScheduleSection = ({ language }) => {
           title: day_1.events.party.title,
           icon: images.repeat1,
         },
-                {
-          time: day_1.events.end.time,
-          title: day_1.events.end.title,
-          icon: images.end,
-        },
-
       ],
     },
   ];
