@@ -156,7 +156,7 @@ const translations = {
       open: "APASĂ PENTRU A DESCHIDE",
     },
     splash_section: {
-      small_text: "",
+      small_text: "   ",
       days: "Zile",
       day: "Zi",
       hours: "Ore",

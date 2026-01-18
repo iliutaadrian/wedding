@@ -9,6 +9,7 @@ import {
   InfoSection,
   RSVPSection,
   MusicSection,
+  FlyingBirds,
 } from "@/components";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
 
   return (
     <main className={`relative w-full h-full`}>
+      <FlyingBirds />
       <SplashScreen language={language} />
 
       {/* Welcome Section */}

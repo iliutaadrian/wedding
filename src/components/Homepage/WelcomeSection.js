@@ -61,9 +61,9 @@ const WelcomeSection = ({ language }) => {
   const { her, him } = translations[language].couple;
 
   const flowerDecorations = [
-    { id: 1, src: images.flower2, top: '3%', left: '3%', rotate: -15, width: 250, delay: 0.5 },
+    { id: 1, src: images.flower2, top: '3%', left: '3%', rotate: -15, width: 250, opacity: 1, delay: 0.4 },
     { id: 2, src: images.flower2, top: '65%', right: '0%', rotate: 10, width: 200, delay: 0.7 },
-    { id: 4, src: images.flower1, top: '15%', right: '15%', rotate: 20, width: 150, opacity: 0.8, delay: 1.1 },
+    { id: 4, src: images.flower1, top: '5%', right: '0%', rotate: 20, width: 150, opacity: 0.4, delay: 1.1 },
     { id: 5, src: images.flower4, top: '40%', left: '2%', rotate: -25, width: 160, delay: 0.8 },
   ];
 
@@ -153,7 +153,7 @@ const WelcomeSection = ({ language }) => {
           </h3>
           <h3
             translate="no"
-            className="text-pink text-5xl sm:text-6xl alex-brush z-10 transform font-light"
+            className="text-pink text-4xl sm:text-6xl alex-brush z-10 transform font-light"
           >
             {title_cursive}
           </h3>
