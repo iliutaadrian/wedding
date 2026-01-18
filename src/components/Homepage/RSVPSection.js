@@ -76,7 +76,7 @@ const RSVPSection = ({ language }) => {
       </div>
 
       {/* Top section - Mobile */}
-      <div className="md:hidden relative w-full h-[500px] overflow-hidden">
+      <div className="md:hidden relative w-full h-[350px] overflow-hidden">
         <motion.div
           ref={ref}
           className="absolute w-full h-full"
@@ -98,7 +98,7 @@ const RSVPSection = ({ language }) => {
           variants={containerVariants}
           viewport={{ once: true, amount: 0.4 }}
           translate="no"
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 transition-transform text-3xl text-pink"
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 transition-transform text-4xl text-pink w-full"
         >
           {top_title.split("").map((char, index) => (
             <motion.span key={index} variants={letterVariants}>

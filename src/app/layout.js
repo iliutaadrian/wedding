@@ -16,7 +16,7 @@ export const metadata = {
     siteName: "Smaranda & Iliuta",
     images: [
       {
-        url: "https://wedding.iliutaadrian.com/images/og-image.png",
+        url: "https://wedding.iliutaadrian.com/images/og-image.jpg",
         width: 1200,
         height: 600,
         alt: "Smaranda & Iliuta Wedding Website",

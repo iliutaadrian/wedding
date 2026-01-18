@@ -156,7 +156,7 @@ const translations = {
       open: "APASĂ PENTRU A DESCHIDE",
     },
     splash_section: {
-      small_text: "   ",
+      small_text: "  ",
       days: "Zile",
       day: "Zi",
       hours: "Ore",
@@ -263,8 +263,8 @@ const translations = {
       },
     },
     rsvp_section: {
-      top_title: "Confirmă Prezența",
-      title: { main: "Hai să petrecem", sub: "Împreună" },
+      top_title: "Te alături poveștii noastre?",
+      title: { main: "Hai să petrecem", sub: "impreună!" },
       confirmation_text: "Te rugăm să confirmi prezența până la data de",
       confirmation_date: "2 Aprilie 2026",
       description:

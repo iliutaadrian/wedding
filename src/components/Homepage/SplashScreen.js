@@ -104,7 +104,7 @@ const SplashScreen = ({ language }) => {
             }}
           />
 
-          <div className="relative z-10 flex flex-col items-center justify-center w-full h-full p-4" style={{ perspective: "1000px" }}>
+          <div className="pt-14 relative z-10 flex flex-col items-center justify-center w-full h-full p-4" style={{ perspective: "1000px" }}>
 
             {isClient && countdown && !countdown.message && (
               <motion.p

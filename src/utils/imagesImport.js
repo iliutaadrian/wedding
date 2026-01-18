@@ -55,7 +55,7 @@ import venue_info from "../../public/images/venue_info.png";
 import background from "../../public/images/background.png";
 import envelelope_closed from "../../public/images/envelelope_closed.png";
 import waxseal from "../../public/images/waxseal.png";
-import og_image from "../../public/images/og-image.png";
+import og_image from "../../public/images/og-image.jpg";
 import story_1 from "../../public/images/story_1.jpg";
 import story_2 from "../../public/images/story_2.jpg";
 import story_3 from "../../public/images/story_3.jpg";

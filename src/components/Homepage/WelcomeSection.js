@@ -75,7 +75,7 @@ const WelcomeSection = ({ language }) => {
   return (
     <section
       id="welcome-section"
-      className="min-h-svh w-full relative overflow-hidden flex flex-col justify-center items-center py-32"
+      className="min-h-svh w-full relative overflow-hidden flex flex-col justify-center items-center pt-20 pb-32"
     >
       {flowerDecorations.map(flower => (
         <motion.div
