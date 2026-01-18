@@ -117,12 +117,13 @@ const translations = {
     rsvp_section: {
       top_title: "RSVP",
       title: { main: "Confirm your", sub: "Attendance" },
-      description_1: [
-        { bold: true, text: "Please RSVP by the 26th of May 2025!" },
-        " Simply search for your name on the form and confirm your attendance.",
-      ],
-      description_2:
+      confirmation_text: "The RSVP needs to be confirmed by the",
+      confirmation_date: "2nd of April",
+      description:
         "Please leave us a note if you have any special requests, dietary restrictions, or if there’s anything else you’d like to discuss. We want to make sure everyone is comfortable and has an amazing time!",
+      contact_message: "Please reply via WhatsApp or any other social platform to:",
+      phone_him: "0751 929 003",
+      phone_her: "0758 080 874",
     },
     music_section: {
       title: { main: "OUR", sub: "Playlist" },

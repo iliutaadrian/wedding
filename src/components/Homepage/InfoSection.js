@@ -118,7 +118,7 @@ const InfoSection = ({ language }) => {
         {/* People Section */}
         <div className="w-full flex flex-col md:flex-row justify-center gap-8 md:gap-24">
           {peopleBlocks.map((block, index) => (
-            <div key={index} className="flex flex-col items-center text-center group">
+            <div key={index} className="flex flex-col items-center text-center group md:w-1/3 w-full">
               <div className="relative mb-3 md:mb-6">
                 <Image
                   src={block.image}
@@ -128,7 +128,7 @@ const InfoSection = ({ language }) => {
               </div>
               <h5 className="mb-1 md:mb-3 text-2xl md:text-3xl text-gold italic">{block.title}</h5>
               {block.names &&
-                block.names.map((name, i) => <p key={i} className="text-base md:text-lg font-light tracking-wide mb-0">{name}</p>)}
+                block.names.map((name, i) => <p key={i} className="font-light tracking-wide mb-0">{name}</p>)}
             </div>
           ))}
         </div>
@@ -137,7 +137,7 @@ const InfoSection = ({ language }) => {
         {/* Events Section */}
         <div className="w-full flex flex-col md:flex-row justify-center gap-8 md:gap-24">
           {eventBlocks.map((block, index) => (
-            <div key={index} className="flex flex-col items-center text-center">
+            <div key={index} className="flex flex-col items-center text-center md:w-1/3 w-full">
                <div className="relative mb-3 md:mb-6">
                 <Image
                   src={block.image}
@@ -148,8 +148,8 @@ const InfoSection = ({ language }) => {
                 />
               </div>
               <h5 className="mb-1 md:mb-3 text-2xl md:text-3xl text-gold italic">{block.title}</h5>
-              {block.location && <p className="font-medium text-base md:text-lg max-w-[250px] mb-0 md:mb-1">{block.location}</p>}
-              {block.hour && <p className="text-gray-600 text-sm md:text-base mb-2 md:mb-3">{block.hour}</p>}
+              {block.location && <p className="max-w-[250px] mb-0 md:mb-1">{block.location}</p>}
+              {block.hour && <p className="text-gray-600 mb-2 md:mb-3">{block.hour}</p>}
               {block.mapLink && (
                 <Link
                   href={block.mapLink}

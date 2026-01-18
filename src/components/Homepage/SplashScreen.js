@@ -9,7 +9,7 @@ import translations from "@/utils/translations";
 import { getCountdown } from "@/utils/countdownHelper";
 
 const SplashScreen = ({ language }) => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [countdown, setCountdown] = useState(null);
   const [isClient, setIsClient] = useState(false);
 
@@ -26,7 +26,7 @@ const SplashScreen = ({ language }) => {
     minute,
     seconds,
     second,
-  } = translations[language].welcome_section;
+  } = translations[language].splash_section;
 
   // Mouse move animation
   const mouseX = useMotionValue(0);

@@ -7,9 +7,17 @@ import WhatsappIcon from "@/components/ui/whatsapp-icon";
 
 const RSVPSection = ({ language }) => {
   // Destructure translation strings
-  const { top_title, title, description_1, description_2 } =
-    translations[language].rsvp_section;
-
+  const {
+    top_title,
+    title,
+    description,
+    confirmation_text,
+    confirmation_date,
+    contact_message,
+    phone_him,
+    phone_her,
+  } = translations[language].rsvp_section;
+  const { him, her } = translations[language].couple;
 
   // Variants for framer motion animation
   const containerVariants = {
@@ -102,11 +110,49 @@ const RSVPSection = ({ language }) => {
       </div>
 
       {/* main section */}
-      <div className="w-full py-12 px-4 sm:px-6 xl:px-12 bg-cream flex flex-col lg:flex-row justify-center gap-4 lg:gap-12 xl:gap-44">
+      <div className="w-full py-12 px-4 sm:px-6 xl:px-12 bg-cream flex flex-col lg:flex-row justify-center gap-4 lg:gap-12 xl:gap-44 relative overflow-hidden">
+        {/* Decorative Flowers */}
+        <div className="absolute top-0 left-0 z-0 pointer-events-none opacity-40">
+          <Image
+            src={images.flower3}
+            alt="flower decoration"
+            width={200}
+            height={200}
+            className="w-32 md:w-56 -translate-x-10 -translate-y-10 rotate-180"
+          />
+        </div>
+        <div className="absolute bottom-0 right-0 z-0 pointer-events-none opacity-40">
+          <Image
+            src={images.flower2}
+            alt="flower decoration"
+            width={200}
+            height={200}
+            className="w-32 md:w-56 translate-x-10 translate-y-10 rotate-12"
+          />
+        </div>
+
+        {/* Background Image */}
+        <div className="absolute top-0 left-0 w-full h-full z-0 opacity-10 pointer-events-none">
+          <Image
+            src={images.background}
+            alt="background"
+            fill
+            className="object-cover object-center"
+          />
+        </div>
+
         {/* left part*/}
-        <div className="w-full lg:w-1/2 flex justify-start lg:justify-end">
+        <div className="w-full lg:w-1/2 flex justify-start lg:justify-end z-10">
           <div className="flex flex-col items-start relative w-full max-w-full lg:max-w-lg text-left gap-0 lg:gap-6">
             <div className="flex flex-col items-start max-sm:w-full max-sm:items-center">
+              <Image
+                src={images.waxseal}
+                alt="wax seal"
+                width={80}
+                height={80}
+                quality={100}
+                className="w-[70px] h-auto brightness-95 filter-pink mb-4 opacity-80"
+              />
               <h3 translate="no" className=" font-bold z-20 ml-6 sm:ml-16">
                 {title.main}
               </h3>
@@ -118,41 +164,52 @@ const RSVPSection = ({ language }) => {
               </h3>
             </div>
             <p translate="no" className="text-left">
-              The RSVP needs to be confirmed by the <span className="font-bold">2nd of April</span>.
+              {confirmation_text} <span className="font-bold">{confirmation_date}</span>.
             </p>
             <p translate="no" className="text-left">
-              {description_2}
+              {description}
             </p>
           </div>
         </div>
         {/* right part*/}
-        <div className="w-full lg:w-1/2 flex flex-col justify-start items-start pt-8 lg:pt-20">
-          <div className="w-full lg:max-w-[500px] flex flex-col justify-start items-start">
-            <h5 className="mb-4 md:mb-6 font-serif text-xl md:text-2xl text-gold italic">
-              Please reply via WhatsApp or any other social platform to:
-            </h5>
+        <div className="w-full lg:w-1/2 flex flex-col justify-center  pt-8 lg:pt-0 z-10">
+          <div className="w-full lg:max-w-[600px] flex flex-col justify-center items-center text-center">
+            <p className="mb-4 md:mb-6 italic font-bold">
+              {contact_message}
+            </p>
+
+            <Image
+              src={images.divider}
+              alt="divider"
+              width={200}
+              height={20}
+              className="w-48 h-auto mb-8 opacity-60"
+            />
 
             {/* Contact Detail */}
-            <div className="max-w-[700px] flex flex-col justify-center items-center mt-4 md:mt-8 p-4 md:p-8 bg-white/40 backdrop-blur-sm shadow-sm">
-              <div className="flex flex-row gap-8 sm:gap-16">
-                <p translate="no" className="flex flex-col items-center gap-1">
-                  <span className="font-bold flex items-center text-lg">
-                    Iliuta
-                    <WhatsappIcon className="w-5 h-5 ml-2 text-green-500" />
-                  </span>
-                  <a href="https://wa.me/40751929003" target="_blank" className="hover:text-gold transition-colors">
-                    0751929003
+            <div className="w-full flex flex-col justify-center items-center p-2 md:p-5 bg-white/40 backdrop-blur-sm shadow-sm rounded-xl border border-pink/30">
+              <div className="flex flex-col sm:flex-row gap-10 sm:gap-20">
+                <div translate="no" className="flex flex-col items-center gap-2">
+
+                  <p className="italic font-bold text-blue flex items-center text-2xl">
+                    {him}
+                    <WhatsappIcon className="w-6 h-6 ml-3 text-green-500" />
+
+
+                  </p>
+                  <a href={`https://wa.me/${phone_him.replace(/\s/g, "")}`} target="_blank" className="hover:text-pink transition-colors font-serif font-medium text-lg">
+                    {phone_him}
                   </a>
-                </p>
-                <p translate="no" className="flex flex-col items-center gap-1">
-                  <span className="font-bold flex items-center text-lg">
-                    Smaranda
-                    <WhatsappIcon className="w-5 h-5 ml-2 text-green-500" />
-                  </span>
-                  <a href="https://wa.me/40758080874" target="_blank" className="hover:text-gold transition-colors">
-                    0758080874
+                </div>
+                <div translate="no" className="flex flex-col items-center gap-2">
+                  <p className="italic font-bold text-blue flex items-center text-2xl">
+                    {her}
+                    <WhatsappIcon className="w-6 h-6 ml-3 text-green-500" />
+                  </p>
+                  <a href={`https://wa.me/${phone_her.replace(/\s/g, "")}`} target="_blank" className="hover:text-pink transition-colors font-serif font-medium text-lg">
+                    {phone_her}
                   </a>
-                </p>
+                </div>
               </div>
             </div>
           </div>
