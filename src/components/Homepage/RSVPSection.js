@@ -10,6 +10,7 @@ const RSVPSection = ({ language }) => {
   const { top_title, title, description_1, description_2 } =
     translations[language].rsvp_section;
 
+
   // Variants for framer motion animation
   const containerVariants = {
     hidden: { opacity: 1 },
@@ -128,36 +129,31 @@ const RSVPSection = ({ language }) => {
         <div className="w-full lg:w-1/2 flex flex-col justify-start items-start pt-8 lg:pt-20">
           <div className="w-full lg:max-w-[500px] flex flex-col justify-start items-start">
             <h5 className="mb-4 md:mb-6 font-serif text-xl md:text-2xl text-gold italic">
-               Please reply via WhatsApp or any other social platform to:
+              Please reply via WhatsApp or any other social platform to:
             </h5>
 
-            <div className="flex flex-col gap-6 mt-2">
-              <p translate="no" className="flex flex-col items-start gap-1">
-                <span className="font-bold flex items-center text-lg">
-                  Iliuta
-                  <WhatsappIcon className="w-5 h-5 ml-2 text-green-500" />
-                </span>
-                <a
-                  href="https://wa.me/40751929003"
-                  target="_blank"
-                  className="hover:text-gold transition-colors text-xl"
-                >
-                  0751929003
-                </a>
-              </p>
-              <p translate="no" className="flex flex-col items-start gap-1">
-                <span className="font-bold flex items-center text-lg">
-                  Smaranda
-                  <WhatsappIcon className="w-5 h-5 ml-2 text-green-500" />
-                </span>
-                <a
-                  href="https://wa.me/40758080874"
-                  target="_blank"
-                  className="hover:text-gold transition-colors text-xl"
-                >
-                  0758080874
-                </a>
-              </p>
+            {/* Contact Detail */}
+            <div className="max-w-[700px] flex flex-col justify-center items-center mt-4 md:mt-8 p-4 md:p-8 bg-white/40 backdrop-blur-sm shadow-sm">
+              <div className="flex flex-row gap-8 sm:gap-16">
+                <p translate="no" className="flex flex-col items-center gap-1">
+                  <span className="font-bold flex items-center text-lg">
+                    Iliuta
+                    <WhatsappIcon className="w-5 h-5 ml-2 text-green-500" />
+                  </span>
+                  <a href="https://wa.me/40751929003" target="_blank" className="hover:text-gold transition-colors">
+                    0751929003
+                  </a>
+                </p>
+                <p translate="no" className="flex flex-col items-center gap-1">
+                  <span className="font-bold flex items-center text-lg">
+                    Smaranda
+                    <WhatsappIcon className="w-5 h-5 ml-2 text-green-500" />
+                  </span>
+                  <a href="https://wa.me/40758080874" target="_blank" className="hover:text-gold transition-colors">
+                    0758080874
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
         </div>

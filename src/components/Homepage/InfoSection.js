@@ -120,16 +120,13 @@ const InfoSection = ({ language }) => {
           {peopleBlocks.map((block, index) => (
             <div key={index} className="flex flex-col items-center text-center group">
               <div className="relative mb-3 md:mb-6">
-                 <div className="absolute inset-0 bg-pink/10 rounded-full transform scale-95 group-hover:scale-105 transition-transform duration-500" />
                 <Image
                   src={block.image}
                   alt={block.title}
-                  width={140}
-                  height={140}
-                  className="rounded-full shadow-md relative z-10 w-[100px] md:w-[140px] lg:w-[160px]"
+                  className="rounded-full shadow-md object-cover w-[200px] md:w-[200px] lg:w-[250px]"
                 />
               </div>
-              <h5 className="mb-1 md:mb-3 text-xl md:text-2xl text-gold italic">{block.title}</h5>
+              <h5 className="mb-1 md:mb-3 text-2xl md:text-3xl text-gold italic">{block.title}</h5>
               {block.names &&
                 block.names.map((name, i) => <p key={i} className="text-base md:text-lg font-light tracking-wide mb-0">{name}</p>)}
             </div>
@@ -147,10 +144,10 @@ const InfoSection = ({ language }) => {
                   alt={block.title}
                   width={140}
                   height={140}
-                  className="rounded-full shadow-md object-cover w-[100px] md:w-[140px] lg:w-[160px]"
+                  className="rounded-full shadow-md object-cover w-[200px] md:w-[200px] lg:w-[250px]"
                 />
               </div>
-              <h5 className="mb-1 md:mb-3 text-xl md:text-2xl text-gold italic">{block.title}</h5>
+              <h5 className="mb-1 md:mb-3 text-2xl md:text-3xl text-gold italic">{block.title}</h5>
               {block.location && <p className="font-medium text-base md:text-lg max-w-[250px] mb-0 md:mb-1">{block.location}</p>}
               {block.hour && <p className="text-gray-600 text-sm md:text-base mb-2 md:mb-3">{block.hour}</p>}
               {block.mapLink && (
@@ -171,32 +168,6 @@ const InfoSection = ({ language }) => {
           ))}
         </div>
 
-        {/* Contact Detail */}
-        <div className="max-w-[700px] flex flex-col justify-center items-center mt-4 md:mt-8 p-4 md:p-8 bg-white/40 backdrop-blur-sm shadow-sm">
-          <h5 translate="no" className="mb-4 md:mb-6 font-serif text-xl md:text-2xl">
-            {contact.title}
-          </h5>
-          <div className="flex flex-row gap-8 sm:gap-16">
-            <p translate="no" className="flex flex-col items-center gap-1">
-              <span className="font-bold flex items-center text-lg">
-                Iliuta
-                <WhatsappIcon className="w-5 h-5 ml-2 text-green-500" />
-              </span>
-              <a href="https://wa.me/40751929003" target="_blank" className="hover:text-gold transition-colors">
-                0751929003
-              </a>
-            </p>
-            <p translate="no" className="flex flex-col items-center gap-1">
-              <span className="font-bold flex items-center text-lg">
-                Smaranda
-                <WhatsappIcon className="w-5 h-5 ml-2 text-green-500" />
-              </span>
-              <a href="https://wa.me/40758080874" target="_blank" className="hover:text-gold transition-colors">
-                0758080874
-              </a>
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   );

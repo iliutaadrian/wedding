@@ -29,7 +29,8 @@ const WelcomeSection = ({ language }) => {
     title_cursive,
     date,
     place,
-  } = translations[language].our_story_section;
+    click_details,
+  } = translations[language].welcome_section;
 
   const dashedLine = Array(5)
     .fill()
@@ -56,19 +57,6 @@ const WelcomeSection = ({ language }) => {
   };
   // Destructure translation strings
   const { her, him } = translations[language].couple;
-  const {
-    small_text,
-    days,
-    day,
-    hours,
-    hour,
-    minutes,
-    minute,
-    seconds,
-    second,
-    button,
-    click_details,
-  } = translations[language].welcome_section;
 
   const flowerDecorations = [
     { id: 1, src: images.flower2, top: '3%', left: '3%', rotate: -15, width: 250, delay: 0.5 },

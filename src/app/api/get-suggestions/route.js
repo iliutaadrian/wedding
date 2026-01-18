@@ -13,7 +13,23 @@ export async function GET() {
     }
 
     const fileData = fs.readFileSync(filePath, "utf-8");
-    const suggestions = JSON.parse(fileData);
+
+    // Helper to clean JSON string (remove trailing commas)
+    const cleanJson = (str) => {
+      // Remove trailing comma before the closing bracket of an array
+      return str.replace(/,\s*\]/g, "]");
+    };
+
+    let suggestions = [];
+    try {
+      const cleanedData = cleanJson(fileData);
+      suggestions = JSON.parse(cleanedData);
+    } catch (e) {
+      console.error("Error parsing suggestions.json:", e);
+      // Fallback to empty array or throw depending on preference, 
+      // but returning empty array is safer for UI
+      suggestions = []; 
+    }
 
     // Sort by newest first (optional, but good for UX)
     suggestions.reverse();

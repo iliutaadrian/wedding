@@ -27,12 +27,19 @@ export async function POST(req) {
     // Define file path
     const filePath = path.join(process.cwd(), "suggestions.json");
 
+    // Helper to clean JSON string (remove trailing commas)
+    const cleanJson = (str) => {
+      // Remove trailing comma before the closing bracket of an array
+      return str.replace(/,\s*\]/g, "]");
+    };
+
     // Read existing data
     let suggestions = [];
     if (fs.existsSync(filePath)) {
       const fileData = fs.readFileSync(filePath, "utf-8");
       try {
-        suggestions = JSON.parse(fileData);
+        const cleanedData = cleanJson(fileData);
+        suggestions = JSON.parse(cleanedData);
       } catch (e) {
         console.error("Error parsing suggestions file", e);
       }
