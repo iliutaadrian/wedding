@@ -58,7 +58,7 @@ const ScheduleSection = ({ language }) => {
   return (
     <section
       id="schedule-section"
-      className="py-24 px-4 sm:px-6 relative flex justify-center items-center flex-col overflow-hidden"
+      className="py-32 px-4 sm:px-6 relative flex justify-center items-center flex-col overflow-hidden"
     >
       {/* Gradient Overlay for smooth transition */}
       <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-t from-transparent to-[#fffdfc] z-10 pointer-events-none" />

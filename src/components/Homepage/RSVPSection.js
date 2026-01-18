@@ -197,7 +197,7 @@ const RSVPSection = ({ language }) => {
 
 
                   </p>
-                  <a href={`https://wa.me/${phone_him.replace(/\s/g, "")}`} target="_blank" className="hover:text-pink transition-colors font-serif font-medium text-lg">
+                  <a href={`https://wa.me/${phone_him.replace(/\D/g, "").replace(/^0/, "40")}`} target="_blank" className="hover:text-pink transition-colors font-serif font-medium text-lg">
                     {phone_him}
                   </a>
                 </div>
@@ -206,7 +206,7 @@ const RSVPSection = ({ language }) => {
                     {her}
                     <WhatsappIcon className="w-6 h-6 ml-3 text-green-500" />
                   </p>
-                  <a href={`https://wa.me/${phone_her.replace(/\s/g, "")}`} target="_blank" className="hover:text-pink transition-colors font-serif font-medium text-lg">
+                  <a href={`https://wa.me/${phone_her.replace(/\D/g, "").replace(/^0/, "40")}`} target="_blank" className="hover:text-pink transition-colors font-serif font-medium text-lg">
                     {phone_her}
                   </a>
                 </div>

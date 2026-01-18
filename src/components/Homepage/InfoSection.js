@@ -51,7 +51,7 @@ const InfoSection = ({ language }) => {
   return (
     <section
       id="info-section"
-      className="bg-cream px-4 sm:px-12 py-20 flex flex-col relative overflow-hidden"
+      className="bg-cream px-4 sm:px-12 py-32 flex flex-col relative overflow-hidden"
     >
       {/* Decorative Flowers */}
       <div className="absolute top-0 left-0 z-10 pointer-events-none opacity-80">
