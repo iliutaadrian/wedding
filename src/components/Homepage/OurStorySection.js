@@ -32,18 +32,20 @@ const OurStorySection = ({ language }) => {
     title_cursive,
     story_1,
     story_2,
-    story_3_future,
-    story_3_past,
+    story_3,
+    story_4_future,
+    story_4_past,
   } = translations[language].our_story_section;
 
   // Group story elements for convenience
   const story = [
-    { year: 2014, text: story_1, img: images.met },
-    { year: 2025, text: story_2, img: images.engaged },
+    { year: 2012, text: story_1, img: images.story_1 },
+    { year: 2014, text: story_2, img: images.story_2 },
+    { year: 2025, text: story_3, img: images.story_3 },
     {
       year: 2026,
-      text: countdown.message ? story_3_past : story_3_future,
-      img: images.marry,
+      text: countdown.message ? story_4_past : story_4_future,
+      img: images.story_4,
     },
   ];
 
@@ -78,7 +80,7 @@ const OurStorySection = ({ language }) => {
           width={95}
           height={95}
           quality={100}
-          className="w-[95px] h-auto brightness-95 filter-pink"
+          className="w-[95px] h-auto brightness-95"
         />
         <div className="flex flex-col justify-center items-center">
           <h3 translate="no" className="text-blue font-bold z-20 ">
@@ -122,7 +124,7 @@ const OurStorySection = ({ language }) => {
                       index % 2 === 0
                         ? "md:items-end md:mr-6"
                         : "md:items-start md:ml-6"
-                    } max-md:items-center justify-start max-md:pt-4`}
+                    } max-md:items-center justify-start max-md:pt-4 max-md:bg-white/60 max-md:backdrop-blur-sm max-md:rounded-2xl max-md:px-4 max-md:pb-2`}
                   >
                     <p
                       translate="no"
@@ -148,12 +150,12 @@ const OurStorySection = ({ language }) => {
                     <div className="h-[7px] w-[7px] rounded-full bg-pink"></div>
                   </div>
                 </div>
-                <div className="relative w-[140px] h-[140px] md:w-[90px] md:h-[90px] lg:w-[120px] lg:h-[120px]  xl:w-[190px] xl:h-[190px] flex justify-center items-center p-4 xl:p-6">
+                <div className="relative w-[140px] h-[140px] md:w-[90px] md:h-[90px] lg:w-[130px] lg:h-[120px]  xl:w-[190px] xl:h-[190px] flex justify-center items-center overflow-hidden rounded-full">
                   <div className="w-full h-full  absolute  z-[1] bg-white border-4 border-pink rounded-full" />
                   <Image
                     src={item.img}
                     alt={item.text}
-                    className="w-full h-auto z-10 filter-blue"
+                    className="w-full h-full z-10 object-cover rounded-full scale-125"
                   />
                 </div>
 

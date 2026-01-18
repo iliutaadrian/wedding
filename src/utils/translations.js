@@ -32,9 +32,10 @@ const translations = {
       date: "2nd of May 2026",
       place: "Iasi, Romania",
       story_1: "We Met",
-      story_2: "We Got Engaged",
-      story_3_future: "We Will Marry",
-      story_3_past: "We Got Married",
+      story_2: "We Started Dating",
+      story_3: "We Got Engaged",
+      story_4_future: "We Will Marry",
+      story_4_past: "We Got Married",
     },
     schedule_section: {
       title: {
